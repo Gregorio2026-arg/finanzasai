@@ -2389,7 +2389,7 @@ function getAmountValue(){
   return parseFloat(raw.replace(/\./g,'').replace(',','.')) || 0;
 }
 
-
+function setTipoTx(tipo){
   currentTxTipo=tipo;
   document.getElementById('tx-tp').value=tipo;
   // Botones visuales
