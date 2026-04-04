@@ -2022,7 +2022,7 @@ function renderMov(){
       <td style="padding:10px 12px">${tags||'<span style="color:var(--t4);font-size:10px">—</span>'}</td>
       <td style="padding:10px 12px"><span class="bdg ${t.type==='ingreso'?'bg':t.type==='gasto'?'br':t.type==='prestamo'?'ba':'bc'}">${t.type}</span></td>
       <td style="padding:10px 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:500;white-space:nowrap" class="${t.type==='ingreso'?'tp':isTx?'tt':'tn'}">${isTx?'⇄':t.type==='ingreso'?'+':'-'} ${fmt(t.amount,ac?.currency||'ARS')}</td>
-      <td style="padding:10px 6px;white-space:nowrap">${t.type!=='prestamo'?`<button title="Editar" style="border:none;background:none;color:var(--blue);cursor:pointer;font-size:12px;padding:1px 4px" onclick="openEditTx(${t.id})">✏️</button><button title="Eliminar" style="border:none;background:none;color:var(--t4);cursor:pointer;font-size:11px;padding:1px 4px" onclick="delTx(${t.id})">✕</button>`:''}</td>
+      <td style="padding:10px 6px;white-space:nowrap">${t.type!=='prestamo'?`<button title="Editar" style="border:none;background:none;color:var(--blue);cursor:pointer;font-size:12px;padding:1px 4px" onclick="openEditTx(${t.id})">✏️</button><button title="Eliminar" style="border:none;background:rgba(231,76,60,.15);color:var(--red);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:4px;margin-left:3px;font-weight:700" onclick="if(confirm('¿Eliminar este movimiento?'))delTx(${t.id})">✕</button>`:''}</td>
     </tr>`;
   }).join(''):`<tr><td colspan="7" style="text-align:center;padding:40px 0;color:var(--t3);font-size:12px">No hay movimientos en este período</td></tr>`;
 }
