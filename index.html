@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#080c15">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"h>
 <meta name="apple-mobile-web-app-title" content="FinanzasAI">
 <style>
 /* === TEMAS === */
@@ -1968,7 +1968,7 @@ function renderIA(){
 }
 function renderAIConv(){document.getElementById('ai-conv').innerHTML=S.aiHistory.map(m=>`<div style="display:flex;justify-content:${m.role==='user'?'flex-end':'flex-start'};margin-bottom:6px"><div class="aib ${m.role==='user'?'aiu':'aia'}">${m.content}</div></div>`).join('');}
 
-async // ===== GEMINI AI =====
+// ===== GEMINI AI =====
 const GEMINI_KEY = "AIzaSyD9yIZMDhaF9OjUcBXdxoM5jQjXsRZyJvg";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
 
