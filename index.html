@@ -1647,9 +1647,8 @@ function renderDash(){
             </div>`;
           }).join('') : '<div style="color:var(--t3);font-size:12px">Sin ingresos</div>'}
         </div>
-      </div>}
-        </div>
-        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
           <div style="position:relative;width:160px;height:160px"><canvas id="acc-dash-pie-${accId}"></canvas></div>
           <div style="margin-top:10px;width:100%">
             ${entries.slice(0,5).map(([cat,v])=>`<div class="li"><div class="lsq" style="background:${KC[cat]||'#888'}"></div><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:90px">${cat}</span><span class="lp">${Math.round(v/total*100)}%</span></div>`).join('')}
