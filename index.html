@@ -36,7 +36,7 @@
   --r:10px;--rs:6px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t1);min-height:100vh}
+html,body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t1);min-height:100vh;font-size:14px}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:var(--bg1)}
 ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:4px}
@@ -53,7 +53,7 @@ html,body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t1);
 .logo-s{font-size:9px;color:var(--t3)}
 .ng{padding:10px 8px 3px}
 .nl{font-size:8.5px;font-weight:700;color:var(--t4);text-transform:uppercase;letter-spacing:1.2px;padding:0 10px;margin-bottom:3px}
-.ni{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--rs);cursor:pointer;color:var(--t3);font-size:12px;font-weight:400;transition:all .15s;margin-bottom:1px;border:none;background:none;width:100%;text-align:left}
+.ni{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--rs);cursor:pointer;color:var(--t3);font-size:13px;font-weight:400;transition:all .15s;margin-bottom:1px;border:none;background:none;width:100%;text-align:left}
 .ni:hover{background:var(--bg3);color:var(--t1);transform:translateX(2px)}
 .ni.on{background:rgba(233,69,96,.1);color:var(--acc);font-weight:600;border-left:2px solid var(--acc);padding-left:8px}
 .ni .ic{width:15px;height:15px;font-size:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
@@ -89,13 +89,13 @@ html,body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t1);
 /* CARDS */
 .card{background:var(--bg1);border:0.5px solid var(--bdr);border-radius:var(--r);padding:13px 15px;margin-bottom:11px}
 .dp{background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--r);padding:14px 16px;box-shadow:0 2px 12px rgba(0,0,0,.15),0 0 0 0.5px rgba(255,255,255,.03) inset}
-.ct{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.ct{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
 
 /* METRICS */
 .mets{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:12px}
 .met{background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:12px 14px;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:transform .15s,box-shadow .15s}
-.ml{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
-.mv{font-size:19px;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:-.5px}
+.ml{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.mv{font-size:21px;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:-.5px}
 .pos{color:var(--green)}.neg{color:var(--red)}.neu{color:var(--blue)}.warn{color:var(--amber)}
 
 /* GRID */
@@ -774,7 +774,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
   <div style="margin-bottom:12px">
     <div style="display:flex;align-items:center;gap:8px;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:10px 14px">
       <span style="font-size:16px;color:var(--t3);font-weight:500">$</span>
-      <input type="number" id="tx-am" placeholder="0,00" step="any" style="flex:1;background:transparent;border:none;font-size:22px;font-weight:500;color:var(--t1);font-family:'JetBrains Mono',monospace;outline:none">
+      <input type="text" id="tx-am" placeholder="0" inputmode="numeric" style="flex:1;background:transparent;border:none;font-size:22px;font-weight:500;color:var(--t1);font-family:'JetBrains Mono',monospace;outline:none" oninput="formatAmountInput(this)">
       <span style="font-size:11px;color:var(--t3)">ARS</span>
     </div>
   </div>
@@ -1560,52 +1560,94 @@ function renderDash(){
   let selectedAccId = S.accounts[0]?.id;
   function buildAccCatSection(accId){
     const a=S.accounts.find(x=>x.id===accId);if(!a)return;
-    const txs=S.transactions.filter(t=>t.accountId===accId&&t.type==='gasto');
-    const ct={};txs.forEach(t=>{ct[t.category]=(ct[t.category]||0)+t.amount;});
+    const txsG=S.transactions.filter(t=>t.accountId===accId&&t.type==='gasto');
+    const txsI=S.transactions.filter(t=>t.accountId===accId&&t.type==='ingreso');
+    const ct={};txsG.forEach(t=>{ct[t.category]=(ct[t.category]||0)+t.amount;});
+    const ctI={};txsI.forEach(t=>{ctI[t.category]=(ctI[t.category]||0)+t.amount;});
     const entries=Object.entries(ct).sort((a,b)=>b[1]-a[1]);
+    const entriesI=Object.entries(ctI).sort((a,b)=>b[1]-a[1]);
     const total=entries.reduce((s,[,v])=>s+v,0)||1;
+    const totalI=entriesI.reduce((s,[,v])=>s+v,0)||0;
     const mxV=entries[0]?.[1]||1;
-    const c=CC[a.color]||'#888';
-    if(!entries.length){
-      document.getElementById('d-acc-cat-section').innerHTML=`<div style="text-align:center;padding:20px;font-size:12px;color:var(--t3)">No hay gastos registrados para ${a.name}</div>`;
+    const mxVI=entriesI[0]?.[1]||1;
+    const col=CC[a.color]||'#888';
+    const allCatsFlat2=[...CATS_GASTO,...CATS_INGRESO,...(S.customCats||[])];
+    const getCatName=id=>allCatsFlat2.find(c=>c.id===id)?.name||id;
+    const getCatIcon=id=>allCatsFlat2.find(c=>c.id===id)?.icon||'';
+    if(!entries.length&&!entriesI.length){
+      document.getElementById('d-acc-cat-section').innerHTML=`<div style="text-align:center;padding:20px;font-size:13px;color:var(--t3)">No hay movimientos registrados para ${a.name}</div>`;
       return;
     }
     document.getElementById('d-acc-cat-section').innerHTML=`
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:0.5px solid var(--bdr)">
-        <div style="width:28px;height:28px;border-radius:7px;background:${c}22;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:${c}">${ICONS[a.type]||'?'}</div>
+        <div style="width:32px;height:32px;border-radius:8px;background:${col}22;display:flex;align-items:center;justify-content:center;font-size:16px;color:${col}">${ICONS[a.type]||'?'}</div>
         <div>
-          <div style="font-size:13px;font-weight:500;color:var(--t1)">${a.name}</div>
-          <div style="font-size:10px;color:var(--t3)">Total gastos: ${fmt(total,a.currency)} · ${entries.length} categorías</div>
+          <div style="font-size:14px;font-weight:600;color:var(--t1)">${a.name}</div>
+          <div style="font-size:11px;color:var(--t3)">Gastos: ${fmt(total,a.currency)} · Ingresos: ${fmt(totalI,a.currency)}</div>
         </div>
-        <div style="margin-left:auto;text-align:right">
-          <div style="font-size:18px;font-weight:500;color:var(--red);font-family:'JetBrains Mono',monospace">${fmt(total,a.currency)}</div>
-          <div style="font-size:9px;color:var(--t3)">total gastado</div>
+        <div style="margin-left:auto;display:flex;gap:16px;text-align:right">
+          <div>
+            <div style="font-size:16px;font-weight:600;color:var(--red);font-family:'JetBrains Mono',monospace">-${fmt(total,a.currency)}</div>
+            <div style="font-size:9px;color:var(--t3)">gastado</div>
+          </div>
+          <div>
+            <div style="font-size:16px;font-weight:600;color:var(--green);font-family:'JetBrains Mono',monospace">+${fmt(totalI,a.currency)}</div>
+            <div style="font-size:9px;color:var(--t3)">ingresado</div>
+          </div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px">
         <div>
-          ${entries.map(([cat,v])=>{
+          <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">↓ Gastos por categoría</div>
+          ${entries.length ? entries.map(([cat,v])=>{
             const pct=Math.round(v/total*100);
             const barW=Math.round(v/mxV*100);
             const ov=S.budgets.find(b=>b.category===cat&&catSpendM(cat)>b.limit);
+            const icon=getCatIcon(cat);
+            const name=getCatName(cat);
             return`<div style="margin-bottom:9px">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
                 <div style="display:flex;align-items:center;gap:5px">
-                  <div style="width:7px;height:7px;border-radius:50%;background:${KC[cat]||'#888'};flex-shrink:0"></div>
-                  <span style="font-size:11px;color:var(--t2)">${cat}</span>
+                  ${icon?`<span style="font-size:13px">${icon}</span>`:`<div style="width:7px;height:7px;border-radius:50%;background:${KC[cat]||'#888'};flex-shrink:0"></div>`}
+                  <span style="font-size:12px;color:var(--t2)">${name}</span>
                   ${ov?`<span style="font-size:9px;color:var(--red);font-weight:600">⚠</span>`:''}
                 </div>
                 <div style="display:flex;gap:8px;align-items:center">
                   <span style="font-size:11px;font-weight:600;color:${ov?'var(--red)':'var(--t1)'}">%${pct}</span>
-                  <span style="font-size:10px;color:var(--t3);font-family:'JetBrains Mono',monospace">${fmt(v,a.currency)}</span>
+                  <span style="font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace">${fmt(v,a.currency)}</span>
                 </div>
               </div>
-              <div style="background:var(--bg0);border-radius:4px;height:14px;overflow:hidden;position:relative">
+              <div style="background:var(--bg0);border-radius:4px;height:14px;overflow:hidden">
                 <div style="width:${barW}%;height:100%;background:${ov?'var(--red)':KC[cat]||'#888'};border-radius:4px;transition:width .5s"></div>
-                <span style="position:absolute;right:5px;top:50%;transform:translateY(-50%);font-size:9px;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace">${pct}%</span>
               </div>
             </div>`;
-          }).join('')}
+          }).join('') : '<div style="color:var(--t3);font-size:12px">Sin gastos</div>'}
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">↑ Ingresos por categoría</div>
+          ${entriesI.length ? entriesI.map(([cat,v])=>{
+            const pct=Math.round(v/totalI*100);
+            const barW=Math.round(v/mxVI*100);
+            const icon=getCatIcon(cat);
+            const name=getCatName(cat);
+            return`<div style="margin-bottom:9px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+                <div style="display:flex;align-items:center;gap:5px">
+                  ${icon?`<span style="font-size:13px">${icon}</span>`:`<div style="width:7px;height:7px;border-radius:50%;background:${KC[cat]||'var(--green)'};flex-shrink:0"></div>`}
+                  <span style="font-size:12px;color:var(--t2)">${name}</span>
+                </div>
+                <div style="display:flex;gap:8px;align-items:center">
+                  <span style="font-size:11px;font-weight:600;color:var(--t1)">%${pct}</span>
+                  <span style="font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace">${fmt(v,a.currency)}</span>
+                </div>
+              </div>
+              <div style="background:var(--bg0);border-radius:4px;height:14px;overflow:hidden">
+                <div style="width:${barW}%;height:100%;background:${KC[cat]||'var(--green)'};border-radius:4px;transition:width .5s"></div>
+              </div>
+            </div>`;
+          }).join('') : '<div style="color:var(--t3);font-size:12px">Sin ingresos</div>'}
+        </div>
+      </div>}
         </div>
         <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
           <div style="position:relative;width:160px;height:160px"><canvas id="acc-dash-pie-${accId}"></canvas></div>
@@ -1968,13 +2010,15 @@ function renderMov(){
     const ac=S.accounts.find(a=>a.id===t.accountId);
     const dest=t.destId?S.accounts.find(a=>a.id===t.destId):null;
     const isTx=t.type==='transferencia'||t.type==='prestamo';
-    const catObj=[...CATS_GASTO,...CATS_INGRESO,...(S.customCats||[])].find(c=>c.id===t.category);
+    const allCatsFlat=[...CATS_GASTO,...CATS_INGRESO,...(S.customCats||[])];
+    const catObj=allCatsFlat.find(c=>c.id===t.category);
     const catIcon=catObj?.icon||'';
+    const catName=catObj?.name||t.category;
     const tags=(t.tags||[]).map(tg=>`<span style="font-size:9px;padding:1px 6px;border-radius:20px;background:rgba(52,152,219,.15);color:var(--blue);margin-right:3px">${tg}</span>`).join('');
     return`<tr style="border-bottom:0.5px solid var(--bdr)">
       <td style="padding:10px 12px;color:var(--t3);white-space:nowrap;font-size:11px">${fd(t.date)}</td>
       <td style="padding:10px 12px;font-weight:500;color:var(--t1)">${t.desc}${dest?` <span style="color:var(--cyan);font-size:10px">→ ${dest.name}</span>`:''}</td>
-      <td style="padding:10px 12px"><div style="display:inline-flex;align-items:center;gap:5px">${catIcon?`<span style="font-size:14px">${catIcon}</span>`:''}<div style="width:6px;height:6px;border-radius:50%;background:${KC[t.category]||'#888'};flex-shrink:0"></div><span style="color:var(--t2)">${t.category}</span></div></td>
+      <td style="padding:10px 12px"><div style="display:inline-flex;align-items:center;gap:5px">${catIcon?`<span style="font-size:14px">${catIcon}</span>`:''}<div style="width:6px;height:6px;border-radius:50%;background:${KC[t.category]||catObj?.color||'#888'};flex-shrink:0"></div><span style="color:var(--t2)">${catName}</span></div></td>
       <td style="padding:10px 12px"><span class="bdg bb">${ac?.name?.split(' ')[0]||'?'}</span></td>
       <td style="padding:10px 12px">${tags||'<span style="color:var(--t4);font-size:10px">—</span>'}</td>
       <td style="padding:10px 12px"><span class="bdg ${t.type==='ingreso'?'bg':t.type==='gasto'?'br':t.type==='prestamo'?'ba':'bc'}">${t.type}</span></td>
@@ -2328,7 +2372,25 @@ function getAllCats(tipo){
   return [...base,...custom];
 }
 
-function setTipoTx(tipo){
+function formatAmountInput(inp){
+  // Remove everything except digits and comma
+  let raw = inp.value.replace(/\./g,'').replace(/[^0-9,]/g,'');
+  // Split decimal
+  const parts = raw.split(',');
+  // Format integer part with dots
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  // Max 2 decimals
+  if(parts.length > 1) parts[1] = parts[1].slice(0,2);
+  inp.value = parts.join(',');
+}
+
+function getAmountValue(){
+  const raw = document.getElementById('tx-am').value;
+  // Remove dots (thousand separators) and replace comma with dot for parseFloat
+  return parseFloat(raw.replace(/\./g,'').replace(',','.')) || 0;
+}
+
+
   currentTxTipo=tipo;
   document.getElementById('tx-tp').value=tipo;
   // Botones visuales
@@ -2412,7 +2474,7 @@ function tglTx(){setTipoTx(document.getElementById('tx-tp').value||'gasto');}
 
 function saveTx(){
   const type=document.getElementById('tx-tp').value||'gasto';
-  const amt=parseFloat(document.getElementById('tx-am').value);
+  const amt=getAmountValue();
   const accId=parseInt(document.getElementById('tx-ac').value);
   const desc=document.getElementById('tx-de').value||'Sin descripción';
   const date=document.getElementById('tx-fe').value;
