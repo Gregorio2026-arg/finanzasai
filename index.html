@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#080c15">
+<meta name="theme-color" content="#080c15">h
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="FinanzasAI">
@@ -3287,7 +3287,8 @@ async function syncFromBB(){
     if(!newRecords.length){
       statusEl.textContent = '✓ Todo actualizado';
       statusEl.style.color = 'var(--green)';
-      previewEl.innerHTML = `${records.length} registros encontrados, todos ya importados.`;
+      window._bbPendingImport = newRecords;
+    previewEl.innerHTML = `${records.length} registros encontrados, todos ya importados.`;
       return;
     }
     
@@ -3307,7 +3308,7 @@ async function syncFromBB(){
       }).join('')}
       ${newRecords.length > 5 ? `<div style="color:var(--t3);margin-top:4px">...y ${newRecords.length-5} más</div>` : ''}
       <div style="margin-top:10px">
-        <button onclick="confirmBBImport(${JSON.stringify(newRecords).replace(/'/g,\"\\'\")}, ${accId})" 
+        <button onclick="confirmBBImport(window._bbPendingImport, ${accId})" 
           style="background:var(--green);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">
           ✓ Confirmar importación
         </button>
