@@ -1171,19 +1171,47 @@ let saveDebounce = null;
 
 async function initSupabase(){
   try{
+    // Try to get existing session first
     const {data:session} = await supa.auth.getSession();
     if(session?.session?.user){
       supaUserId = session.session.user.id;
     } else {
+      // Try anonymous sign in
       const {data,error} = await supa.auth.signInAnonymously();
-      if(data?.user) supaUserId = data.user.id;
+      if(data?.user){
+        supaUserId = data.user.id;
+      } else {
+        // If anonymous fails, use a fixed device ID so data persists
+        supaUserId = localStorage.getItem('fai_device_id') || 
+          (() => { const id = 'device_' + Math.random().toString(36).slice(2); 
+                   localStorage.setItem('fai_device_id', id); return id; })();
+        // Try to authenticate with custom approach
+        const {data:d2} = await supa.auth.signInWithPassword({
+          email: supaUserId + '@finanzasai.app',
+          password: supaUserId
+        }).catch(()=>({data:null}));
+        if(!d2?.user){
+          await supa.auth.signUp({
+            email: supaUserId + '@finanzasai.app', 
+            password: supaUserId
+          }).catch(()=>{});
+          const {data:d3} = await supa.auth.signInWithPassword({
+            email: supaUserId + '@finanzasai.app',
+            password: supaUserId
+          }).catch(()=>({data:null}));
+          if(d3?.user) supaUserId = d3.user.id;
+        } else {
+          supaUserId = d2.user.id;
+        }
+      }
     }
     if(supaUserId){
       syncEnabled = true;
       showSyncStatus('conectado');
       await loadFromSupabase();
-      // Push local data to cloud if we have more transactions
       scheduleAutoSave();
+    } else {
+      showSyncStatus('local');
     }
   }catch(e){
     console.warn('Supabase init error:', e);
