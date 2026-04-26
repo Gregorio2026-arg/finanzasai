@@ -1214,7 +1214,7 @@ async function initSupabase(){
       showSyncStatus('local');
     }
   }catch(e){
-    console.warn('Supabase init error:', e);
+    console.error('Supabase init error:', e.message, e);
     showSyncStatus('local');
   }
 }
@@ -1258,7 +1258,7 @@ async function loadFromSupabase(){
       .single();
     if(error && error.code !== 'PGRST116') throw error;
     if(data?.data){
-      const parsed = JSON.parse(data.data);
+      const parsed = JSON.parse(data.data || 'null'); if(!parsed) return;
       const cloudTx = parsed?.transactions?.length || 0;
       const localTx = S?.transactions?.length || 0;
       // Always prefer local data if it has more transactions
@@ -1284,7 +1284,11 @@ async function loadFromSupabase(){
 }
 
 function saveLocal(){
-  try{ localStorage.setItem('fai_v6', JSON.stringify(S)); }catch(e){}
+  try{ 
+    if(S && S.accounts && S.accounts.length > 0){
+      localStorage.setItem('fai_v6', JSON.stringify(S)); 
+    }
+  }catch(e){}
 }
 
 function refreshAll(){
@@ -1336,11 +1340,11 @@ const TITLES={dash:'Dashboard',general:'Balance general',estadisticas:'Estadíst
 function loadS(){
   try{
     const d=localStorage.getItem('fai_v6');
-    if(d && d !== 'undefined' && d !== 'null'){
+    if(d && d !== 'undefined' && d !== 'null' && d !== ''){
       const parsed=JSON.parse(d);
-      if(parsed && parsed.accounts && parsed.accounts.length > 0) return parsed;
+      if(parsed && typeof parsed === 'object' && parsed.accounts) return parsed;
     }
-  }catch(e){}
+  }catch(e){ localStorage.removeItem('fai_v6'); }
   return null;
 }
 // saveS: handled by Supabase sync (see above)
@@ -3267,7 +3271,7 @@ async function syncFromBB(){
     
     if(!r.ok) throw new Error(`Error ${r.status}: ${r.statusText}`);
     const data = await r.json();
-    const records = data.records || data || [];
+    const records = (data && (data.records || data)) || [];
     
     if(!records.length){
       statusEl.textContent = '✓ Sin movimientos nuevos';
