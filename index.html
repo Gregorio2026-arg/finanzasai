@@ -1168,6 +1168,8 @@ const supa = supabase.createClient(SUPA_URL, SUPA_KEY);
 let supaUserId = null;
 let syncEnabled = false;
 let saveDebounce = null;
+let let saveDebounce = null;
+let autoSaveTimer = null; = null;
 
 async function initSupabase(){
   try{
@@ -3090,10 +3092,12 @@ function renderMarketBar(data){
 }
 
 // ===== AUTOSAVE =====
-let autoSaveTimer=null;
+
 function scheduleAutoSave(){
   clearTimeout(autoSaveTimer);
-  autoSaveTimer=setTimeout(()=>saveS(),2000);
+let autoSaveTimer = null;);
+  let saveDebounce = null;
+autoSaveTimer = setTimeout(()=>saveS(),2000);
 }
 
 // ===== SETDASHCATPERIOD =====
