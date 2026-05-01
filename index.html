@@ -115,6 +115,7 @@ html,body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t1);
 .cbt{flex:1;height:17px;background:var(--bg0);border-radius:3px;overflow:hidden}
 .cbf{height:100%;border-radius:3px;transition:width .5s}
 .cbv{font-size:10px;color:var(--t2);width:62px;text-align:right;flex-shrink:0;font-family:'JetBrains Mono',monospace}
+.cbp{font-size:10px;color:var(--t3);width:34px;text-align:right;flex-shrink:0;font-family:'JetBrains Mono',monospace}
 
 /* ACC SUMMARY */
 .asr{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:0.5px solid var(--bdr)}
@@ -504,7 +505,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
   <div id="stat-gastos-extra" style="display:none">
     <div class="g2" style="margin-top:11px">
       <div class="dp"><div class="ct">top categorías de gasto</div><div id="stat-top-cats"></div></div>
-      <div class="dp"><div class="ct">gastos por cuenta (torta)</div><div id="acc-pie-wrap" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px"></div></div>
+      <div class="dp"><div class="ct">gastos por cuenta (torta)</div><div id="acc-pie-wrap2" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px"></div></div>
     </div>
     <div class="dp" style="margin-top:11px"><div class="ct">gastos mensuales por categoría</div><div style="position:relative;height:165px"><canvas id="ch-gast-monthly"></canvas></div></div>
   </div>
@@ -689,7 +690,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
     </div>
   </div>
   <div class="fr">
-    <div class="fg"><label>Fecha del préstamo</label><input type="date" id="pe-fecha" value="${new Date().toISOString().split('T')[0]}"></div>
+    <div class="fg"><label>Fecha del préstamo</label><input type="date" id="pe-fecha"></div>
     <div class="fg"><label>Fecha de vencimiento</label><input type="date" id="pe-vence"></div>
   </div>
   <div class="fg"><label>Notas</label><input type="text" id="pe-notas" placeholder="Opcional"></div>
@@ -1396,6 +1397,7 @@ async function loadFromSupabase(){
         S.assets = S.assets || [];
         S.bots = S.bots || [];
         S.botTxs = S.botTxs || [];
+        S.aiHistory = S.aiHistory || [];
         S.goals = S.goals || [];
         S.budgets = S.budgets || [];
         saveLocal();
@@ -1485,7 +1487,7 @@ accounts:[
 ],
 transactions:[],loans:[],goals:[],budgets:[],
 assets:[{id:1,name:'Bitcoin',ticker:'BTC',amount:0.00009805,buyPrice:60000,currentPrice:84000}],
-customCats:[],prestamosExt:[],theme:'dark'}
+customCats:[],prestamosExt:[],bots:[],botTxs:[],aiHistory:[],theme:'dark'}
 let S=loadS()||JSON.parse(JSON.stringify(DEF));
 let CHS={};
 
@@ -2209,7 +2211,7 @@ function renderIA(){
   `;
   renderAIConv();
 }
-function renderAIConv(){document.getElementById('ai-conv').innerHTML=S.aiHistory.map(m=>`<div style="display:flex;justify-content:${m.role==='user'?'flex-end':'flex-start'};margin-bottom:6px"><div class="aib ${m.role==='user'?'aiu':'aia'}">${m.content}</div></div>`).join('');}
+function renderAIConv(){S.aiHistory=S.aiHistory||[];document.getElementById('ai-conv').innerHTML=S.aiHistory.map(m=>`<div style="display:flex;justify-content:${m.role==='user'?'flex-end':'flex-start'};margin-bottom:6px"><div class="aib ${m.role==='user'?'aiu':'aia'}">${m.content}</div></div>`).join('');}
 
 // ===== GEMINI AI =====
 const GEMINI_KEY = "AIzaSyD9yIZMDhaF9OjUcBXdxoM5jQjXsRZyJvg";
@@ -2361,6 +2363,45 @@ function generarRespuestaLocal(pregunta){
 
   // DEFAULT - resumen
   return `Finanzas actuales — Ingresos: ${fmt(gi)} · Gastos: ${fmt(gg)} · Neto: ${fmt(neto)}. Podés preguntarme sobre: transporte, alimentación, vivienda, salud, educación, servicios, ingresos, ahorros, préstamos o saldos.`;
+}
+
+async function generateAIInsights(){
+  const ins=document.getElementById('ai-ins');
+  if(!ins)return;
+  ins.innerHTML='<div style="font-size:12px;color:var(--t3);padding:8px 0">⏳ Analizando tus finanzas con IA...</div>';
+  const gi=totalI(),gg=totalG(),neto=gi-gg;
+  const catT={};S.transactions.filter(t=>t.type==='gasto').forEach(t=>{catT[t.category]=(catT[t.category]||0)+t.amount;});
+  const topC=Object.entries(catT).sort((a,b)=>b[1]-a[1]).slice(0,3);
+  const sp=gi>0?Math.round(neto/gi*100):0;
+  const ctx=`Sos un asesor financiero personal. Datos del usuario:\n- Ingresos: $${Math.round(gi).toLocaleString('es-AR')}\n- Gastos: $${Math.round(gg).toLocaleString('es-AR')}\n- Neto: $${Math.round(neto).toLocaleString('es-AR')}\n- Tasa de ahorro: ${sp}%\n- Top gastos: ${topC.map(([k,v])=>k+' $'+Math.round(v).toLocaleString('es-AR')).join(', ')}\n- Cuentas: ${S.accounts.map(a=>a.name+' $'+Math.round(getBal(a.id)).toLocaleString('es-AR')).join(', ')}\nDá 3 insights financieros concisos y accionables en español. Sé breve y directo.`;
+  try{
+    const resp=await askGemini('Generá 3 insights financieros personalizados',ctx);
+    ins.innerHTML=`<div class="aii"><span style="font-size:14px;flex-shrink:0">🤖</span><div style="white-space:pre-wrap;font-size:12px;line-height:1.5">${resp}</div></div>`;
+  }catch(e){
+    ins.innerHTML=`<div class="aii"><span style="font-size:14px;flex-shrink:0">💡</span><div>Mayor gasto: <strong>${topC[0]?.[0]||'N/A'}</strong> ($${Math.round(topC[0]?.[1]||0).toLocaleString('es-AR')}). Tasa de ahorro: <strong style="color:${sp>=20?'var(--green)':'var(--red)'}">${sp}%</strong>. ${sp<10?'⚠ Tus gastos son elevados respecto a los ingresos.':sp>=20?'✓ Excelente tasa de ahorro.':'Podés mejorar tu ahorro.'}</div></div>`;
+  }
+}
+
+async function askAI(){
+  const inp=document.getElementById('ai-q');
+  if(!inp||!inp.value.trim())return;
+  const q=inp.value.trim();
+  inp.value='';
+  S.aiHistory=S.aiHistory||[];
+  S.aiHistory.push({role:'user',content:q});
+  renderAIConv();
+  const gi=totalI(),gg=totalG(),neto=gi-gg;
+  const ctx=`Sos un asesor financiero personal. Datos actuales del usuario:\n- Ingresos: $${Math.round(gi).toLocaleString('es-AR')}\n- Gastos: $${Math.round(gg).toLocaleString('es-AR')}\n- Neto: $${Math.round(neto).toLocaleString('es-AR')}\n- Cuentas: ${S.accounts.map(a=>a.name+': $'+Math.round(getBal(a.id)).toLocaleString('es-AR')).join(', ')}\nRespondé en español, de forma concisa y útil.`;
+  try{
+    const resp=await askGemini(q,ctx);
+    S.aiHistory.push({role:'assistant',content:resp});
+  }catch(e){
+    S.aiHistory.push({role:'assistant',content:generarRespuestaLocal(q)});
+  }
+  saveS();
+  renderAIConv();
+  const conv=document.getElementById('ai-conv');
+  if(conv)conv.scrollTop=conv.scrollHeight;
 }
 
 function renderAlertsBanner(){
@@ -2991,7 +3032,7 @@ function buildStatGastosExtra(){
     return`<div class="cbr"><div class="cbl">${catObj?.icon||''} ${cat}</div><div class="cbt"><div class="cbf" style="width:${Math.round(v/sorted[0][1]*100)}%;background:${KC[cat]||'#888'}"></div></div><div class="cbp">${Math.round(v/tot*100)}%</div><div class="cbv">${fmt(v)}</div></div>`;
   }).join('');
   // Per-account pies
-  const wrap=document.getElementById('acc-pie-wrap');
+  const wrap=document.getElementById('acc-pie-wrap2');
   if(wrap){
     wrap.innerHTML=S.accounts.map(a=>{
       const txs=S.transactions.filter(t=>t.accountId===a.id&&t.type==='gasto');
@@ -3712,7 +3753,7 @@ function installPWA(){
 </script>
 
 <!-- MODAL LOGIN -->
-<div id="login-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center">
+<div id="login-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center">
   <div style="background:var(--bg1);border:0.5px solid var(--bdr);border-radius:16px;padding:32px;width:340px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.5)">
     <div style="text-align:center;margin-bottom:24px">
       <div style="font-size:36px;margin-bottom:8px">💰</div>
