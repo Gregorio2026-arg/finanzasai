@@ -675,6 +675,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
 <div class="mb" id="pe-mod"><div class="mo" style="max-width:420px">
   <div class="mott">Nuevo préstamo externo</div>
   <div class="fg"><label>Nombre del deudor</label><input type="text" id="pe-nombre" placeholder="Ej: Sr. Jabier"></div>
+  <div class="fg"><label>Cuenta de origen <span style="color:var(--t3);font-size:10px">(de dónde sale el dinero)</span></label><select id="pe-account" style="width:100%;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--t1);font-family:'Outfit',sans-serif"></select></div>
   <div class="fr">
     <div class="fg"><label>Monto prestado ($)</label><input type="number" id="pe-monto" placeholder="0" step="any" oninput="calcPeRetorno()"></div>
     <div class="fg"><label>Tasa de interés (%)</label><input type="number" id="pe-tasa" placeholder="0" step="any" oninput="calcPeRetorno()"></div>
@@ -2458,6 +2459,7 @@ const CATS_GASTO=[
   {id:'mascotas',name:'Mascotas',icon:'🐾',color:'#4fc3f7'},
   {id:'niños',name:'Niños',icon:'👶',color:'#81c784'},
   {id:'préstamo pagado',name:'Préstamo pagado',icon:'💳',color:'#f44336'},
+  {id:'préstamo otorgado',name:'Préstamo otorgado',icon:'🤝',color:'#185fa5'},
   {id:'inversión-gasto',name:'Inversión negocio',icon:'📦',color:'#ff4081'},
   {id:'otros',name:'Otros gastos',icon:'📋',color:'#607d8b'},
 ];
@@ -3542,6 +3544,11 @@ function openNuevoPrestExt(){
   document.getElementById('pe-fecha').value=new Date().toISOString().split('T')[0];
   document.getElementById('pe-vence').value='';
   document.getElementById('pe-notas').value='';
+  // Poblar selector de cuenta (default: Prestamos = id 4)
+  const peAccSel=document.getElementById('pe-account');
+  if(peAccSel){
+    peAccSel.innerHTML=S.accounts.map(a=>`<option value="${a.id}"${a.id===4?' selected':''}>${a.name}</option>`).join('');
+  }
   document.getElementById('pe-mod').classList.add('on');
 }
 
@@ -3562,13 +3569,17 @@ function savePrestExt(){
   if(!nombre||!monto||!tasa){alert('Completá nombre, monto y tasa');return;}
   const vence=document.getElementById('pe-vence').value;
   if(!vence){alert('Ingresá la fecha de vencimiento');return;}
+  const accountId=parseInt(document.getElementById('pe-account').value)||4;
+  const fecha=document.getElementById('pe-fecha').value||new Date().toISOString().split('T')[0];
   const retorno=monto*(1+tasa/100);
+  const peId=Date.now();
   const pe={
-    id:Date.now(),
+    id:peId,
     nombre,monto,tasa,
+    accountId,
     retorno:Math.round(retorno),
     ganancia:Math.round(retorno-monto),
-    fecha:document.getElementById('pe-fecha').value,
+    fecha,
     vence,
     notas:document.getElementById('pe-notas').value,
     estado:'pendiente',
@@ -3576,9 +3587,21 @@ function savePrestExt(){
     cobrado:0,
   };
   S.prestamosExt.push(pe);
+  // Crear transacción de SALIDA en la cuenta de origen
+  S.transactions.push({
+    id:peId+1,
+    peId,
+    accountId,
+    type:'gasto',
+    amount:monto,
+    category:'préstamo otorgado',
+    desc:'Préstamo otorgado: '+nombre,
+    date:fecha,
+  });
   saveS();scheduleAutoSave();
   closeModal('pe-mod');
   renderPrestExt();
+  refreshAll();
 }
 
 function openPePago(id){
@@ -3601,20 +3624,38 @@ function savePePago(){
   const pe=S.prestamosExt.find(p=>p.id===id);if(!pe)return;
   const monto=parseFloat(document.getElementById('pe-pago-monto').value)||0;
   if(!monto){alert('Ingresá el monto');return;}
+  const fecha=document.getElementById('pe-pago-fecha').value||new Date().toISOString().split('T')[0];
+  const notas=document.getElementById('pe-pago-notas').value;
   pe.cobrado=(pe.cobrado||0)+monto;
-  pe.pagos.push({monto,fecha:document.getElementById('pe-pago-fecha').value,notas:document.getElementById('pe-pago-notas').value});
+  pe.pagos.push({monto,fecha,notas});
   if(pe.cobrado>=pe.retorno) pe.estado='pagado';
   else if(pe.cobrado>0) pe.estado='parcial';
+  // Crear transacción de ENTRADA en la cuenta de origen del préstamo
+  const accountId=pe.accountId||4;
+  S.transactions.push({
+    id:Date.now(),
+    peId:pe.id,
+    accountId,
+    type:'ingreso',
+    amount:monto,
+    category:'préstamo cobrado',
+    desc:'Pago recibido: '+pe.nombre+(notas?' — '+notas:''),
+    date:fecha,
+  });
   saveS();scheduleAutoSave();
   closeModal('pe-pago-mod');
   renderPrestExt();
+  refreshAll();
 }
 
 function delPrestExt(id){
-  if(!confirm('¿Eliminar este préstamo?'))return;
+  if(!confirm('¿Eliminar este préstamo? También se eliminarán las transacciones vinculadas.'))return;
   S.prestamosExt=S.prestamosExt.filter(p=>p.id!==id);
+  // Eliminar todas las transacciones vinculadas a este préstamo
+  S.transactions=S.transactions.filter(t=>t.peId!==id);
   saveS();scheduleAutoSave();
   renderPrestExt();
+  refreshAll();
 }
 
 function renderPrestExt(){
