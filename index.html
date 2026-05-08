@@ -1404,8 +1404,10 @@ async function loadFromSupabase(){
       const parsed = JSON.parse(data.data || 'null'); if(!parsed) return;
       const cloudTx = parsed?.transactions?.length || 0;
       const localTx = S?.transactions?.length || 0;
-      // Always prefer local data if it has more transactions
-      if(cloudTx > localTx){
+      const cloudTime = parsed?.lastUpdate || 0;
+      const localTime = S?.lastUpdate || 0;
+      // Preferir datos en la nube si son más recientes, o si no hay timestamps, usar el de mayor data
+      if((cloudTime > localTime) || (!cloudTime && !localTime && cloudTx > localTx)){
         Object.assign(S, parsed);
         S.accounts = S.accounts || [];
         S.transactions = S.transactions || [];
@@ -1463,6 +1465,7 @@ function refreshAll(){
 }
 
 function saveS(){
+  S.lastUpdate = Date.now();
   saveLocal();
   clearTimeout(saveDebounce);
   saveDebounce = setTimeout(()=>saveToSupabase(), 2500);
@@ -3902,10 +3905,14 @@ function installPWA(){
 function factoryReset() {
   if(!confirm('¿Estás seguro de que quieres borrar TODOS tus datos (cuentas, movimientos, préstamos)? Esta acción NO se puede deshacer.')) return;
   S = JSON.parse(JSON.stringify(DEF));
-  saveToSupabase();
-  saveS();
-  alert('Datos borrados correctamente. La aplicación se reiniciará.');
-  location.reload();
+  S.lastUpdate = Date.now();
+  saveLocal();
+  
+  // Wait for Supabase to save before reloading
+  saveToSupabase().then(() => {
+    alert('Datos borrados correctamente. La aplicación se reiniciará.');
+    location.reload();
+  });
 }
 </script>
 
