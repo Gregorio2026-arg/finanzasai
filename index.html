@@ -1469,9 +1469,9 @@ function saveS(){
 }
 
 
-const CC={blue:'#3498db',green:'#2ecc71',teal:'#1abc9c',amber:'#f39c12',red:'#e74c3c',purple:'#9b59b6',coral:'#e67e22',pink:'#e91e63',cyan:'#00bcd4',gray:'#607d8b'};
-const KC={alimentación:'#e74c3c','comida-rapida':'#e67e22',transporte:'#3498db',combustible:'#78909c',vivienda:'#9b59b6',salud:'#e91e63',educación:'#1abc9c',entretenimiento:'#f39c12',ropa:'#e67e22',servicios:'#ffa726',telefono:'#536dfe',mascotas:'#4fc3f7','niños':'#81c784','préstamo pagado':'#f44336','inversión-gasto':'#ff4081',otros:'#607d8b',salario:'#2ecc71','horas-extras':'#27ae60',ventas:'#f39c12',negocio:'#ff6f00','inversión':'#0f6e56','préstamo cobrado':'#185fa5',plus:'#f1c40f','comisión':'#8e44ad','alquiler-cobrado':'#1abc9c',dividendos:'#2980b9',regalo:'#e91e63','otros-ingreso':'#607d8b',transferencia:'#00bcd4',// legado BudgetBakers
-'inversión-vieja':'#0f6e56','préstamo pagado viejo':'#993c1d',retiro:'#534ab7',depósito:'#3b6d11'};
+const CC={blue:'#00e5ff',green:'#00ffa3',teal:'#00b8ff',amber:'#ffb703',red:'#ff3366',purple:'#b14eff',coral:'#ff5e00',pink:'#ff00ea',cyan:'#00f0ff',gray:'#6e799c'};
+const KC={alimentación:'#ff3366','comida-rapida':'#ff5e00',transporte:'#00e5ff',combustible:'#6e799c',vivienda:'#b14eff',salud:'#ff00ea',educación:'#00b8ff',entretenimiento:'#ffb703',ropa:'#ff5e00',servicios:'#ffb703',telefono:'#b14eff',mascotas:'#00f0ff','niños':'#00ffa3','préstamo pagado':'#ff3366','inversión-gasto':'#ff00ea',otros:'#6e799c',salario:'#00ffa3','horas-extras':'#00ffa3',ventas:'#ffb703',negocio:'#ff5e00','inversión':'#00e5ff','préstamo cobrado':'#00b8ff',plus:'#ffb703','comisión':'#b14eff','alquiler-cobrado':'#00b8ff',dividendos:'#00e5ff',regalo:'#ff00ea','otros-ingreso':'#6e799c',transferencia:'#00f0ff',// legado BudgetBakers
+'inversión-vieja':'#00e5ff','préstamo pagado viejo':'#ff3366',retiro:'#b14eff',depósito:'#00ffa3'};
 const CRYPTO_LOGOS={
   BTC:'₿',ETH:'Ξ',SOL:'◎',BNB:'⬡',ADA:'₳',DOT:'●',MATIC:'⬟',AVAX:'▲',
   LINK:'🔗',UNI:'🦄',ATOM:'⚛',XRP:'✕',LTC:'Ł',BCH:'₿',DOGE:'Ð',SHIB:'🐕',
@@ -1531,20 +1531,48 @@ function mkCh(id, type, data, opts) {
   const c = document.getElementById(id);
   if(!c) return;
   
-  // Inyectar Estilos Premium
+  const ctx2d = c.getContext('2d');
+  const h = c.clientHeight || 300;
+
+  // Inyectar Estilos Premium (Gradientes y Bordes)
   if(data && data.datasets) {
     data.datasets.forEach(ds => {
       if(type === 'doughnut' || type === 'pie') {
         ds.borderWidth = 0;
         ds.hoverOffset = 8;
-        ds.borderRadius = 8; // Bordes redondeados en las porciones
-        ds.spacing = 6; // Espacio elegante entre porciones
+        ds.borderRadius = 8;
+        ds.spacing = 6;
       }
-      if(type === 'bar') {
-        ds.borderWidth = 0;
-        ds.borderRadius = 8; // Barras redondeadas
-        ds.borderSkipped = false;
-        ds.barPercentage = 0.55; // Barras un poco más estilizadas
+      if(type === 'bar' || type === 'line') {
+        if(type === 'bar') {
+          ds.borderWidth = 0;
+          ds.borderRadius = 6;
+          ds.borderSkipped = false;
+          ds.barPercentage = 0.55;
+        } else {
+          ds.borderWidth = 3;
+          ds.tension = 0.4;
+          ds.fill = true;
+        }
+
+        // Generar gradientes luminosos tipo glassmorphism
+        if (ds.backgroundColor) {
+          const makeGrad = (color) => {
+            if (typeof color !== 'string') return color;
+            const g = ctx2d.createLinearGradient(0, 0, 0, h);
+            g.addColorStop(0, color);
+            if (color.startsWith('#')) g.addColorStop(1, color + '00');
+            else if (color.startsWith('rgba')) g.addColorStop(1, color.replace(/[\d\.]+\)$/, '0)'));
+            else g.addColorStop(1, 'transparent');
+            return g;
+          };
+          
+          if(Array.isArray(ds.backgroundColor)) {
+             ds.backgroundColor = ds.backgroundColor.map(color => makeGrad(color));
+          } else {
+             ds.backgroundColor = makeGrad(ds.backgroundColor);
+          }
+        }
       }
     });
   }
