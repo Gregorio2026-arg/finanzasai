@@ -2769,7 +2769,27 @@ function saveBudget(){
 function addGoal(id){const v=parseFloat(document.getElementById('ag-'+id)?.value);if(!v||v<=0)return;const g=S.goals.find(x=>x.id===id);if(!g)return;g.current=Math.min(g.target,g.current+v);saveS();renderMetas();}
 function delGoal(id){if(!confirm('¿Eliminar esta meta?'))return;S.goals=S.goals.filter(g=>g.id!==id);saveS();renderMetas();}
 function delBudget(id){S.budgets=S.budgets.filter(b=>b.id!==id);saveS();renderAlertas();}
-function delTx(id){S.transactions=S.transactions.filter(t=>t.id!==id);saveS();refreshAll();}
+function delTx(id){
+  const t=S.transactions.find(x=>x.id===id);
+  if(!t)return;
+  // Revertir pago de préstamo si corresponde
+  if(t.peId && t.type==='ingreso' && t.category==='préstamo cobrado'){
+    const pe=S.prestamosExt.find(p=>p.id===t.peId);
+    if(pe){
+      pe.cobrado=Math.max(0, (pe.cobrado||0)-t.amount);
+      if(pe.cobrado>=pe.retorno) pe.estado='pagado';
+      else if(pe.cobrado>0) pe.estado='parcial';
+      else pe.estado='pendiente';
+      // Eliminar el registro del historial de pagos interno del préstamo
+      if(pe.pagos) {
+        const idx = pe.pagos.findIndex(pgo => pgo.monto === t.amount && pgo.fecha === t.date);
+        if(idx > -1) pe.pagos.splice(idx, 1);
+      }
+    }
+  }
+  S.transactions=S.transactions.filter(t=>t.id!==id);
+  saveS();refreshAll();
+}
 
 function exportAll(){
   const data={exportedAt:new Date().toISOString(),tc:S.tc,accounts:S.accounts.map(a=>({...a,balance:getBal(a.id),balanceARS:toARS(getBal(a.id),a.currency)})),transactions:S.transactions,loans:S.loans,goals:S.goals,budgets:S.budgets};
@@ -3736,8 +3756,11 @@ function savePePago(){
   const notas=document.getElementById('pe-pago-notas').value;
   pe.cobrado=(pe.cobrado||0)+monto;
   pe.pagos.push({monto,fecha,notas});
-  if(pe.cobrado>=pe.retorno) pe.estado='pagado';
-  else if(pe.cobrado>0) pe.estado='parcial';
+  
+  // Calcular estado estrictamente basado en números
+  if(Number(pe.cobrado) >= Number(pe.retorno)) pe.estado='pagado';
+  else if(Number(pe.cobrado) > 0) pe.estado='parcial';
+  else pe.estado='pendiente';
   // Crear transacción de ENTRADA en la cuenta de origen del préstamo
   const accountId=pe.accountId||4;
   S.transactions.push({
