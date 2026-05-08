@@ -747,6 +747,18 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
     <div id="bb-preview" style="font-size:11px;color:var(--t3)"></div>
   </div>
+  
+  <!-- Reset Panel -->
+  <div class="dp" style="margin-bottom:16px;border:1px solid rgba(255, 51, 102, 0.4);border-radius:10px;padding:16px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:22px">⚠️</span>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--red)">Restablecer de fábrica</div>
+        <div style="font-size:11px;color:var(--t3)">Borra todos tus movimientos y cuentas, manteniendo solo tu usuario.</div>
+      </div>
+    </div>
+    <button onclick="factoryReset()" style="background:rgba(255, 51, 102, 0.15);color:var(--red);border:1px solid rgba(255, 51, 102, 0.4);border-radius:6px;padding:7px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s" onmouseover="this.style.background='var(--red)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255, 51, 102, 0.15)';this.style.color='var(--red)'">🗑️ Borrar todos los datos</button>
+  </div>
   <div class="dp" style="margin-bottom:11px">
     <div class="ct">endpoints REST</div>
     <div style="font-family:'JetBrains Mono',monospace">
@@ -3796,6 +3808,15 @@ function installPWA(){
       deferredPrompt = null;
     });
   }
+}
+
+function factoryReset() {
+  if(!confirm('¿Estás seguro de que quieres borrar TODOS tus datos (cuentas, movimientos, préstamos)? Esta acción NO se puede deshacer.')) return;
+  S = JSON.parse(JSON.stringify(DEF));
+  saveToSupabase();
+  saveS();
+  alert('Datos borrados correctamente. La aplicación se reiniciará.');
+  location.reload();
 }
 </script>
 
