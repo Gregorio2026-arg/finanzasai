@@ -710,7 +710,11 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="mott">Registrar pago</div>
   <input type="hidden" id="pe-pago-id">
   <div id="pe-pago-info" style="background:var(--bg2);border-radius:8px;padding:10px;font-size:13px;margin-bottom:12px"></div>
-  <div class="fg"><label>Monto recibido ($)</label><input type="number" id="pe-pago-monto" placeholder="0" step="any"></div>
+  <div class="fg">
+    <label>Monto recibido ($)</label>
+    <input type="number" id="pe-pago-monto" placeholder="0" step="any" onkeyup="document.getElementById('pe-pago-preview').textContent = this.value ? new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS'}).format(this.value) : ''">
+    <div id="pe-pago-preview" style="font-size:12px; color:var(--green); margin-top:4px; font-weight:600; min-height:15px"></div>
+  </div>
   <div class="fg"><label>Fecha del pago</label><input type="date" id="pe-pago-fecha"></div>
   <div class="fg"><label>Notas</label><input type="text" id="pe-pago-notas" placeholder="Opcional"></div>
   <div class="fend">
@@ -3742,6 +3746,7 @@ function openPePago(id){
     <div style="display:flex;justify-content:space-between;margin-top:4px"><span style="color:var(--t3)">Ya cobrado:</span><span>${fmt(pe.cobrado)}</span></div>
     <div style="display:flex;justify-content:space-between;margin-top:4px"><span style="color:var(--t3)">Falta cobrar:</span><span style="color:var(--red);font-weight:600">${fmt(falta)}</span></div>`;
   document.getElementById('pe-pago-monto').value='';
+  document.getElementById('pe-pago-preview').textContent='';
   document.getElementById('pe-pago-fecha').value=new Date().toISOString().split('T')[0];
   document.getElementById('pe-pago-notas').value='';
   document.getElementById('pe-pago-mod').classList.add('on');
