@@ -1533,7 +1533,35 @@ function catSpendM(cat){
 }
 function totalI(){return S.transactions.filter(t=>t.type==='ingreso').reduce((s,t)=>s+t.amount,0);}
 function totalG(){return S.transactions.filter(t=>t.type==='gasto').reduce((s,t)=>s+t.amount,0);}
-const gridOpts={scales:{x:{ticks:{color:'#5a6a82',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a6a82',callback:v=>'$'+Math.round(v/1000)+'k',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}}}};
+Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
+Chart.defaults.font.family = "'Outfit', sans-serif";
+Chart.defaults.elements.bar.borderRadius = 6;
+Chart.defaults.elements.bar.borderSkipped = false;
+Chart.defaults.elements.line.tension = 0.4;
+Chart.defaults.elements.line.borderWidth = 3;
+Chart.defaults.elements.point.radius = 4;
+Chart.defaults.elements.point.hoverRadius = 6;
+Chart.defaults.elements.arc.borderWidth = 0;
+Chart.defaults.elements.arc.hoverOffset = 4;
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(10, 5, 25, 0.9)';
+Chart.defaults.plugins.tooltip.titleColor = '#ffffff';
+Chart.defaults.plugins.tooltip.bodyColor = '#00e5ff';
+Chart.defaults.plugins.tooltip.borderColor = 'rgba(0, 229, 255, 0.2)';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.padding = 12;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.displayColors = false;
+
+const gridOpts={
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: { ticks: { color: 'rgba(255, 255, 255, 0.5)', font: { size: 10, weight: '500' } }, grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false } },
+    y: { ticks: { color: 'rgba(255, 255, 255, 0.5)', callback: v => '$' + Math.round(v/1000) + 'k', font: { size: 10, weight: '500' }, padding: 8 }, grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false }, beginAtZero: true }
+  },
+  plugins: { legend: { display: false } },
+  animation: { duration: 1200, easing: 'easeOutQuart' }
+};
 
 function updateTCDisplay(){
   const totalARS=S.accounts.reduce((s,a)=>s+toARS(getBal(a.id),a.currency),0);
