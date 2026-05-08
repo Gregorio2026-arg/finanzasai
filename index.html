@@ -215,7 +215,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 .lp{margin-left:auto;font-size:10px;color:var(--t3);font-family:'JetBrains Mono',monospace}
 
 /* PERIOD TABS */
-.ptabs{display:flex;gap:4px;margin-bottom:12px}
+.ptabs{display:flex;gap:8px;margin-bottom:20px}
+.dash-period-btn{padding:8px 16px;border-radius:24px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--bdr);background:rgba(255,255,255,0.03);color:var(--t3);transition:all .3s cubic-bezier(0.16, 1, 0.3, 1);letter-spacing:0.5px;font-family:'Outfit',sans-serif;backdrop-filter:blur(4px);}
+.dash-period-btn:hover{background:rgba(255,255,255,0.08);color:var(--t1);transform:translateY(-1px);}
+.dash-period-btn.on{background:linear-gradient(135deg, var(--acc2), var(--blue));border-color:transparent;color:#000;box-shadow:0 4px 15px rgba(0,229,255,0.3);font-weight:700;}
 .ptab{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);transition:all .18s;letter-spacing:.02em;backdrop-filter:blur(4px);}
 .ptab.on{background:var(--blue);border-color:transparent;color:#fff;box-shadow:0 4px 15px rgba(52,152,219,.35)}
 
@@ -233,7 +236,8 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 .epath{font-size:11px;color:var(--t2);font-family:'JetBrains Mono',monospace}
 .edesc{font-size:10px;color:var(--t3);margin-top:2px}
 
-.flex{display:flex;align-items:center;gap:7px}
+/* UTILS */
+.flex{display:flex;align-items:center;gap:10px}
 .fsb{display:flex;align-items:center;justify-content:space-between}
 .sp{display:inline-block;width:13px;height:13px;border:2px solid rgba(233,69,96,.3);border-top-color:var(--acc);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -280,40 +284,40 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div class="ng">
     <div class="nl">principal</div>
-    <button class="ni on" onclick="nav('dash',this)"><span class="ic">Ôùê</span>Dashboard</button>
-    <button class="ni" onclick="nav('general',this)"><span class="ic">Ôùë</span>Balance general</button>
-    <button class="ni" onclick="nav('estadisticas',this)"><span class="ic">Ôåù</span>Estad├¡sticas</button>
-    <button class="ni" onclick="nav('cuentas',this)"><span class="ic">Ôùº</span>Cuentas</button>
-    <button class="ni" onclick="nav('movimientos',this)"><span class="ic">Ôëí</span>Movimientos</button>
+    <button class="ni on" onclick="nav('dash',this)"><span class="ic">◈</span>Dashboard</button>
+    <button class="ni" onclick="nav('general',this)"><span class="ic">◉</span>Balance general</button>
+    <button class="ni" onclick="nav('estadisticas',this)"><span class="ic">↗</span>Estadísticas</button>
+    <button class="ni" onclick="nav('cuentas',this)"><span class="ic">◧</span>Cuentas</button>
+    <button class="ni" onclick="nav('movimientos',this)"><span class="ic">≡</span>Movimientos</button>
   </div>
   <div class="ng">
-    <div class="nl">planificaci├│n</div>
-    <button class="ni" onclick="nav('prestamos',this)" id="nav-prest"><span class="ic">Ôçä</span>Pr├®stamos</button>
-    <button class="ni" onclick="nav('metas',this)"><span class="ic">ÔùÄ</span>Metas</button>
-    <button class="ni" onclick="nav('alertas',this)" id="nav-alert"><span class="ic">Ôè┐</span>Presupuestos</button>
+    <div class="nl">planificación</div>
+    <button class="ni" onclick="nav('prestamos',this)" id="nav-prest"><span class="ic">⇄</span>Préstamos</button>
+    <button class="ni" onclick="nav('metas',this)"><span class="ic">◎</span>Metas</button>
+    <button class="ni" onclick="nav('alertas',this)" id="nav-alert"><span class="ic">⊿</span>Presupuestos</button>
   </div>
   <div class="ng">
     <div class="nl">inversiones</div>
-    <button class="ni" onclick="nav('portafolio',this)"><span class="ic">Ôùç</span>Portafolio</button>
-    <button class="ni" onclick="nav('bots',this)"><span class="ic">ÔÜí</span>Cuenta automatizada</button>
-    <button class="ni" onclick="nav('prestamos-ext',this)"><span class="ic">­ƒÆ©</span>Pr├®stamos externos</button>
+    <button class="ni" onclick="nav('portafolio',this)"><span class="ic">◇</span>Portafolio</button>
+    <button class="ni" onclick="nav('bots',this)"><span class="ic">⚡</span>Cuenta automatizada</button>
+    <button class="ni" onclick="nav('prestamos-ext',this)"><span class="ic">💸</span>Préstamos externos</button>
   </div>
   <div class="ng">
     <div class="nl">herramientas</div>
-    <button class="ni" onclick="nav('ia',this)"><span class="ic">Ôùå</span>IA Financiera</button>
-    <button class="ni" onclick="nav('api',this)"><span class="ic">Ôè×</span>API</button>
+    <button class="ni" onclick="nav('ia',this)"><span class="ic">◆</span>IA Financiera</button>
+    <button class="ni" onclick="nav('api',this)"><span class="ic">⊞</span>API</button>
   </div>
   <!-- BTC Price widget -->
   <div id="btc-widget" style="margin:auto 10px 0;background:linear-gradient(135deg,rgba(247,147,26,.1),rgba(247,147,26,.05));border:0.5px solid rgba(247,147,26,.25);border-radius:var(--rs);padding:8px 11px">
     <div style="display:flex;align-items:center;justify-content:space-between">
-      <div style="display:flex;align-items:center;gap:6px"><span style="font-size:16px">Ôé┐</span><span id="btc-price" style="font-size:13px;font-weight:600;font-family:'JetBrains Mono',monospace;color:#f7931a">$ --</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><span style="font-size:16px">₿</span><span id="btc-price" style="font-size:13px;font-weight:600;font-family:'JetBrains Mono',monospace;color:#f7931a">$ --</span></div>
       <span id="btc-change" style="font-size:10px;font-weight:600;color:var(--green)">--</span>
     </div>
-    <div id="btc-label" style="font-size:9px;color:var(--t3);margin-top:2px">Bitcoin ┬À actualizando...</div>
+    <div id="btc-label" style="font-size:9px;color:var(--t3);margin-top:2px">Bitcoin · actualizando...</div>
   </div>
   <!-- TC widget -->
   <div class="tc-box" style="margin-top:6px">
-    <div class="tc-l">tipo de cambio ┬À USD/ARS</div>
+    <div class="tc-l">tipo de cambio · USD/ARS</div>
     <div class="tc-row"><span style="font-size:10px;color:var(--t3)">1 USD =</span><input class="tc-inp" type="number" id="tc-v" value="1170" onchange="updateTC()"><span style="font-size:10px;color:var(--t3)">ARS</span></div>
     <div class="tc-eq" id="tc-eq">1 USD = $ 1.170</div>
     <div style="margin-top:6px;padding-top:6px;border-top:0.5px solid var(--bdr)">
@@ -324,14 +328,14 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <!-- PWA Install button -->
   <button id="pwa-install-btn" onclick="installPWA()" style="display:none;margin:6px 10px 0;padding:8px 11px;border-radius:var(--rs);border:0.5px solid rgba(46,204,113,.3);background:rgba(46,204,113,.08);color:var(--green);font-size:11px;font-weight:600;cursor:pointer;width:calc(100% - 20px);align-items:center;justify-content:center;gap:6px;font-family:'Outfit',sans-serif">
-    ­ƒô▓ Instalar app
+    📲 Instalar app
   </button>
   <!-- Theme switcher -->
   <div style="display:flex;gap:3px;margin:6px 10px 10px">
-    <button onclick="setTheme('dark',this)" id="th-dark" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--acc);background:var(--acc);color:#fff;font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">­ƒîÖ</button>
-    <button onclick="setTheme('light',this)" id="th-light" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">ÔÿÇ´©Å</button>
-    <button onclick="setTheme('gray',this)" id="th-gray" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">­ƒ®Â</button>
-    <button onclick="setTheme('crypto',this)" id="th-crypto" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">Ôé┐</button>
+    <button onclick="setTheme('dark',this)" id="th-dark" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--acc);background:var(--acc);color:#fff;font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">🌙</button>
+    <button onclick="setTheme('light',this)" id="th-light" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">☀️</button>
+    <button onclick="setTheme('gray',this)" id="th-gray" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">🩶</button>
+    <button onclick="setTheme('crypto',this)" id="th-crypto" style="flex:1;padding:5px 2px;border-radius:4px;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:9px;cursor:pointer;font-family:'Outfit',sans-serif">₿</button>
   </div>
 </nav>
 
@@ -342,10 +346,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
       <span class="tb-title" id="tb-title">Dashboard</span>
       <div id="market-bar" style="display:flex;gap:12px;flex-wrap:wrap"></div>
     </div>
-    <span id="sync-status" style="font-size:10px;color:var(--t3);margin-left:6px">­ƒÆ¥ Local</span>
+    <span id="sync-status" style="font-size:10px;color:var(--t3);margin-left:6px">💾 Local</span>
   <div class="tb-actions">
     <button class="btn bts" onclick="openModal('txMod')">+ Movimiento</button>
-    <button class="btn bts bta" onclick="exportAll()">Exportar Ôåô</button>
+    <button class="btn bts bta" onclick="exportAll()">Exportar ↓</button>
   </div>
 </div>
 <div class="pad">
@@ -353,7 +357,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 <!-- DASHBOARD -->
 <div id="s-dash" class="sec on fi">
   <div id="alerts-banner"></div>
-  <!-- Filtros per├¡odo dashboard -->
+  <!-- Filtros período dashboard -->
   <div class="flex" style="gap:5px;margin-bottom:10px;flex-wrap:wrap">
     <button onclick="setDashPeriod('hoy',this)" class="dash-period-btn" style="padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">Hoy</button>
     <button onclick="setDashPeriod('sem',this)" class="dash-period-btn" style="padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">Semana</button>
@@ -366,7 +370,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="g2">
     <div>
       <div class="dp" style="margin-bottom:11px">
-        <div class="ct">gastos por categor├¡a ÔÇö todas las cuentas</div>
+        <div class="ct">gastos por categoría — todas las cuentas</div>
         <div id="d-cat-bars"></div>
       </div>
       <div class="dp">
@@ -380,16 +384,16 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
         <div style="position:relative;height:180px"><canvas id="ch-flujo"></canvas></div>
       </div>
       <div class="dp">
-        <div class="ct">distribuci├│n patrimonio</div>
+        <div class="ct">distribución patrimonio</div>
         <div class="dw"><div style="position:relative;width:110px;height:110px;flex-shrink:0"><canvas id="ch-pat"></canvas></div><div style="flex:1;min-width:0" id="leg-pat"></div></div>
       </div>
     </div>
   </div>
 
-  <!-- GASTOS POR CUENTA ÔÇö secci├│n expandida -->
+  <!-- GASTOS POR CUENTA — sección expandida -->
   <div class="dp" style="margin-bottom:11px">
     <div class="fsb" style="margin-bottom:12px">
-      <div class="ct" style="margin:0">gastos por categor├¡a seg├║n cuenta</div>
+      <div class="ct" style="margin:0">gastos por categoría según cuenta</div>
       <div style="display:flex;gap:5px;flex-wrap:wrap" id="d-acc-filter-btns"></div>
     </div>
     <div id="d-acc-cat-section"></div>
@@ -403,10 +407,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 
   <div class="dp">
     <div class="fsb" style="margin-bottom:11px">
-      <div class="ct" style="margin:0">├║ltimos movimientos</div>
+      <div class="ct" style="margin:0">últimos movimientos</div>
       <button class="btn bts btg" onclick="nav('movimientos',document.querySelectorAll('.ni')[4])">ver todos</button>
     </div>
-    <div class="tw"><table><thead><tr><th>fecha</th><th>descripci├│n</th><th>categor├¡a</th><th>cuenta</th><th style="text-align:right">monto</th></tr></thead><tbody id="d-recent"></tbody></table></div>
+    <div class="tw"><table><thead><tr><th>fecha</th><th>descripción</th><th>categoría</th><th>cuenta</th><th style="text-align:right">monto</th></tr></thead><tbody id="d-recent"></tbody></table></div>
   </div>
 </div>
 
@@ -420,29 +424,29 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
       <div style="position:relative;height:210px"><canvas id="ch-ig"></canvas></div>
     </div>
     <div class="dp">
-      <div class="ct">composici├│n del portafolio</div>
+      <div class="ct">composición del portafolio</div>
       <div class="dw"><div style="position:relative;width:115px;height:115px;flex-shrink:0"><canvas id="ch-port"></canvas></div><div style="flex:1;min-width:0" id="leg-port"></div></div>
     </div>
   </div>
   <div class="dp" style="margin-bottom:11px">
-    <div class="ct">evoluci├│n mensual (entradas y salidas)</div>
+    <div class="ct">evolución mensual (entradas y salidas)</div>
     <div style="position:relative;height:185px"><canvas id="ch-evol"></canvas></div>
   </div>
   <div class="flex" style="gap:7px"><button class="btn bts" onclick="exportAll()">JSON</button><button class="btn bts" onclick="exportCSV()">CSV</button></div>
 </div>
 
-<!-- ESTAD├ìSTICAS -->
+<!-- ESTADÍSTICAS -->
 <div id="s-estadisticas" class="sec fi">
   <div class="ptabs" id="stat-tabs">
     <div class="ptab on" onclick="switchStat('saldo',this)">Tendencia saldo</div>
     <div class="ptab" onclick="switchStat('flujo',this)">Flujo de caja</div>
-    <div class="ptab" onclick="switchStat('comparacion',this)">Comparaci├│n</div>
+    <div class="ptab" onclick="switchStat('comparacion',this)">Comparación</div>
     <div class="ptab" onclick="switchStat('gastos',this)">Gastos</div>
   </div>
   <div id="stat-saldo">
     <div class="dp" style="margin-bottom:11px">
       <div class="fsb" style="margin-bottom:10px">
-        <div><div class="ct" style="margin:0">tendencia del saldo</div><div style="font-size:10px;color:var(--t3);margin-top:2px">┬┐Tengo m├ís dinero que antes?</div></div>
+        <div><div class="ct" style="margin:0">tendencia del saldo</div><div style="font-size:10px;color:var(--t3);margin-top:2px">¿Tengo más dinero que antes?</div></div>
         <div id="stat-trend-pct" style="font-size:22px;font-weight:600"></div>
       </div>
       <div style="position:relative;height:200px"><canvas id="ch-tend"></canvas></div>
@@ -454,7 +458,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div id="stat-flujo" style="display:none">
     <div class="dp" style="margin-bottom:11px">
-      <div class="ct">flujo de efectivo ÔÇö ingresos y gastos</div>
+      <div class="ct">flujo de efectivo — ingresos y gastos</div>
       <div style="position:relative;height:220px"><canvas id="ch-flujo2"></canvas></div>
       <div class="flex" style="gap:14px;margin-top:8px;justify-content:center">
         <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--t2)"><span style="width:10px;height:3px;background:var(--t1);display:inline-block;border-radius:2px"></span>Flujo neto</span>
@@ -471,7 +475,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div id="stat-comparacion" style="display:none">
     <div class="dp" style="margin-bottom:11px">
-      <div class="ct">comparaci├│n de per├¡odos</div>
+      <div class="ct">comparación de períodos</div>
       <div class="ptabs" id="comp-tabs" style="margin-bottom:10px">
         <div class="ptab on" onclick="switchComp('flujo',this)">Flujo de efectivo</div>
         <div class="ptab" onclick="switchComp('gastos',this)">Gastos</div>
@@ -482,14 +486,14 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div id="stat-comp-extra" style="display:none">
     <div class="g2" style="margin-top:11px">
-      <div class="dp"><div class="ct">variaci├│n % por categor├¡a</div><div style="position:relative;height:175px"><canvas id="ch-comp-cat"></canvas></div></div>
+      <div class="dp"><div class="ct">variación % por categoría</div><div style="position:relative;height:175px"><canvas id="ch-comp-cat"></canvas></div></div>
       <div class="dp"><div class="ct">este mes vs mes anterior</div><div style="position:relative;height:175px"><canvas id="ch-comp-bar"></canvas></div></div>
     </div>
     <div class="dp" style="margin-top:11px"><div class="ct">tendencia 4 meses</div><div style="position:relative;height:155px"><canvas id="ch-comp-trend"></canvas></div></div>
   </div>
   <div id="stat-gastos-det" style="display:none">
     <div class="dp" style="margin-bottom:11px">
-      <div class="ct">estructura de gastos por categor├¡a</div>
+      <div class="ct">estructura de gastos por categoría</div>
       <div class="g2">
         <div style="position:relative;height:200px"><canvas id="ch-gast-pie"></canvas></div>
         <div id="gast-pie-leg" style="display:flex;flex-direction:column;justify-content:center"></div>
@@ -504,10 +508,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div id="stat-gastos-extra" style="display:none">
     <div class="g2" style="margin-top:11px">
-      <div class="dp"><div class="ct">top categor├¡as de gasto</div><div id="stat-top-cats"></div></div>
+      <div class="dp"><div class="ct">top categorías de gasto</div><div id="stat-top-cats"></div></div>
       <div class="dp"><div class="ct">gastos por cuenta (torta)</div><div id="acc-pie-wrap2" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px"></div></div>
     </div>
-    <div class="dp" style="margin-top:11px"><div class="ct">gastos mensuales por categor├¡a</div><div style="position:relative;height:165px"><canvas id="ch-gast-monthly"></canvas></div></div>
+    <div class="dp" style="margin-top:11px"><div class="ct">gastos mensuales por categoría</div><div style="position:relative;height:165px"><canvas id="ch-gast-monthly"></canvas></div></div>
   </div>
 </div>
 
@@ -527,11 +531,11 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="fsb" style="margin-bottom:10px;flex-wrap:wrap;gap:7px">
     <div class="flex" style="flex-wrap:wrap;gap:5px">
       <select id="f-acc" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:5px 9px;font-size:11px;color:var(--t1);font-family:'Outfit',sans-serif" onchange="renderMov()"><option value="">Todas las cuentas</option></select>
-      <select id="f-tipo" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:5px 9px;font-size:11px;color:var(--t1);font-family:'Outfit',sans-serif" onchange="renderMov()"><option value="">Todos</option><option value="ingreso">Ingresos</option><option value="gasto">Gastos</option><option value="transferencia">Transferencias</option><option value="prestamo">Pr├®stamos</option></select>
+      <select id="f-tipo" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:5px 9px;font-size:11px;color:var(--t1);font-family:'Outfit',sans-serif" onchange="renderMov()"><option value="">Todos</option><option value="ingreso">Ingresos</option><option value="gasto">Gastos</option><option value="transferencia">Transferencias</option><option value="prestamo">Préstamos</option></select>
     </div>
     <button class="btn bts bta" onclick="openModal('txMod')">+ Movimiento</button>
   </div>
-  <!-- Filtros de per├¡odo -->
+  <!-- Filtros de período -->
   <div class="flex" style="gap:5px;margin-bottom:10px;flex-wrap:wrap">
     <button id="fp-hoy"    class="fp-btn" onclick="setPeriod('hoy',this)"    style="padding:4px 11px;border-radius:20px;font-size:11px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">Hoy</button>
     <button id="fp-sem"    class="fp-btn" onclick="setPeriod('sem',this)"    style="padding:4px 11px;border-radius:20px;font-size:11px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">Esta semana</button>
@@ -541,17 +545,17 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     <button id="fp-sem3"   class="fp-btn" onclick="setPeriod('sem3',this)"   style="padding:4px 11px;border-radius:20px;font-size:11px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">3 meses</button>
     <button id="fp-sem4"   class="fp-btn" onclick="setPeriod('sem4',this)"   style="padding:4px 11px;border-radius:20px;font-size:11px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">4 meses</button>
     <button id="fp-todo"   class="fp-btn" onclick="setPeriod('todo',this)"   style="padding:4px 11px;border-radius:20px;font-size:11px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-family:'Outfit',sans-serif;transition:all .15s">Todo</button>
-    <!-- Resumen r├ípido del per├¡odo -->
+    <!-- Resumen rápido del período -->
     <span id="mov-resumen" style="margin-left:auto;font-size:11px;color:var(--t3);align-self:center"></span>
   </div>
-  <!-- Tabla sin altura m├íxima ÔÇö ocupa todo el espacio disponible -->
+  <!-- Tabla sin altura máxima — ocupa todo el espacio disponible -->
   <div class="dp" style="padding:0;height:calc(100vh - 210px);overflow-y:auto">
     <table style="width:100%;border-collapse:collapse;font-size:12px">
       <thead style="position:sticky;top:0;background:var(--bg2);z-index:2">
         <tr>
           <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">fecha</th>
-          <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">descripci├│n</th>
-          <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">categor├¡a</th>
+          <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">descripción</th>
+          <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">categoría</th>
           <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">cuenta</th>
           <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:left">tipo</th>
           <th style="padding:9px 12px;font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;border-bottom:0.5px solid var(--bdr);text-align:right">monto</th>
@@ -563,17 +567,17 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
 </div>
 
-<!-- PR├ëSTAMOS INTERNOS -->
+<!-- PRÉSTAMOS INTERNOS -->
 <div id="s-prestamos" class="sec fi">
   <div class="fsb" style="margin-bottom:12px">
-    <span style="font-size:13px;font-weight:500">Pr├®stamos entre cuentas</span>
-    <button class="btn bts bta" onclick="openModal('loanMod')">+ Nuevo pr├®stamo</button>
+    <span style="font-size:13px;font-weight:500">Préstamos entre cuentas</span>
+    <button class="btn bts bta" onclick="openModal('loanMod')">+ Nuevo préstamo</button>
   </div>
   <div id="loan-alerts"></div>
   <div id="loans-list"></div>
   <div class="dp" style="margin-top:4px">
     <div class="ct">historial de transferencias</div>
-    <div class="tw"><table><thead><tr><th>fecha</th><th>descripci├│n</th><th>origen</th><th>destino</th><th style="text-align:right">monto</th><th>estado</th><th></th></tr></thead><tbody id="loans-history"></tbody></table></div>
+    <div class="tw"><table><thead><tr><th>fecha</th><th>descripción</th><th>origen</th><th>destino</th><th style="text-align:right">monto</th><th>estado</th><th></th></tr></thead><tbody id="loans-history"></tbody></table></div>
   </div>
 </div>
 
@@ -601,12 +605,12 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div style="background:rgba(233,69,96,.05);border:0.5px solid rgba(233,69,96,.2);border-radius:var(--r);padding:13px;margin-bottom:11px">
     <div class="flex" style="margin-bottom:9px;justify-content:space-between">
       <div class="flex"><div style="width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite"></div><span style="font-size:13px;font-weight:600;margin-left:6px">IA Financiera</span><span style="font-size:10px;color:var(--t3);margin-left:8px;background:rgba(66,133,244,.15);color:#4285f4;padding:2px 7px;border-radius:20px;font-weight:600">Gemini 2.0 Flash</span></div>
-      <button onclick="generateAIInsights()" style="font-size:10px;color:var(--teal);background:rgba(26,188,156,.1);border:0.5px solid rgba(26,188,156,.3);border-radius:20px;padding:3px 10px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600">Ô£¿ Generar insights</button>
+      <button onclick="generateAIInsights()" style="font-size:10px;color:var(--teal);background:rgba(26,188,156,.1);border:0.5px solid rgba(26,188,156,.3);border-radius:20px;padding:3px 10px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600">✨ Generar insights</button>
     </div>
     <div id="ai-ins"></div>
     <div class="flex" style="margin-top:9px;gap:7px">
       <input id="ai-q" type="text" placeholder="Preguntame sobre tus finanzas..." style="flex:1;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 11px;font-size:12px;color:var(--t1);font-family:'Outfit',sans-serif" onkeydown="if(event.key==='Enter')askAI()">
-      <button class="btn bts bta" onclick="askAI()">Enviar Ôåù</button>
+      <button class="btn bts bta" onclick="askAI()">Enviar ↗</button>
     </div>
   </div>
   <div id="ai-conv"></div>
@@ -617,23 +621,23 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <!-- Dashboard metrics -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
     <div>
-      <div style="font-size:16px;font-weight:600;color:var(--t1)">­ƒÆ© Pr├®stamos Externos</div>
-      <div style="font-size:11px;color:var(--t3);margin-top:2px">Dinero en la calle ┬À vinculado a Cuenta Prestamos</div>
+      <div style="font-size:16px;font-weight:600;color:var(--t1)">💸 Préstamos Externos</div>
+      <div style="font-size:11px;color:var(--t3);margin-top:2px">Dinero en la calle · vinculado a Cuenta Prestamos</div>
     </div>
-    <button class="btn bta" onclick="openNuevoPrestExt()">+ Nuevo pr├®stamo</button>
+    <button class="btn bta" onclick="openNuevoPrestExt()">+ Nuevo préstamo</button>
   </div>
 
-  <!-- M├®tricas -->
+  <!-- Métricas -->
   <div class="mets" id="pe-mets" style="margin-bottom:16px"></div>
 
-  <!-- Gr├íficos -->
+  <!-- Gráficos -->
   <div class="g2" style="margin-bottom:16px">
     <div class="dp">
       <div class="ct">rendimiento mensual</div>
       <div style="position:relative;height:160px"><canvas id="pe-chart-mensual"></canvas></div>
     </div>
     <div class="dp">
-      <div class="ct">distribuci├│n por estado</div>
+      <div class="ct">distribución por estado</div>
       <div style="display:flex;align-items:center;gap:16px">
         <div style="position:relative;width:120px;height:120px"><canvas id="pe-chart-donut"></canvas></div>
         <div id="pe-donut-legend" style="font-size:12px"></div>
@@ -641,15 +645,15 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
   </div>
 
-  <!-- Estad├¡sticas trimestrales -->
+  <!-- Estadísticas trimestrales -->
   <div class="dp" style="margin-bottom:16px">
     <div class="ct">rendimiento trimestral y anual</div>
     <div style="position:relative;height:140px"><canvas id="pe-chart-trim"></canvas></div>
   </div>
 
-  <!-- Lista pr├®stamos activos -->
+  <!-- Lista préstamos activos -->
   <div class="dp" style="margin-bottom:16px">
-    <div class="ct">pr├®stamos activos</div>
+    <div class="ct">préstamos activos</div>
     <div id="pe-activos"></div>
   </div>
 
@@ -673,16 +677,16 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 
 <!-- MODAL NUEVO PRESTAMO EXTERNO -->
 <div class="mb" id="pe-mod"><div class="mo" style="max-width:420px">
-  <div class="mott">Nuevo pr├®stamo externo</div>
+  <div class="mott">Nuevo préstamo externo</div>
   <div class="fg"><label>Nombre del deudor</label><input type="text" id="pe-nombre" placeholder="Ej: Sr. Jabier"></div>
-  <div class="fg"><label>Cuenta de origen <span style="color:var(--t3);font-size:10px">(de d├│nde sale el dinero)</span></label><select id="pe-account" style="width:100%;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--t1);font-family:'Outfit',sans-serif"></select></div>
+  <div class="fg"><label>Cuenta de origen <span style="color:var(--t3);font-size:10px">(de dónde sale el dinero)</span></label><select id="pe-account" style="width:100%;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--t1);font-family:'Outfit',sans-serif"></select></div>
   <div class="fr">
     <div class="fg"><label>Monto prestado ($)</label><input type="number" id="pe-monto" placeholder="0" step="any" oninput="calcPeRetorno()"></div>
-    <div class="fg"><label>Tasa de inter├®s (%)</label><input type="number" id="pe-tasa" placeholder="0" step="any" oninput="calcPeRetorno()"></div>
+    <div class="fg"><label>Tasa de interés (%)</label><input type="number" id="pe-tasa" placeholder="0" step="any" oninput="calcPeRetorno()"></div>
   </div>
   <div class="fg" style="background:var(--bg2);border-radius:8px;padding:10px;font-size:13px">
     <div style="display:flex;justify-content:space-between">
-      <span style="color:var(--t3)">A cobrar (capital + inter├®s):</span>
+      <span style="color:var(--t3)">A cobrar (capital + interés):</span>
       <span id="pe-retorno" style="color:var(--green);font-weight:600">$0</span>
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:4px">
@@ -691,13 +695,13 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
   </div>
   <div class="fr">
-    <div class="fg"><label>Fecha del pr├®stamo</label><input type="date" id="pe-fecha"></div>
+    <div class="fg"><label>Fecha del préstamo</label><input type="date" id="pe-fecha"></div>
     <div class="fg"><label>Fecha de vencimiento</label><input type="date" id="pe-vence"></div>
   </div>
   <div class="fg"><label>Notas</label><input type="text" id="pe-notas" placeholder="Opcional"></div>
   <div class="fend">
     <button class="btn" onclick="closeModal('pe-mod')">Cancelar</button>
-    <button class="btn bta" onclick="savePrestExt()">Guardar pr├®stamo</button>
+    <button class="btn bta" onclick="savePrestExt()">Guardar préstamo</button>
   </div>
 </div></div>
 
@@ -719,10 +723,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <!-- BudgetBakers Sync Panel -->
   <div class="dp" style="margin-bottom:16px;border:1px solid var(--blue);border-radius:10px;padding:16px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-      <span style="font-size:22px">­ƒöä</span>
+      <span style="font-size:22px">🔄</span>
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--t1)">Sincronizar desde BudgetBakers</div>
-        <div style="font-size:11px;color:var(--t3)">Importa tus movimientos recientes autom├íticamente</div>
+        <div style="font-size:11px;color:var(--t3)">Importa tus movimientos recientes automáticamente</div>
       </div>
       <div style="margin-left:auto">
         <span id="bb-sync-status" style="font-size:11px;color:var(--t3)"></span>
@@ -730,16 +734,16 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
       <select id="bb-days" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--t1);font-family:'Outfit',sans-serif">
-        <option value="7">├Ültimos 7 d├¡as</option>
-        <option value="30" selected>├Ültimos 30 d├¡as</option>
-        <option value="90">├Ültimos 90 d├¡as</option>
-        <option value="180">├Ültimos 6 meses</option>
-        <option value="365">├Ültimo a├▒o</option>
+        <option value="7">Últimos 7 días</option>
+        <option value="30" selected>Últimos 30 días</option>
+        <option value="90">Últimos 90 días</option>
+        <option value="180">Últimos 6 meses</option>
+        <option value="365">Último año</option>
       </select>
       <select id="bb-acc-map" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--t1);font-family:'Outfit',sans-serif">
-        <option value="">ÔåÆ Cuenta destino en FinanzasAI</option>
+        <option value="">→ Cuenta destino en FinanzasAI</option>
       </select>
-      <button onclick="syncFromBB()" style="background:var(--blue);color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">Ô¼ç Importar ahora</button>
+      <button onclick="syncFromBB()" style="background:var(--blue);color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif">⬇ Importar ahora</button>
     </div>
     <div id="bb-preview" style="font-size:11px;color:var(--t3)"></div>
   </div>
@@ -749,11 +753,11 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
       <div class="ep"><span class="em eget">GET</span><span class="epath">/api/v1/accounts</span><div class="edesc">listar cuentas con balances</div></div>
       <div class="ep"><span class="em eget">GET</span><span class="epath">/api/v1/accounts/:id/movements</span><div class="edesc">movimientos de una cuenta</div></div>
       <div class="ep"><span class="em epost">POST</span><span class="epath">/api/v1/movements</span><div class="edesc">registrar movimiento</div></div>
-      <div class="ep"><span class="em epost">POST</span><span class="epath">/api/v1/loans</span><div class="edesc">registrar pr├®stamo entre cuentas</div></div>
+      <div class="ep"><span class="em epost">POST</span><span class="epath">/api/v1/loans</span><div class="edesc">registrar préstamo entre cuentas</div></div>
       <div class="ep"><span class="em eget">GET</span><span class="epath">/api/v1/balance/general</span><div class="edesc">balance consolidado</div></div>
       <div class="ep"><span class="em eget">GET</span><span class="epath">/api/v1/balance/:id</span><div class="edesc">balance por cuenta</div></div>
       <div class="ep"><span class="em eget">GET</span><span class="epath">/api/v1/export?format=csv|json</span><div class="edesc">exportar datos</div></div>
-      <div class="ep"><span class="em epost">POST</span><span class="epath">/api/v1/ai/analyze</span><div class="edesc">an├ílisis IA</div></div>
+      <div class="ep"><span class="em epost">POST</span><span class="epath">/api/v1/ai/analyze</span><div class="edesc">análisis IA</div></div>
       <div class="ep"><span class="em eput">PUT</span><span class="epath">/api/v1/accounts/:id</span><div class="edesc">actualizar cuenta</div></div>
       <div class="ep"><span class="em edel">DELETE</span><span class="epath">/api/v1/movements/:id</span><div class="edesc">eliminar movimiento</div></div>
     </div>
@@ -769,41 +773,41 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="fsb" style="margin-bottom:14px;flex-wrap:wrap;gap:8px">
     <div>
       <span style="font-size:13px;font-weight:500">Portafolio de inversiones</span>
-      <div style="font-size:10px;color:var(--t3);margin-top:2px">Cuenta vinculada: <span id="port-acc-name" style="color:var(--teal)">Inversiones</span> ┬À Activos: Crypto ┬À Stocks ┬À ETFs ┬À Bonos</div>
+      <div style="font-size:10px;color:var(--t3);margin-top:2px">Cuenta vinculada: <span id="port-acc-name" style="color:var(--teal)">Inversiones</span> · Activos: Crypto · Stocks · ETFs · Bonos</div>
     </div>
     <div class="flex" style="gap:6px">
-      <button class="btn bts" onclick="fetchAllStockPrices()" title="Actualiza acciones y ETFs con Alpha Vantage (puede tardar ~1min)">­ƒôè Precios bolsa real</button>
+      <button class="btn bts" onclick="fetchAllStockPrices()" title="Actualiza acciones y ETFs con Alpha Vantage (puede tardar ~1min)">📊 Precios bolsa real</button>
     <button class="btn bts" onclick="openModal('assetPricesMod')">Actualizar manual</button>
       <button class="btn bts bta" onclick="openModal('assetMod')">+ Activo</button>
     </div>
   </div>
 
-  <!-- m├®tricas portafolio con comparaci├│n -->
+  <!-- métricas portafolio con comparación -->
   <div class="mets" id="port-mets"></div>
 
-  <!-- Banner comparaci├│n vs per├¡odo anterior -->
+  <!-- Banner comparación vs período anterior -->
   <div id="port-vs-banner" style="background:rgba(26,188,156,.07);border:0.5px solid rgba(26,188,156,.2);border-radius:var(--rs);padding:10px 14px;margin-bottom:11px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px"></div>
 
-  <!-- Fila 1: distribuci├│n + rendimiento por activo -->
+  <!-- Fila 1: distribución + rendimiento por activo -->
   <div class="g2" style="margin-bottom:11px">
     <div class="dp">
-      <div class="ct">distribuci├│n por tipo de activo</div>
+      <div class="ct">distribución por tipo de activo</div>
       <div class="dw">
         <div style="position:relative;width:130px;height:130px;flex-shrink:0"><canvas id="ch-port-pie"></canvas></div>
         <div style="flex:1;min-width:0" id="port-pie-leg"></div>
       </div>
     </div>
     <div class="dp">
-      <div class="ct">% ganancia / p├®rdida por activo</div>
+      <div class="ct">% ganancia / pérdida por activo</div>
       <div id="port-rend-bars"></div>
     </div>
   </div>
 
-  <!-- Fila 2: evoluci├│n + comparaci├│n per├¡odos -->
+  <!-- Fila 2: evolución + comparación períodos -->
   <div class="g2" style="margin-bottom:11px">
     <div class="dp">
       <div class="fsb" style="margin-bottom:10px">
-        <div class="ct" style="margin:0">evoluci├│n del portafolio (USD)</div>
+        <div class="ct" style="margin:0">evolución del portafolio (USD)</div>
         <div style="display:flex;gap:3px" id="port-period-btns">
           <button onclick="switchPortEvol('1m',this)" style="padding:3px 8px;border-radius:20px;font-size:10px;cursor:pointer;border:0.5px solid var(--blue);background:var(--blue);color:#fff">1M</button>
           <button onclick="switchPortEvol('3m',this)" style="padding:3px 8px;border-radius:20px;font-size:10px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3)">3M</button>
@@ -814,7 +818,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
       <div style="position:relative;height:185px"><canvas id="ch-port-evol"></canvas></div>
     </div>
     <div class="dp">
-      <div class="ct">comparar vs per├¡odo anterior</div>
+      <div class="ct">comparar vs período anterior</div>
       <div style="display:flex;gap:4px;margin-bottom:10px" id="port-comp-btns">
         <button onclick="switchPortComp('valor',this)" style="padding:3px 9px;border-radius:20px;font-size:10px;cursor:pointer;border:0.5px solid var(--teal);background:var(--teal);color:#fff">Valor</button>
         <button onclick="switchPortComp('rend',this)" style="padding:3px 9px;border-radius:20px;font-size:10px;cursor:pointer;border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3)">Rendimiento</button>
@@ -839,25 +843,25 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 <div id="s-bots" class="sec fi">
   <div class="fsb" style="margin-bottom:14px;flex-wrap:wrap;gap:8px">
     <div>
-      <span style="font-size:13px;font-weight:500">Cuenta automatizada ÔÇö Pionex</span>
-      <div style="font-size:10px;color:var(--t3);margin-top:2px">Grid trading ┬À DCA ┬À Bots 24/7 automatizados</div>
+      <span style="font-size:13px;font-weight:500">Cuenta automatizada — Pionex</span>
+      <div style="font-size:10px;color:var(--t3);margin-top:2px">Grid trading · DCA · Bots 24/7 automatizados</div>
     </div>
     <div class="flex" style="gap:6px">
-      <button class="btn bts" onclick="openModal('botTxMod')">+ Registrar operaci├│n</button>
+      <button class="btn bts" onclick="openModal('botTxMod')">+ Registrar operación</button>
       <button class="btn bts bta" onclick="openModal('botMod')">+ Nuevo bot</button>
     </div>
   </div>
 
-  <!-- m├®tricas bots -->
+  <!-- métricas bots -->
   <div class="mets" id="bot-mets"></div>
 
-  <!-- Banner comparaci├│n vs mes anterior -->
+  <!-- Banner comparación vs mes anterior -->
   <div id="bot-vs-banner" style="background:rgba(243,156,18,.07);border:0.5px solid rgba(243,156,18,.2);border-radius:var(--rs);padding:10px 14px;margin-bottom:11px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px"></div>
 
   <!-- Cards de bots -->
   <div id="bot-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;margin-bottom:11px"></div>
 
-  <!-- Gr├íficos lado a lado -->
+  <!-- Gráficos lado a lado -->
   <div class="g2" style="margin-bottom:11px">
     <div class="dp">
       <div class="ct">ganancia neta por bot (USD)</div>
@@ -872,7 +876,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
   </div>
 
-  <!-- Evoluci├│n + comparaci├│n -->
+  <!-- Evolución + comparación -->
   <div class="g2" style="margin-bottom:11px">
     <div class="dp">
       <div class="ct">rendimiento acumulado por bot</div>
@@ -904,9 +908,9 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="mott">Nuevo movimiento</div>
   <!-- Tipo selector visual -->
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px">
-    <button id="tipo-gasto" onclick="setTipoTx('gasto')" style="padding:8px;border-radius:var(--rs);border:0.5px solid rgba(231,76,60,.5);background:rgba(231,76,60,.15);color:var(--red);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif">Ôåô Gasto</button>
-    <button id="tipo-ingreso" onclick="setTipoTx('ingreso')" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif">Ôåæ Ingreso</button>
-    <button id="tipo-transferencia" onclick="setTipoTx('transferencia')" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif">Ôçä Transferencia</button>
+    <button id="tipo-gasto" onclick="setTipoTx('gasto')" style="padding:8px;border-radius:var(--rs);border:0.5px solid rgba(231,76,60,.5);background:rgba(231,76,60,.15);color:var(--red);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif">↓ Gasto</button>
+    <button id="tipo-ingreso" onclick="setTipoTx('ingreso')" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif">↑ Ingreso</button>
+    <button id="tipo-transferencia" onclick="setTipoTx('transferencia')" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;font-family:'Outfit',sans-serif">⇄ Transferencia</button>
   </div>
   <input type="hidden" id="tx-tp" value="gasto">
 
@@ -919,11 +923,11 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
   </div>
 
-  <!-- Categor├¡as por tipo con iconos -->
+  <!-- Categorías por tipo con iconos -->
   <div id="tx-cg" style="margin-bottom:12px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px">
-      <label style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Categor├¡a</label>
-      <button onclick="openModal('catMod')" style="font-size:10px;color:var(--acc);background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif">+ Nueva categor├¡a</button>
+      <label style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Categoría</label>
+      <button onclick="openModal('catMod')" style="font-size:10px;color:var(--acc);background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif">+ Nueva categoría</button>
     </div>
     <div id="cat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;max-height:200px;overflow-y:auto"></div>
     <input type="hidden" id="tx-ca" value="">
@@ -935,16 +939,16 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     <div class="fg" id="tx-dg" style="display:none;margin:0"><label>Cuenta destino</label><select id="tx-dt" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 10px;font-size:12px;color:var(--t1);width:100%;font-family:'Outfit',sans-serif"></select></div>
   </div>
 
-  <div class="fg"><label>Descripci├│n</label><input type="text" id="tx-de" placeholder="descripci├│n del movimiento (opcional)"></div>
+  <div class="fg"><label>Descripción</label><input type="text" id="tx-de" placeholder="descripción del movimiento (opcional)"></div>
   <div class="fg"><label>Fecha</label><input type="date" id="tx-fe"></div>
   <div class="fend"><button class="btn" onclick="closeModal('txMod')">Cancelar</button><button class="btn bta" onclick="saveTx()">Guardar movimiento</button></div>
 </div></div>
 
-<!-- MODAL NUEVA CATEGOR├ìA -->
+<!-- MODAL NUEVA CATEGORÍA -->
 <div class="mb" id="catMod"><div class="mo" style="max-width:460px">
-  <div class="mott">Nueva categor├¡a personalizada</div>
+  <div class="mott">Nueva categoría personalizada</div>
   <div class="fr">
-    <div class="fg"><label>Nombre</label><input type="text" id="cat-nm" placeholder="ej: Recaudaci├│n, Combustible..."></div>
+    <div class="fg"><label>Nombre</label><input type="text" id="cat-nm" placeholder="ej: Recaudación, Combustible..."></div>
     <div class="fg"><label>Tipo</label><select id="cat-tipo" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 10px;font-size:12px;color:var(--t1);width:100%;font-family:'Outfit',sans-serif">
       <option value="gasto">Gasto</option>
       <option value="ingreso">Ingreso</option>
@@ -955,7 +959,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:6px" id="cat-color-picker">
       <div onclick="selectCatColor('#e74c3c',this)" style="width:28px;height:28px;border-radius:50%;background:#e74c3c;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Rojo"></div>
       <div onclick="selectCatColor('#e67e22',this)" style="width:28px;height:28px;border-radius:50%;background:#e67e22;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Naranja"></div>
-      <div onclick="selectCatColor('#f39c12',this)" style="width:28px;height:28px;border-radius:50%;background:#f39c12;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="├ümbar"></div>
+      <div onclick="selectCatColor('#f39c12',this)" style="width:28px;height:28px;border-radius:50%;background:#f39c12;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Ámbar"></div>
       <div onclick="selectCatColor('#f1c40f',this)" style="width:28px;height:28px;border-radius:50%;background:#f1c40f;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Amarillo"></div>
       <div onclick="selectCatColor('#2ecc71',this)" style="width:28px;height:28px;border-radius:50%;background:#2ecc71;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Verde"></div>
       <div onclick="selectCatColor('#27ae60',this)" style="width:28px;height:28px;border-radius:50%;background:#27ae60;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Verde oscuro"></div>
@@ -964,10 +968,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
       <div onclick="selectCatColor('#3498db',this)" style="width:28px;height:28px;border-radius:50%;background:#3498db;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Azul"></div>
       <div onclick="selectCatColor('#2980b9',this)" style="width:28px;height:28px;border-radius:50%;background:#2980b9;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Azul oscuro"></div>
       <div onclick="selectCatColor('#9b59b6',this)" style="width:28px;height:28px;border-radius:50%;background:#9b59b6;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Violeta"></div>
-      <div onclick="selectCatColor('#8e44ad',this)" style="width:28px;height:28px;border-radius:50%;background:#8e44ad;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="P├║rpura"></div>
+      <div onclick="selectCatColor('#8e44ad',this)" style="width:28px;height:28px;border-radius:50%;background:#8e44ad;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Púrpura"></div>
       <div onclick="selectCatColor('#e91e63',this)" style="width:28px;height:28px;border-radius:50%;background:#e91e63;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Rosa"></div>
       <div onclick="selectCatColor('#ff5722',this)" style="width:28px;height:28px;border-radius:50%;background:#ff5722;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Rojo naranja"></div>
-      <div onclick="selectCatColor('#795548',this)" style="width:28px;height:28px;border-radius:50%;background:#795548;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Caf├®"></div>
+      <div onclick="selectCatColor('#795548',this)" style="width:28px;height:28px;border-radius:50%;background:#795548;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Café"></div>
       <div onclick="selectCatColor('#607d8b',this)" style="width:28px;height:28px;border-radius:50%;background:#607d8b;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Gris azul"></div>
       <div onclick="selectCatColor('#78909c',this)" style="width:28px;height:28px;border-radius:50%;background:#78909c;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Gris claro"></div>
       <div onclick="selectCatColor('#546e7a',this)" style="width:28px;height:28px;border-radius:50%;background:#546e7a;cursor:pointer;border:3px solid transparent;flex-shrink:0" title="Gris oscuro"></div>
@@ -976,61 +980,61 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     </div>
     <input type="hidden" id="cat-color" value="#3498db">
   </div>
-  <div class="fg"><label>├ìcono (emoji)</label>
+  <div class="fg"><label>Ícono (emoji)</label>
     <div style="display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:6px;max-height:200px;overflow-y:auto" id="cat-icon-picker">
-      <span onclick="selectCatIcon('­ƒøÆ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒøÆ</span>
-      <span onclick="selectCatIcon('­ƒìö',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒìö</span>
-      <span onclick="selectCatIcon('­ƒìò',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒìò</span>
-      <span onclick="selectCatIcon('Ôÿò',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">Ôÿò</span>
-      <span onclick="selectCatIcon('­ƒÜî',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÜî</span>
-      <span onclick="selectCatIcon('­ƒÜù',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÜù</span>
-      <span onclick="selectCatIcon('Ôø¢',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">Ôø¢</span>
-      <span onclick="selectCatIcon('Ô£ê´©Å',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">Ô£ê´©Å</span>
-      <span onclick="selectCatIcon('­ƒÅá',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÅá</span>
-      <span onclick="selectCatIcon('­ƒÆè',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆè</span>
-      <span onclick="selectCatIcon('­ƒÅÑ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÅÑ</span>
-      <span onclick="selectCatIcon('­ƒÆå',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆå</span>
-      <span onclick="selectCatIcon('­ƒôÜ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒôÜ</span>
-      <span onclick="selectCatIcon('­ƒÄô',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄô</span>
-      <span onclick="selectCatIcon('Ô£Å´©Å',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">Ô£Å´©Å</span>
-      <span onclick="selectCatIcon('­ƒÄ¼',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄ¼</span>
-      <span onclick="selectCatIcon('­ƒÄ«',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄ«</span>
-      <span onclick="selectCatIcon('­ƒÄÁ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄÁ</span>
-      <span onclick="selectCatIcon('­ƒæö',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒæö</span>
-      <span onclick="selectCatIcon('­ƒæƒ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒæƒ</span>
-      <span onclick="selectCatIcon('ÔÜí',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">ÔÜí</span>
-      <span onclick="selectCatIcon('­ƒÆº',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆº</span>
-      <span onclick="selectCatIcon('­ƒô▒',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒô▒</span>
-      <span onclick="selectCatIcon('­ƒîÉ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒîÉ</span>
-      <span onclick="selectCatIcon('­ƒÉ¥',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÉ¥</span>
-      <span onclick="selectCatIcon('­ƒæÂ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒæÂ</span>
-      <span onclick="selectCatIcon('­ƒÅï´©Å',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÅï´©Å</span>
-      <span onclick="selectCatIcon('­ƒÆ░',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆ░</span>
-      <span onclick="selectCatIcon('­ƒÆ╝',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆ╝</span>
-      <span onclick="selectCatIcon('­ƒôê',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒôê</span>
-      <span onclick="selectCatIcon('­ƒÅ¬',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÅ¬</span>
-      <span onclick="selectCatIcon('­ƒñØ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒñØ</span>
-      <span onclick="selectCatIcon('ÔÅ░',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">ÔÅ░</span>
-      <span onclick="selectCatIcon('Ô¡É',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">Ô¡É</span>
-      <span onclick="selectCatIcon('­ƒÄ»',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄ»</span>
-      <span onclick="selectCatIcon('­ƒÄü',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄü</span>
-      <span onclick="selectCatIcon('­ƒÆ│',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆ│</span>
-      <span onclick="selectCatIcon('­ƒÅª',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÅª</span>
-      <span onclick="selectCatIcon('­ƒÆí',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆí</span>
-      <span onclick="selectCatIcon('­ƒöº',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒöº</span>
-      <span onclick="selectCatIcon('­ƒøá´©Å',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒøá´©Å</span>
-      <span onclick="selectCatIcon('­ƒôª',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒôª</span>
-      <span onclick="selectCatIcon('­ƒî┐',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒî┐</span>
-      <span onclick="selectCatIcon('­ƒÅí',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÅí</span>
-      <span onclick="selectCatIcon('­ƒÆÄ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÆÄ</span>
-      <span onclick="selectCatIcon('Ôé┐',this)" style="font-size:20px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center;font-weight:700;color:#f7931a">Ôé┐</span>
-      <span onclick="selectCatIcon('­ƒôè',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒôè</span>
-      <span onclick="selectCatIcon('­ƒÄ¬',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒÄ¬</span>
-      <span onclick="selectCatIcon('­ƒîÖ',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">­ƒîÖ</span>
+      <span onclick="selectCatIcon('🛒',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🛒</span>
+      <span onclick="selectCatIcon('🍔',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🍔</span>
+      <span onclick="selectCatIcon('🍕',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🍕</span>
+      <span onclick="selectCatIcon('☕',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">☕</span>
+      <span onclick="selectCatIcon('🚌',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🚌</span>
+      <span onclick="selectCatIcon('🚗',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🚗</span>
+      <span onclick="selectCatIcon('⛽',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">⛽</span>
+      <span onclick="selectCatIcon('✈️',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">✈️</span>
+      <span onclick="selectCatIcon('🏠',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🏠</span>
+      <span onclick="selectCatIcon('💊',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💊</span>
+      <span onclick="selectCatIcon('🏥',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🏥</span>
+      <span onclick="selectCatIcon('💆',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💆</span>
+      <span onclick="selectCatIcon('📚',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">📚</span>
+      <span onclick="selectCatIcon('🎓',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎓</span>
+      <span onclick="selectCatIcon('✏️',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">✏️</span>
+      <span onclick="selectCatIcon('🎬',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎬</span>
+      <span onclick="selectCatIcon('🎮',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎮</span>
+      <span onclick="selectCatIcon('🎵',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎵</span>
+      <span onclick="selectCatIcon('👔',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">👔</span>
+      <span onclick="selectCatIcon('👟',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">👟</span>
+      <span onclick="selectCatIcon('⚡',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">⚡</span>
+      <span onclick="selectCatIcon('💧',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💧</span>
+      <span onclick="selectCatIcon('📱',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">📱</span>
+      <span onclick="selectCatIcon('🌐',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🌐</span>
+      <span onclick="selectCatIcon('🐾',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🐾</span>
+      <span onclick="selectCatIcon('👶',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">👶</span>
+      <span onclick="selectCatIcon('🏋️',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🏋️</span>
+      <span onclick="selectCatIcon('💰',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💰</span>
+      <span onclick="selectCatIcon('💼',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💼</span>
+      <span onclick="selectCatIcon('📈',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">📈</span>
+      <span onclick="selectCatIcon('🏪',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🏪</span>
+      <span onclick="selectCatIcon('🤝',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🤝</span>
+      <span onclick="selectCatIcon('⏰',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">⏰</span>
+      <span onclick="selectCatIcon('⭐',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">⭐</span>
+      <span onclick="selectCatIcon('🎯',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎯</span>
+      <span onclick="selectCatIcon('🎁',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎁</span>
+      <span onclick="selectCatIcon('💳',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💳</span>
+      <span onclick="selectCatIcon('🏦',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🏦</span>
+      <span onclick="selectCatIcon('💡',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💡</span>
+      <span onclick="selectCatIcon('🔧',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🔧</span>
+      <span onclick="selectCatIcon('🛠️',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🛠️</span>
+      <span onclick="selectCatIcon('📦',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">📦</span>
+      <span onclick="selectCatIcon('🌿',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🌿</span>
+      <span onclick="selectCatIcon('🏡',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🏡</span>
+      <span onclick="selectCatIcon('💎',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">💎</span>
+      <span onclick="selectCatIcon('₿',this)" style="font-size:20px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center;font-weight:700;color:#f7931a">₿</span>
+      <span onclick="selectCatIcon('📊',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">📊</span>
+      <span onclick="selectCatIcon('🎪',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🎪</span>
+      <span onclick="selectCatIcon('🌙',this)" style="font-size:22px;cursor:pointer;padding:5px;border-radius:7px;border:1.5px solid transparent;text-align:center">🌙</span>
     </div>
-    <input type="hidden" id="cat-icon" value="­ƒôª">
+    <input type="hidden" id="cat-icon" value="📦">
   </div>
-  <div class="fend"><button class="btn" onclick="closeModal('catMod');openModal('txMod')">Cancelar</button><button class="btn bta" onclick="saveCustomCat()">Crear categor├¡a</button></div>
+  <div class="fend"><button class="btn" onclick="closeModal('catMod');openModal('txMod')">Cancelar</button><button class="btn bta" onclick="saveCustomCat()">Crear categoría</button></div>
 </div></div>
 
 <!-- MODAL EDITAR MOVIMIENTO -->
@@ -1038,9 +1042,9 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="mott">Editar movimiento</div>
   <input type="hidden" id="edit-id">
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px">
-    <button id="edit-tipo-gasto" onclick="setEditTipo('gasto',this)" style="padding:8px;border-radius:var(--rs);border:0.5px solid rgba(231,76,60,.5);background:rgba(231,76,60,.15);color:var(--red);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif">Ôåô Gasto</button>
-    <button id="edit-tipo-ingreso" onclick="setEditTipo('ingreso',this)" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif">Ôåæ Ingreso</button>
-    <button id="edit-tipo-transferencia" onclick="setEditTipo('transferencia',this)" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif">Ôçä Transf.</button>
+    <button id="edit-tipo-gasto" onclick="setEditTipo('gasto',this)" style="padding:8px;border-radius:var(--rs);border:0.5px solid rgba(231,76,60,.5);background:rgba(231,76,60,.15);color:var(--red);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif">↓ Gasto</button>
+    <button id="edit-tipo-ingreso" onclick="setEditTipo('ingreso',this)" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif">↑ Ingreso</button>
+    <button id="edit-tipo-transferencia" onclick="setEditTipo('transferencia',this)" style="padding:8px;border-radius:var(--rs);border:0.5px solid var(--bdr);background:var(--bg3);color:var(--t3);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif">⇄ Transf.</button>
   </div>
   <input type="hidden" id="edit-tipo" value="gasto">
   <div style="display:flex;align-items:center;gap:8px;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:10px 14px;margin-bottom:12px">
@@ -1048,20 +1052,20 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     <input type="number" id="edit-monto" step="any" placeholder="0,00" style="flex:1;background:transparent;border:none;font-size:22px;font-weight:600;color:var(--t1);font-family:'JetBrains Mono',monospace;outline:none">
     <span style="font-size:11px;color:var(--t3)">ARS</span>
   </div>
-  <div class="fg"><label>Descripci├│n</label><input type="text" id="edit-desc" placeholder="descripci├│n del movimiento"></div>
+  <div class="fg"><label>Descripción</label><input type="text" id="edit-desc" placeholder="descripción del movimiento"></div>
   <div class="fr">
     <div class="fg"><label>Fecha</label><input type="date" id="edit-fecha"></div>
     <div class="fg"><label>Cuenta</label><select id="edit-acc" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 10px;font-size:12px;color:var(--t1);width:100%;font-family:'Outfit',sans-serif"></select></div>
   </div>
-  <div class="fg"><label>Categor├¡a</label><select id="edit-cat" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 10px;font-size:12px;color:var(--t1);width:100%;font-family:'Outfit',sans-serif"></select></div>
-  <div class="fend"><button class="btn" onclick="closeModal('editTxMod')">Cancelar</button><button class="btn bta" onclick="saveEditTx()">Guardar cambios Ô£ô</button></div>
+  <div class="fg"><label>Categoría</label><select id="edit-cat" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 10px;font-size:12px;color:var(--t1);width:100%;font-family:'Outfit',sans-serif"></select></div>
+  <div class="fend"><button class="btn" onclick="closeModal('editTxMod')">Cancelar</button><button class="btn bta" onclick="saveEditTx()">Guardar cambios ✓</button></div>
 </div></div>
 
-<!-- MODAL PR├ëSTAMO -->
+<!-- MODAL PRÉSTAMO -->
 <div class="mb" id="loanMod"><div class="mo">
-  <div class="mott">Pr├®stamo entre cuentas</div>
+  <div class="mott">Préstamo entre cuentas</div>
   <div style="background:rgba(0,188,212,.08);border:0.5px solid rgba(0,188,212,.25);border-radius:var(--rs);padding:9px 12px;margin-bottom:12px;font-size:11px;color:var(--cyan)">
-    Registr├í cuando prest├ís o tom├ís prestado entre tus propias cuentas. Ej: tom├ís $5.000 de tu cuenta negocio y la pon├®s en tu billetera.
+    Registrá cuando prestás o tomás prestado entre tus propias cuentas. Ej: tomás $5.000 de tu cuenta negocio y la ponés en tu billetera.
   </div>
   <div class="fr">
     <div class="fg"><label>Cuenta que presta</label><select id="ln-from"></select></div>
@@ -1069,10 +1073,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div class="fr">
     <div class="fg"><label>Monto</label><input type="number" id="ln-am" placeholder="0.00"></div>
-    <div class="fg"><label>Fecha devoluci├│n</label><input type="date" id="ln-due"></div>
+    <div class="fg"><label>Fecha devolución</label><input type="date" id="ln-due"></div>
   </div>
-  <div class="fg"><label>Descripci├│n / motivo</label><input type="text" id="ln-de" placeholder="ej: fondos para gastos del mes"></div>
-  <div class="fend"><button class="btn" onclick="closeModal('loanMod')">Cancelar</button><button class="btn bta" onclick="saveLoan()">Registrar pr├®stamo</button></div>
+  <div class="fg"><label>Descripción / motivo</label><input type="text" id="ln-de" placeholder="ej: fondos para gastos del mes"></div>
+  <div class="fend"><button class="btn" onclick="closeModal('loanMod')">Cancelar</button><button class="btn bta" onclick="saveLoan()">Registrar préstamo</button></div>
 </div></div>
 
 <!-- MODAL EDITAR CUENTA -->
@@ -1081,16 +1085,16 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <input type="hidden" id="ea-id">
   <div class="fg"><label>Nombre de la cuenta</label><input type="text" id="ea-nm" placeholder="ej: Wallet, Negocio..."></div>
   <!-- Icono visual -->
-  <div class="fg"><label>├ìcono y tipo</label>
+  <div class="fg"><label>Ícono y tipo</label>
     <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin-top:5px" id="ea-icon-picker">
-      <span onclick="selectAccIcon('billetera',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Billetera">­ƒÆ│</span>
-      <span onclick="selectAccIcon('corriente',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Banco">­ƒÅª</span>
-      <span onclick="selectAccIcon('ahorro',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Ahorro">­ƒÆ░</span>
-      <span onclick="selectAccIcon('efectivo',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Efectivo">­ƒÆÁ</span>
-      <span onclick="selectAccIcon('negocio',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Negocio">­ƒÅ¬</span>
-      <span onclick="selectAccIcon('prestamos',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Pr├®stamos">­ƒñØ</span>
-      <span onclick="selectAccIcon('inversi├│n',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Inversi├│n">­ƒôê</span>
-      <span onclick="selectAccIcon('cr├®dito',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Cr├®dito">­ƒÆ┤</span>
+      <span onclick="selectAccIcon('billetera',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Billetera">💳</span>
+      <span onclick="selectAccIcon('corriente',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Banco">🏦</span>
+      <span onclick="selectAccIcon('ahorro',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Ahorro">💰</span>
+      <span onclick="selectAccIcon('efectivo',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Efectivo">💵</span>
+      <span onclick="selectAccIcon('negocio',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Negocio">🏪</span>
+      <span onclick="selectAccIcon('prestamos',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Préstamos">🤝</span>
+      <span onclick="selectAccIcon('inversión',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Inversión">📈</span>
+      <span onclick="selectAccIcon('crédito',this)" style="font-size:22px;cursor:pointer;padding:6px;border-radius:8px;border:1.5px solid transparent;text-align:center" title="Crédito">💴</span>
     </div>
     <input type="hidden" id="ea-tipo" value="billetera">
   </div>
@@ -1100,7 +1104,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
       <div onclick="selectAccColor('blue',this)" style="width:30px;height:30px;border-radius:50%;background:#3498db;cursor:pointer;border:3px solid transparent" title="Azul"></div>
       <div onclick="selectAccColor('green',this)" style="width:30px;height:30px;border-radius:50%;background:#2ecc71;cursor:pointer;border:3px solid transparent" title="Verde"></div>
       <div onclick="selectAccColor('teal',this)" style="width:30px;height:30px;border-radius:50%;background:#1abc9c;cursor:pointer;border:3px solid transparent" title="Teal"></div>
-      <div onclick="selectAccColor('amber',this)" style="width:30px;height:30px;border-radius:50%;background:#f39c12;cursor:pointer;border:3px solid transparent" title="├ümbar"></div>
+      <div onclick="selectAccColor('amber',this)" style="width:30px;height:30px;border-radius:50%;background:#f39c12;cursor:pointer;border:3px solid transparent" title="Ámbar"></div>
       <div onclick="selectAccColor('red',this)" style="width:30px;height:30px;border-radius:50%;background:#e74c3c;cursor:pointer;border:3px solid transparent" title="Rojo"></div>
       <div onclick="selectAccColor('purple',this)" style="width:30px;height:30px;border-radius:50%;background:#9b59b6;cursor:pointer;border:3px solid transparent" title="Violeta"></div>
       <div onclick="selectAccColor('coral',this)" style="width:30px;height:30px;border-radius:50%;background:#e67e22;cursor:pointer;border:3px solid transparent" title="Naranja"></div>
@@ -1114,7 +1118,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   <div class="fr">
     <div class="fg"><label>Saldo actual ($)</label>
       <input type="number" id="ea-saldo" placeholder="0" step="any">
-      <div style="font-size:10px;color:var(--t3);margin-top:3px">Ajuste autom├ítico al cambiar</div>
+      <div style="font-size:10px;color:var(--t3);margin-top:3px">Ajuste automático al cambiar</div>
     </div>
     <div class="fg"><label>Moneda</label>
       <select id="ea-currency" style="background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:7px 10px;font-size:12px;color:var(--t1);width:100%;font-family:'Outfit',sans-serif">
@@ -1124,7 +1128,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div class="fend">
     <button class="btn" onclick="closeModal('editAccMod')">Cancelar</button>
-    <button class="btn bta" onclick="saveEditAcc()">Guardar cambios Ô£ô</button>
+    <button class="btn bta" onclick="saveEditAcc()">Guardar cambios ✓</button>
   </div>
 </div></div>
 
@@ -1132,10 +1136,10 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 <!-- MODAL CUENTA -->
 <div class="mb" id="accMod"><div class="mo">
   <div class="mott">Nueva cuenta</div>
-  <div class="fg"><label>Nombre</label><input type="text" id="a-nm" placeholder="ej: Billetera, Negocio, Pr├®stamos..."></div>
+  <div class="fg"><label>Nombre</label><input type="text" id="a-nm" placeholder="ej: Billetera, Negocio, Préstamos..."></div>
   <div class="fr">
-    <div class="fg"><label>Tipo</label><select id="a-tp"><option value="billetera">Billetera digital</option><option value="corriente">Cuenta corriente</option><option value="ahorro">Ahorro</option><option value="efectivo">Efectivo</option><option value="negocio">Negocio</option><option value="prestamos">Pr├®stamos</option><option value="inversi├│n">Inversiones</option><option value="cr├®dito">Cr├®dito</option></select></div>
-    <div class="fg"><label>Color</label><select id="a-co"><option value="blue">Azul</option><option value="green">Verde</option><option value="teal">Teal</option><option value="amber">├ümbar</option><option value="red">Rojo</option><option value="purple">Violeta</option><option value="coral">Coral</option></select></div>
+    <div class="fg"><label>Tipo</label><select id="a-tp"><option value="billetera">Billetera digital</option><option value="corriente">Cuenta corriente</option><option value="ahorro">Ahorro</option><option value="efectivo">Efectivo</option><option value="negocio">Negocio</option><option value="prestamos">Préstamos</option><option value="inversión">Inversiones</option><option value="crédito">Crédito</option></select></div>
+    <div class="fg"><label>Color</label><select id="a-co"><option value="blue">Azul</option><option value="green">Verde</option><option value="teal">Teal</option><option value="amber">Ámbar</option><option value="red">Rojo</option><option value="purple">Violeta</option><option value="coral">Coral</option></select></div>
   </div>
   <div class="fr">
     <div class="fg"><label>Saldo inicial</label><input type="number" id="a-in" placeholder="0"></div>
@@ -1154,18 +1158,18 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div class="fr">
     <div class="fg"><label>Cuenta asociada</label><select id="g-ac"></select></div>
-    <div class="fg"><label>Fecha l├¡mite</label><input type="date" id="g-dt"></div>
+    <div class="fg"><label>Fecha límite</label><input type="date" id="g-dt"></div>
   </div>
-  <div class="fg"><label>Color</label><select id="g-co"><option value="#2ecc71">Verde</option><option value="#3498db">Azul</option><option value="#9b59b6">Violeta</option><option value="#f39c12">├ümbar</option><option value="#e74c3c">Rojo</option></select></div>
+  <div class="fg"><label>Color</label><select id="g-co"><option value="#2ecc71">Verde</option><option value="#3498db">Azul</option><option value="#9b59b6">Violeta</option><option value="#f39c12">Ámbar</option><option value="#e74c3c">Rojo</option></select></div>
   <div class="fend"><button class="btn" onclick="closeModal('goalMod')">Cancelar</button><button class="btn bta" onclick="saveGoal()">Crear meta</button></div>
 </div></div>
 
 <!-- MODAL PRESUPUESTO -->
 <div class="mb" id="budgetMod"><div class="mo">
   <div class="mott">Nuevo presupuesto mensual</div>
-  <div class="fg"><label>Categor├¡a</label><select id="b-ca"><option>alimentaci├│n</option><option>transporte</option><option>vivienda</option><option>salud</option><option>entretenimiento</option><option>educaci├│n</option><option>ropa</option><option>servicios</option><option>otros</option></select></div>
+  <div class="fg"><label>Categoría</label><select id="b-ca"><option>alimentación</option><option>transporte</option><option>vivienda</option><option>salud</option><option>entretenimiento</option><option>educación</option><option>ropa</option><option>servicios</option><option>otros</option></select></div>
   <div class="fr">
-    <div class="fg"><label>L├¡mite mensual ($)</label><input type="number" id="b-li" placeholder="0"></div>
+    <div class="fg"><label>Límite mensual ($)</label><input type="number" id="b-li" placeholder="0"></div>
     <div class="fg"><label>Alertar al (%)</label><input type="number" id="b-wa" value="80" placeholder="80"></div>
   </div>
   <div class="fend"><button class="btn" onclick="closeModal('budgetMod')">Cancelar</button><button class="btn bta" onclick="saveBudget()">Guardar</button></div>
@@ -1178,7 +1182,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
     <div class="fg"><label>Nombre / Ticker</label><input type="text" id="as-nm" placeholder="ej: BTC, AAPL, ETH..."></div>
     <div class="fg"><label>Tipo</label><select id="as-tp">
       <option value="crypto">Criptomoneda</option>
-      <option value="stock">Acci├│n (stock)</option>
+      <option value="stock">Acción (stock)</option>
       <option value="etf">ETF / Fondo</option>
       <option value="bono">Bono / Plazo fijo</option>
       <option value="forex">Forex</option>
@@ -1201,7 +1205,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 <div class="mb" id="botMod"><div class="mo">
   <div class="mott">Nuevo bot de trading</div>
   <div style="background:rgba(0,188,212,.07);border:0.5px solid rgba(0,188,212,.2);border-radius:var(--rs);padding:9px 12px;margin-bottom:12px;font-size:11px;color:var(--cyan)">
-    Registr├í tu bot automatizado para trackear su rendimiento y ganancias acumuladas.
+    Registrá tu bot automatizado para trackear su rendimiento y ganancias acumuladas.
   </div>
   <div class="fr">
     <div class="fg"><label>Nombre del bot</label><input type="text" id="bt-nm" placeholder="ej: Grid BTC/USDT"></div>
@@ -1231,22 +1235,22 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
   </div>
   <div class="fg"><label>Color identificador</label><select id="bt-col">
     <option value="#2ecc71">Verde</option><option value="#3498db">Azul</option>
-    <option value="#f39c12">├ümbar</option><option value="#9b59b6">Violeta</option>
+    <option value="#f39c12">Ámbar</option><option value="#9b59b6">Violeta</option>
     <option value="#1abc9c">Teal</option><option value="#e74c3c">Rojo</option>
   </select></div>
   <div class="fend"><button class="btn" onclick="closeModal('botMod')">Cancelar</button><button class="btn bta" onclick="saveBot()">Crear bot</button></div>
 </div></div>
 
-<!-- MODAL OPERACI├ôN BOT -->
+<!-- MODAL OPERACIÓN BOT -->
 <div class="mb" id="botTxMod"><div class="mo">
-  <div class="mott">Registrar operaci├│n de bot</div>
+  <div class="mott">Registrar operación de bot</div>
   <div class="fr">
     <div class="fg"><label>Bot</label><select id="bttx-bot"></select></div>
     <div class="fg"><label>Fecha</label><input type="date" id="bttx-dt"></div>
   </div>
   <div class="fr">
     <div class="fg"><label>Par</label><input type="text" id="bttx-pair" placeholder="BTC/USDT"></div>
-    <div class="fg"><label>Tipo</label><select id="bttx-tp"><option value="ganancia">Ganancia</option><option value="p├®rdida">P├®rdida</option></select></div>
+    <div class="fg"><label>Tipo</label><select id="bttx-tp"><option value="ganancia">Ganancia</option><option value="pérdida">Pérdida</option></select></div>
   </div>
   <div class="fr">
     <div class="fg"><label>Resultado (USD)</label><input type="number" id="bttx-res" placeholder="0.00" step="any"></div>
@@ -1258,7 +1262,7 @@ tr:hover td{background:rgba(255, 0, 127, 0.05);}
 <!-- MODAL ACTUALIZAR PRECIOS -->
 <div class="mb" id="assetPricesMod"><div class="mo">
   <div class="mott">Actualizar precios actuales</div>
-  <div style="font-size:11px;color:var(--t3);margin-bottom:12px">Ingres├í el precio actual de cada activo en USD para recalcular el rendimiento.</div>
+  <div style="font-size:11px;color:var(--t3);margin-bottom:12px">Ingresá el precio actual de cada activo en USD para recalcular el rendimiento.</div>
   <div id="prices-form"></div>
   <div class="fend"><button class="btn" onclick="closeModal('assetPricesMod')">Cancelar</button><button class="btn bta" onclick="savePrices()">Actualizar</button></div>
 </div></div>
@@ -1297,7 +1301,7 @@ async function doLogin(){
   const pass = document.getElementById('login-pass').value;
   const errEl = document.getElementById('login-error');
   const btn = document.getElementById('login-btn');
-  if(!email || !pass){ errEl.textContent='Complet├í email y contrase├▒a'; errEl.style.display='block'; return; }
+  if(!email || !pass){ errEl.textContent='Completá email y contraseña'; errEl.style.display='block'; return; }
   btn.textContent = 'Iniciando...'; btn.disabled = true;
   try{
     const {data, error} = await supa.auth.signInWithPassword({email, password: pass});
@@ -1310,9 +1314,9 @@ async function doLogin(){
     scheduleAutoSave();
     refreshAll();
   }catch(e){
-    errEl.textContent = e.message === 'Invalid login credentials' ? 'Email o contrase├▒a incorrectos' : e.message;
+    errEl.textContent = e.message === 'Invalid login credentials' ? 'Email o contraseña incorrectos' : e.message;
     errEl.style.display = 'block';
-    btn.textContent = 'Iniciar sesi├│n'; btn.disabled = false;
+    btn.textContent = 'Iniciar sesión'; btn.disabled = false;
   }
 }
 
@@ -1321,8 +1325,8 @@ async function doRegister(){
   const pass = document.getElementById('login-pass').value;
   const errEl = document.getElementById('login-error');
   const btn = document.getElementById('register-btn');
-  if(!email || !pass){ errEl.textContent='Complet├í email y contrase├▒a'; errEl.style.display='block'; return; }
-  if(pass.length < 6){ errEl.textContent='La contrase├▒a debe tener m├¡nimo 6 caracteres'; errEl.style.display='block'; return; }
+  if(!email || !pass){ errEl.textContent='Completá email y contraseña'; errEl.style.display='block'; return; }
+  if(pass.length < 6){ errEl.textContent='La contraseña debe tener mínimo 6 caracteres'; errEl.style.display='block'; return; }
   btn.textContent = 'Creando cuenta...'; btn.disabled = true;
   try{
     const {data, error} = await supa.auth.signUp({email, password: pass});
@@ -1333,7 +1337,7 @@ async function doRegister(){
     showSyncStatus('conectado');
     scheduleAutoSave();
     refreshAll();
-    alert('┬íCuenta creada! Revis├í tu email para confirmar (si Supabase lo requiere).');
+    alert('¡Cuenta creada! Revisá tu email para confirmar (si Supabase lo requiere).');
   }catch(e){
     errEl.textContent = e.message;
     errEl.style.display = 'block';
@@ -1350,10 +1354,10 @@ function showSyncStatus(status){
   const el = document.getElementById('sync-status');
   if(!el) return;
   const cfg = {
-    conectado: {text:'Ôÿü Sincronizado', color:'var(--green)'},
-    sincronizando: {text:'Ôå╗ Guardando...', color:'var(--amber)'},
-    local: {text:'­ƒÆ¥ Local', color:'var(--t3)'},
-    error: {text:'ÔÜá Sin conexi├│n', color:'var(--red)'},
+    conectado: {text:'☁ Sincronizado', color:'var(--green)'},
+    sincronizando: {text:'↻ Guardando...', color:'var(--amber)'},
+    local: {text:'💾 Local', color:'var(--t3)'},
+    error: {text:'⚠ Sin conexión', color:'var(--red)'},
   };
   const s = cfg[status] || cfg.local;
   el.textContent = s.text;
@@ -1454,16 +1458,16 @@ function saveS(){
 
 
 const CC={blue:'#3498db',green:'#2ecc71',teal:'#1abc9c',amber:'#f39c12',red:'#e74c3c',purple:'#9b59b6',coral:'#e67e22',pink:'#e91e63',cyan:'#00bcd4',gray:'#607d8b'};
-const KC={alimentaci├│n:'#e74c3c','comida-rapida':'#e67e22',transporte:'#3498db',combustible:'#78909c',vivienda:'#9b59b6',salud:'#e91e63',educaci├│n:'#1abc9c',entretenimiento:'#f39c12',ropa:'#e67e22',servicios:'#ffa726',telefono:'#536dfe',mascotas:'#4fc3f7','ni├▒os':'#81c784','pr├®stamo pagado':'#f44336','inversi├│n-gasto':'#ff4081',otros:'#607d8b',salario:'#2ecc71','horas-extras':'#27ae60',ventas:'#f39c12',negocio:'#ff6f00','inversi├│n':'#0f6e56','pr├®stamo cobrado':'#185fa5',plus:'#f1c40f','comisi├│n':'#8e44ad','alquiler-cobrado':'#1abc9c',dividendos:'#2980b9',regalo:'#e91e63','otros-ingreso':'#607d8b',transferencia:'#00bcd4',// legado BudgetBakers
-'inversi├│n-vieja':'#0f6e56','pr├®stamo pagado viejo':'#993c1d',retiro:'#534ab7',dep├│sito:'#3b6d11'};
+const KC={alimentación:'#e74c3c','comida-rapida':'#e67e22',transporte:'#3498db',combustible:'#78909c',vivienda:'#9b59b6',salud:'#e91e63',educación:'#1abc9c',entretenimiento:'#f39c12',ropa:'#e67e22',servicios:'#ffa726',telefono:'#536dfe',mascotas:'#4fc3f7','niños':'#81c784','préstamo pagado':'#f44336','inversión-gasto':'#ff4081',otros:'#607d8b',salario:'#2ecc71','horas-extras':'#27ae60',ventas:'#f39c12',negocio:'#ff6f00','inversión':'#0f6e56','préstamo cobrado':'#185fa5',plus:'#f1c40f','comisión':'#8e44ad','alquiler-cobrado':'#1abc9c',dividendos:'#2980b9',regalo:'#e91e63','otros-ingreso':'#607d8b',transferencia:'#00bcd4',// legado BudgetBakers
+'inversión-vieja':'#0f6e56','préstamo pagado viejo':'#993c1d',retiro:'#534ab7',depósito:'#3b6d11'};
 const CRYPTO_LOGOS={
-  BTC:'Ôé┐',ETH:'╬×',SOL:'ÔùÄ',BNB:'Ô¼í',ADA:'Ôé│',DOT:'ÔùÅ',MATIC:'Ô¼ƒ',AVAX:'Ôû▓',
-  LINK:'­ƒöù',UNI:'­ƒªä',ATOM:'ÔÜø',XRP:'Ô£ò',LTC:'┼ü',BCH:'Ôé┐',DOGE:'├É',SHIB:'­ƒÉò',
-  SPY:'­ƒôè',AAPL:'­ƒìÄ',GOOG:'G',AMZN:'A',MSFT:'Ôè×',TSLA:'ÔÜí',META:'ãÆ',
-  PF:'%',USD:'$',EUR:'Ôé¼',ARG:'Ôé▒',
+  BTC:'₿',ETH:'Ξ',SOL:'◎',BNB:'⬡',ADA:'₳',DOT:'●',MATIC:'⬟',AVAX:'▲',
+  LINK:'🔗',UNI:'🦄',ATOM:'⚛',XRP:'✕',LTC:'Ł',BCH:'₿',DOGE:'Ð',SHIB:'🐕',
+  SPY:'📊',AAPL:'🍎',GOOG:'G',AMZN:'A',MSFT:'⊞',TSLA:'⚡',META:'ƒ',
+  PF:'%',USD:'$',EUR:'€',ARG:'₱',
 };
-const ICONS={billetera:'­ƒÆ│',corriente:'­ƒÅª',ahorro:'­ƒÆ░',efectivo:'­ƒÆÁ',negocio:'­ƒÅ¬',prestamos:'­ƒñØ',inversi├│n:'­ƒôê',cr├®dito:'­ƒÆ┤'};
-const TITLES={dash:'Dashboard',general:'Balance general',estadisticas:'Estad├¡sticas',cuentas:'Cuentas',movimientos:'Movimientos',prestamos:'Pr├®stamos entre cuentas',metas:'Metas de ahorro',alertas:'Presupuestos',portafolio:'Portafolio de inversiones',bots:'Cuenta automatizada',ia:'IA Financiera',api:'API'};
+const ICONS={billetera:'💳',corriente:'🏦',ahorro:'💰',efectivo:'💵',negocio:'🏪',prestamos:'🤝',inversión:'📈',crédito:'💴'};
+const TITLES={dash:'Dashboard',general:'Balance general',estadisticas:'Estadísticas',cuentas:'Cuentas',movimientos:'Movimientos',prestamos:'Préstamos entre cuentas',metas:'Metas de ahorro',alertas:'Presupuestos',portafolio:'Portafolio de inversiones',bots:'Cuenta automatizada',ia:'IA Financiera',api:'API'};
 
 function loadS(){
   try{
@@ -1481,9 +1485,9 @@ const DEF={tc:1450,
 accounts:[
   {id:1,name:'Wallet',type:'billetera',color:'teal',currency:'ARS',initial:0},
   {id:2,name:'Negocio',type:'negocio',color:'amber',currency:'ARS',initial:0},
-  {id:3,name:'Inversi├│n',type:'inversi├│n',color:'green',currency:'ARS',initial:0},
+  {id:3,name:'Inversión',type:'inversión',color:'green',currency:'ARS',initial:0},
   {id:4,name:'Prestamos',type:'prestamos',color:'purple',currency:'ARS',initial:0},
-  {id:5,name:'Trading',type:'inversi├│n',color:'blue',currency:'ARS',initial:0},
+  {id:5,name:'Trading',type:'inversión',color:'blue',currency:'ARS',initial:0},
   {id:6,name:'Automatizada',type:'ahorro',color:'green',currency:'ARS',initial:0},
 ],
 transactions:[],loans:[],goals:[],budgets:[],
@@ -1582,7 +1586,7 @@ function renderDash(){
   const gg=periodTxs.filter(t=>t.type==='gasto').reduce((s,t)=>s+t.amount,0);
   const neto=gi-gg,flujo=gi-gg;
   // Update period label
-  const labels={hoy:'Hoy',sem:'Esta semana',mes:'Este mes',trim:'├Ültimos 3 meses',todo:'Todo el per├¡odo'};
+  const labels={hoy:'Hoy',sem:'Esta semana',mes:'Este mes',trim:'Últimos 3 meses',todo:'Todo el período'};
   const lbl=document.getElementById('dash-period-label');
   if(lbl) lbl.textContent=labels[dashPeriod]||'';
 
@@ -1597,7 +1601,7 @@ function renderDash(){
     <div class="met"><div class="ml">Resultado neto</div><div class="mv ${neto>=0?'pos':'neg'}">${fmt(neto)}</div></div>
   `;
   updateTCDisplay();
-  // Cat bars ÔÇö todas las cuentas (filtered by period)
+  // Cat bars — todas las cuentas (filtered by period)
   const catT={};periodTxs.filter(t=>t.type==='gasto').forEach(t=>{catT[t.category]=(catT[t.category]||0)+t.amount;});
   const allCatsForBars=[...CATS_GASTO,...CATS_INGRESO,...(S.customCats||[])];
   const sorted=Object.entries(catT).sort((a,b)=>b[1]-a[1]).slice(0,6);
@@ -1633,7 +1637,7 @@ function renderDash(){
   const pt=pd.reduce((s,v)=>s+v,0)||1;
   document.getElementById('leg-pat').innerHTML=S.accounts.map((a,i)=>`<div class="li"><div class="lsq" style="background:${CC[a.color]}"></div><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:80px">${a.name}</span><span class="lp">${Math.round(pd[i]/pt*100)}%</span></div>`).join('');
 
-  // ÔÇö GASTOS POR CUENTA ÔÇö botones filtro + panel por cuenta
+  // — GASTOS POR CUENTA — botones filtro + panel por cuenta
   let selectedAccId = S.accounts[0]?.id;
   function buildAccCatSection(accId){
     const a=S.accounts.find(x=>x.id===accId);if(!a)return;
@@ -1660,7 +1664,7 @@ function renderDash(){
         <div style="width:32px;height:32px;border-radius:8px;background:${col}22;display:flex;align-items:center;justify-content:center;font-size:16px;color:${col}">${ICONS[a.type]||'?'}</div>
         <div>
           <div style="font-size:14px;font-weight:600;color:var(--t1)">${a.name}</div>
-          <div style="font-size:11px;color:var(--t3)">Gastos: ${fmt(total,a.currency)} ┬À Ingresos: ${fmt(totalI,a.currency)}</div>
+          <div style="font-size:11px;color:var(--t3)">Gastos: ${fmt(total,a.currency)} · Ingresos: ${fmt(totalI,a.currency)}</div>
         </div>
         <div style="margin-left:auto;display:flex;gap:16px;text-align:right">
           <div>
@@ -1675,7 +1679,7 @@ function renderDash(){
       </div>
       <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px">
         <div>
-          <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Ôåô Gastos por categor├¡a</div>
+          <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">↓ Gastos por categoría</div>
           ${entries.length ? entries.map(([cat,v])=>{
             const pct=Math.round(v/total*100);
             const barW=Math.round(v/mxV*100);
@@ -1687,7 +1691,7 @@ function renderDash(){
                 <div style="display:flex;align-items:center;gap:5px">
                   ${icon?`<span style="font-size:13px">${icon}</span>`:`<div style="width:7px;height:7px;border-radius:50%;background:${KC[cat]||'#888'};flex-shrink:0"></div>`}
                   <span style="font-size:12px;color:var(--t2)">${name}</span>
-                  ${ov?`<span style="font-size:9px;color:var(--red);font-weight:600">ÔÜá</span>`:''}
+                  ${ov?`<span style="font-size:9px;color:var(--red);font-weight:600">⚠</span>`:''}
                 </div>
                 <div style="display:flex;gap:8px;align-items:center">
                   <span style="font-size:11px;font-weight:600;color:${ov?'var(--red)':'var(--t1)'}">%${pct}</span>
@@ -1701,7 +1705,7 @@ function renderDash(){
           }).join('') : '<div style="color:var(--t3);font-size:12px">Sin gastos</div>'}
         </div>
         <div>
-          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Ôåæ Ingresos por categor├¡a</div>
+          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">↑ Ingresos por categoría</div>
           ${entriesI.length ? entriesI.map(([cat,v])=>{
             const pct=Math.round(v/totalI*100);
             const barW=Math.round(v/mxVI*100);
@@ -1783,13 +1787,13 @@ function renderGeneral(){
   const gi=totalI(),gg=totalG();
   document.getElementById('g-mets').innerHTML=`
     <div class="met"><div class="ml">ARS total</div><div class="mv pos">${fmt(arsT)}</div></div>
-    <div class="met"><div class="ml">USD ÔåÆ ARS</div><div class="mv neu">${fmt(usdT*S.tc)}</div></div>
+    <div class="met"><div class="ml">USD → ARS</div><div class="mv neu">${fmt(usdT*S.tc)}</div></div>
     <div class="met"><div class="ml">Consolidado</div><div class="mv pos">${fmt(arsT+usdT*S.tc)}</div></div>
     <div class="met"><div class="ml">Ingresos</div><div class="mv pos">${fmt(gi)}</div></div>
     <div class="met"><div class="ml">Gastos</div><div class="mv neg">${fmt(gg)}</div></div>
     <div class="met"><div class="ml">Neto</div><div class="mv ${gi-gg>=0?'pos':'neg'}">${fmt(gi-gg)}</div></div>
   `;
-  document.getElementById('tc-banner').innerHTML=`<span>TC: 1 USD = ${fmt(S.tc)}</span><span style="color:var(--t4)">┬À</span><span>${fmt(usdT,'USD')} ÔåÆ ${fmt(usdT*S.tc)}</span><span style="color:var(--t4)">┬À</span><span>Total: ${fmt(arsT+usdT*S.tc)} ARS</span>`;
+  document.getElementById('tc-banner').innerHTML=`<span>TC: 1 USD = ${fmt(S.tc)}</span><span style="color:var(--t4)">·</span><span>${fmt(usdT,'USD')} → ${fmt(usdT*S.tc)}</span><span style="color:var(--t4)">·</span><span>Total: ${fmt(arsT+usdT*S.tc)} ARS</span>`;
   mkCh('ch-ig','bar',{labels:S.accounts.map(a=>a.name.split(' ').slice(0,2).join(' ')),datasets:[{label:'Ingresos',data:S.accounts.map(a=>S.transactions.filter(t=>t.accountId===a.id&&t.type==='ingreso').reduce((s,t)=>s+t.amount,0)),backgroundColor:'rgba(46,204,113,.65)',borderRadius:3},{label:'Gastos',data:S.accounts.map(a=>S.transactions.filter(t=>t.accountId===a.id&&t.type==='gasto').reduce((s,t)=>s+t.amount,0)),backgroundColor:'rgba(231,76,60,.65)',borderRadius:3}]},{...gridOpts,scales:{...gridOpts.scales,x:{...gridOpts.scales.x,ticks:{...gridOpts.scales.x.ticks,autoSkip:false,maxRotation:30}}}});
   const pd=S.accounts.map(a=>Math.max(0,toARS(getBal(a.id),a.currency)));
   mkCh('ch-port','doughnut',{labels:S.accounts.map(a=>a.name),datasets:[{data:pd,backgroundColor:S.accounts.map(a=>CC[a.color]),borderWidth:0,hoverOffset:3}]},{cutout:'60%'});
@@ -1823,7 +1827,7 @@ function buildStatSaldo(){
   const arsT=S.accounts.filter(a=>a.currency==='ARS').reduce((s,a)=>s+getBal(a.id),0);
   const prev=arsT*.51;
   const pct=Math.round((arsT-prev)/prev*100);
-  document.getElementById('stat-trend-pct').innerHTML=`<span class="${pct>=0?'trend-pos':'trend-neg'}">${pct>=0?'+':''}${pct}%</span><div style="font-size:10px;color:var(--t3);font-weight:400;margin-top:2px">vs per├¡odo anterior</div>`;
+  document.getElementById('stat-trend-pct').innerHTML=`<span class="${pct>=0?'trend-pos':'trend-neg'}">${pct>=0?'+':''}${pct}%</span><div style="font-size:10px;color:var(--t3);font-weight:400;margin-top:2px">vs período anterior</div>`;
   const days=['26 mar','27 mar','28 mar','29 mar','30 mar','31 mar','Hoy'];
   const vals=[38000,52000,79000,81000,79000,82000,arsT];
   mkCh('ch-tend','line',{labels:days,datasets:[{data:vals,borderColor:'#3498db',backgroundColor:'rgba(52,152,219,.12)',tension:.4,fill:true,pointBackgroundColor:'#3498db',pointRadius:3}]},gridOpts);
@@ -1850,11 +1854,11 @@ function buildStatComp(mode){
   document.querySelectorAll('#comp-tabs .ptab').forEach(b=>b.classList.remove('on'));
   const per=['7D actual','7D anterior','Hace 30D'];
   const datasets={
-    flujo:[{label:'Per├¡odo actual',data:[0,5000,28000,0,0,48000],borderColor:'#3498db',backgroundColor:'rgba(52,152,219,.1)',tension:.4,fill:true},{label:'Per├¡odo anterior',data:[0,2000,40000,0,0,30000],borderColor:'#e91e63',backgroundColor:'rgba(233,30,99,.08)',tension:.4,fill:true}],
-    gastos:[{label:'Per├¡odo actual',data:[0,0,9700,0,0,0,42000],borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,.1)',tension:.4,fill:true},{label:'Per├¡odo anterior',data:[0,12000,5000,0,0,3000,0],borderColor:'#f39c12',backgroundColor:'rgba(243,156,18,.08)',tension:.4,fill:true}],
-    ingresos:[{label:'Per├¡odo actual',data:[0,0,30000,0,0,320000,95000],borderColor:'#2ecc71',backgroundColor:'rgba(46,204,113,.1)',tension:.4,fill:true},{label:'Per├¡odo anterior',data:[0,0,0,0,50000,0,80000],borderColor:'#1abc9c',backgroundColor:'rgba(26,188,156,.08)',tension:.4,fill:true}]
+    flujo:[{label:'Período actual',data:[0,5000,28000,0,0,48000],borderColor:'#3498db',backgroundColor:'rgba(52,152,219,.1)',tension:.4,fill:true},{label:'Período anterior',data:[0,2000,40000,0,0,30000],borderColor:'#e91e63',backgroundColor:'rgba(233,30,99,.08)',tension:.4,fill:true}],
+    gastos:[{label:'Período actual',data:[0,0,9700,0,0,0,42000],borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,.1)',tension:.4,fill:true},{label:'Período anterior',data:[0,12000,5000,0,0,3000,0],borderColor:'#f39c12',backgroundColor:'rgba(243,156,18,.08)',tension:.4,fill:true}],
+    ingresos:[{label:'Período actual',data:[0,0,30000,0,0,320000,95000],borderColor:'#2ecc71',backgroundColor:'rgba(46,204,113,.1)',tension:.4,fill:true},{label:'Período anterior',data:[0,0,0,0,50000,0,80000],borderColor:'#1abc9c',backgroundColor:'rgba(26,188,156,.08)',tension:.4,fill:true}]
   };
-  const days=['D├¡a 1','D├¡a 2','D├¡a 3','D├¡a 4','D├¡a 5','D├¡a 6','D├¡a 7'];
+  const days=['Día 1','Día 2','Día 3','Día 4','Día 5','Día 6','Día 7'];
   mkCh('ch-comp','line',{labels:days,datasets:datasets[mode]||datasets.flujo},gridOpts);
 }
 
@@ -1902,13 +1906,13 @@ function renderCuentas(){
     const c=CC[a.color]||'#888';
     return`<div class="ac" style="position:relative">
       <div class="ac-top" style="background:${c}"></div>
-      <button onclick="openEditAcc(${a.id})" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,.08);border:0.5px solid var(--bdr);border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer;color:var(--t3);font-family:'Outfit',sans-serif;z-index:2" title="Editar cuenta">Ô£Å´©Å</button>
+      <button onclick="openEditAcc(${a.id})" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,.08);border:0.5px solid var(--bdr);border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer;color:var(--t3);font-family:'Outfit',sans-serif;z-index:2" title="Editar cuenta">✏️</button>
       <div onclick="showAccDetail(${a.id})" style="cursor:pointer">
         <div class="aic" style="background:${c}22;color:${c}">${ICONS[a.type]||'?'}</div>
         <div class="an">${a.name}</div>
-        <div class="at">${a.type} ┬À ${a.currency}</div>
+        <div class="at">${a.type} · ${a.currency}</div>
         <div class="ab ${b<0?'neg':'pos'}">${fmt(b,a.currency)}</div>
-        <div class="ae" style="color:var(--teal);font-size:10px">Ôëê USD ${(toARS(b,a.currency)/S.tc).toLocaleString('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+        <div class="ae" style="color:var(--teal);font-size:10px">≈ USD ${(toARS(b,a.currency)/S.tc).toLocaleString('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
         <div class="as2"><div><div class="asl">Ingresos</div><div class="asv pos">${fmt(gi,a.currency)}</div></div><div><div class="asl">Gastos</div><div class="asv neg">${fmt(gg,a.currency)}</div></div></div>
       </div>
     </div>`;
@@ -1958,7 +1962,7 @@ function saveEditAcc(){
   const a=S.accounts.find(x=>x.id===id);if(!a)return;
   const newName=document.getElementById('ea-nm').value.trim();
   const newSaldo=parseFloat(document.getElementById('ea-saldo').value)||0;
-  if(!newName){alert('El nombre no puede estar vac├¡o');return;}
+  if(!newName){alert('El nombre no puede estar vacío');return;}
   // Calculate current balance to find adjustment needed
   const currentBal=getBal(id);
   const diff=newSaldo-currentBal;
@@ -2001,7 +2005,7 @@ function showAccDetail(id){
   document.getElementById('acc-detail').innerHTML=`
     <div class="dp" style="margin-top:8px">
       <div class="fsb" style="margin-bottom:12px">
-        <div class="flex"><div class="aic" style="background:${c}22;color:${c};width:28px;height:28px;font-size:11px;border-radius:7px;margin:0">${ICONS[a.type]||'?'}</div><div><div style="font-size:13px;font-weight:500">${a.name}</div><div style="font-size:9px;color:var(--t3)">${a.type} ┬À ${a.currency}</div></div></div>
+        <div class="flex"><div class="aic" style="background:${c}22;color:${c};width:28px;height:28px;font-size:11px;border-radius:7px;margin:0">${ICONS[a.type]||'?'}</div><div><div style="font-size:13px;font-weight:500">${a.name}</div><div style="font-size:9px;color:var(--t3)">${a.type} · ${a.currency}</div></div></div>
         <button class="btn bts btg" onclick="document.getElementById('acc-detail').innerHTML=''">Cerrar</button>
       </div>
       <div class="mets" style="margin-bottom:12px">
@@ -2012,12 +2016,12 @@ function showAccDetail(id){
         <div class="met"><div class="ml">Resultado</div><div class="mv ${gi-gg>=0?'pos':'neg'}">${fmt(gi-gg,a.currency)}</div></div>
       </div>
       <div class="g2" style="margin-bottom:12px">
-        <div><div class="ct">Donde m├ís gast├ís</div>${topG.length?topG.map(([cat,v])=>`<div class="cbr"><div class="cbl">${cat}</div><div class="cbt"><div class="cbf" style="width:${Math.round(v/mG*100)}%;background:${KC[cat]||'#888'}"></div></div><div class="cbv">${fmt(v)}</div></div>`).join(''):'<div style="font-size:11px;color:var(--t3)">Sin gastos</div>'}</div>
-        <div><div class="ct">De d├│nde entra m├ís</div>${topI.length?topI.map(([cat,v])=>`<div class="cbr"><div class="cbl">${cat}</div><div class="cbt"><div class="cbf" style="width:${Math.round(v/mI*100)}%;background:${KC[cat]||'#2ecc71'}"></div></div><div class="cbv">${fmt(v)}</div></div>`).join(''):'<div style="font-size:11px;color:var(--t3)">Sin ingresos</div>'}</div>
+        <div><div class="ct">Donde más gastás</div>${topG.length?topG.map(([cat,v])=>`<div class="cbr"><div class="cbl">${cat}</div><div class="cbt"><div class="cbf" style="width:${Math.round(v/mG*100)}%;background:${KC[cat]||'#888'}"></div></div><div class="cbv">${fmt(v)}</div></div>`).join(''):'<div style="font-size:11px;color:var(--t3)">Sin gastos</div>'}</div>
+        <div><div class="ct">De dónde entra más</div>${topI.length?topI.map(([cat,v])=>`<div class="cbr"><div class="cbl">${cat}</div><div class="cbt"><div class="cbf" style="width:${Math.round(v/mI*100)}%;background:${KC[cat]||'#2ecc71'}"></div></div><div class="cbv">${fmt(v)}</div></div>`).join(''):'<div style="font-size:11px;color:var(--t3)">Sin ingresos</div>'}</div>
       </div>
       <div class="g2" style="margin-bottom:12px">
-        <div><div class="ct">composici├│n por categor├¡a</div><div style="position:relative;width:120px;height:120px"><canvas id="acc-pie-${id}"></canvas></div></div>
-        <div><div class="ct">movimientos recientes</div><div class="scr"><table><thead><tr><th>Fecha</th><th>Descripci├│n</th><th>Cat.</th><th>Tipo</th><th style="text-align:right">Monto</th></tr></thead><tbody>${txs.sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10).map(t=>`<tr><td class="td">${fd(t.date)}</td><td class="tdd">${t.desc}</td><td><div class="tdc"><div class="cdot" style="background:${KC[t.category]||'#888'}"></div>${t.category}</div></td><td><span class="bdg ${t.type==='ingreso'?'bg':'br'}">${t.type}</span></td><td class="${t.type==='ingreso'?'tp':'tn'}">${t.type==='ingreso'?'+':'-'}${fmt(t.amount,a.currency)}</td></tr>`).join('')}</tbody></table></div></div>
+        <div><div class="ct">composición por categoría</div><div style="position:relative;width:120px;height:120px"><canvas id="acc-pie-${id}"></canvas></div></div>
+        <div><div class="ct">movimientos recientes</div><div class="scr"><table><thead><tr><th>Fecha</th><th>Descripción</th><th>Cat.</th><th>Tipo</th><th style="text-align:right">Monto</th></tr></thead><tbody>${txs.sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10).map(t=>`<tr><td class="td">${fd(t.date)}</td><td class="tdd">${t.desc}</td><td><div class="tdc"><div class="cdot" style="background:${KC[t.category]||'#888'}"></div>${t.category}</div></td><td><span class="bdg ${t.type==='ingreso'?'bg':'br'}">${t.type}</span></td><td class="${t.type==='ingreso'?'tp':'tn'}">${t.type==='ingreso'?'+':'-'}${fmt(t.amount,a.currency)}</td></tr>`).join('')}</tbody></table></div></div>
       </div>
       <div class="flex" style="justify-content:flex-end;gap:6px"><button class="btn bts" onclick="exportAccCSV(${id})">Exportar CSV</button></div>
     </div>`;
@@ -2052,7 +2056,7 @@ function getPeriodRange(period){
 }
 
 function renderMov(){
-  // Solo actualizar f-acc si a├║n no tiene opciones (primera vez)
+  // Solo actualizar f-acc si aún no tiene opciones (primera vez)
   const fa=document.getElementById('f-acc');
   if(fa&&fa.options.length<=1){
     const o=S.accounts.map(a=>`<option value="${a.id}">${a.name}</option>`).join('');
@@ -2071,15 +2075,15 @@ function renderMov(){
   // Loans as movements
   const loanTxs=S.loans.map(l=>({
     id:'l'+l.id,accountId:l.fromId,destId:l.toId,type:'prestamo',
-    amount:l.amount,desc:l.desc||'Pr├®stamo entre cuentas',category:'transferencia',date:l.date,loanStatus:l.status
+    amount:l.amount,desc:l.desc||'Préstamo entre cuentas',category:'transferencia',date:l.date,loanStatus:l.status
   })).filter(t=>{const d=new Date(t.date+'T00:00:00');return d>=from&&d<to;});
   if(!tf||tf==='prestamo')txs=[...txs,...loanTxs].sort((a,b)=>b.date.localeCompare(a.date));
 
-  // Resumen per├¡odo
+  // Resumen período
   const ing=txs.filter(t=>t.type==='ingreso').reduce((s,t)=>s+t.amount,0);
   const gas=txs.filter(t=>t.type==='gasto').reduce((s,t)=>s+t.amount,0);
   const res=document.getElementById('mov-resumen');
-  if(res)res.innerHTML=`<span style="color:var(--green)">+${fmt(ing)}</span> <span style="color:var(--t4);margin:0 4px">┬À</span> <span style="color:var(--red)">-${fmt(gas)}</span> <span style="color:var(--t4);margin:0 4px">┬À</span> <span style="color:${ing-gas>=0?'var(--teal)':'var(--red)'}">${ing-gas>=0?'':''}${fmt(ing-gas)}</span> <span style="color:var(--t4);margin-left:4px">(${txs.length} mov.)</span>`;
+  if(res)res.innerHTML=`<span style="color:var(--green)">+${fmt(ing)}</span> <span style="color:var(--t4);margin:0 4px">·</span> <span style="color:var(--red)">-${fmt(gas)}</span> <span style="color:var(--t4);margin:0 4px">·</span> <span style="color:${ing-gas>=0?'var(--teal)':'var(--red)'}">${ing-gas>=0?'':''}${fmt(ing-gas)}</span> <span style="color:var(--t4);margin-left:4px">(${txs.length} mov.)</span>`;
 
   document.getElementById('tx-body').innerHTML=txs.length?txs.map(t=>{
     const ac=S.accounts.find(a=>a.id===t.accountId);
@@ -2092,15 +2096,15 @@ function renderMov(){
     const tags=(t.tags||[]).map(tg=>`<span style="font-size:9px;padding:1px 6px;border-radius:20px;background:rgba(52,152,219,.15);color:var(--blue);margin-right:3px">${tg}</span>`).join('');
     return`<tr style="border-bottom:0.5px solid var(--bdr)">
       <td style="padding:10px 12px;color:var(--t3);white-space:nowrap;font-size:11px">${fd(t.date)}</td>
-      <td style="padding:10px 12px;font-weight:500;color:var(--t1)">${t.desc}${dest?` <span style="color:var(--cyan);font-size:10px">ÔåÆ ${dest.name}</span>`:''}</td>
+      <td style="padding:10px 12px;font-weight:500;color:var(--t1)">${t.desc}${dest?` <span style="color:var(--cyan);font-size:10px">→ ${dest.name}</span>`:''}</td>
       <td style="padding:10px 12px"><div style="display:inline-flex;align-items:center;gap:5px">${catIcon?`<span style="font-size:14px">${catIcon}</span>`:''}<div style="width:6px;height:6px;border-radius:50%;background:${KC[t.category]||catObj?.color||'#888'};flex-shrink:0"></div><span style="color:var(--t2)">${catName}</span></div></td>
       <td style="padding:10px 12px"><span class="bdg bb">${ac?.name?.split(' ')[0]||'?'}</span></td>
-      <td style="padding:10px 12px">${tags||'<span style="color:var(--t4);font-size:10px">ÔÇö</span>'}</td>
+      <td style="padding:10px 12px">${tags||'<span style="color:var(--t4);font-size:10px">—</span>'}</td>
       <td style="padding:10px 12px"><span class="bdg ${t.type==='ingreso'?'bg':t.type==='gasto'?'br':t.type==='prestamo'?'ba':'bc'}">${t.type}</span></td>
-      <td style="padding:10px 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:500;white-space:nowrap" class="${t.type==='ingreso'?'tp':isTx?'tt':'tn'}">${isTx?'Ôçä':t.type==='ingreso'?'+':'-'} ${fmt(t.amount,ac?.currency||'ARS')}</td>
-      <td style="padding:10px 6px;white-space:nowrap">${t.type!=='prestamo'?`<button title="Editar" style="border:none;background:none;color:var(--blue);cursor:pointer;font-size:12px;padding:1px 4px" onclick="openEditTx(${t.id})">Ô£Å´©Å</button><button title="Eliminar" style="border:none;background:rgba(231,76,60,.15);color:var(--red);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:4px;margin-left:3px;font-weight:700" onclick="if(confirm('┬┐Eliminar este movimiento?'))delTx(${t.id})">Ô£ò</button>`:''}</td>
+      <td style="padding:10px 12px;text-align:right;font-family:'JetBrains Mono',monospace;font-weight:500;white-space:nowrap" class="${t.type==='ingreso'?'tp':isTx?'tt':'tn'}">${isTx?'⇄':t.type==='ingreso'?'+':'-'} ${fmt(t.amount,ac?.currency||'ARS')}</td>
+      <td style="padding:10px 6px;white-space:nowrap">${t.type!=='prestamo'?`<button title="Editar" style="border:none;background:none;color:var(--blue);cursor:pointer;font-size:12px;padding:1px 4px" onclick="openEditTx(${t.id})">✏️</button><button title="Eliminar" style="border:none;background:rgba(231,76,60,.15);color:var(--red);cursor:pointer;font-size:13px;padding:2px 6px;border-radius:4px;margin-left:3px;font-weight:700" onclick="if(confirm('¿Eliminar este movimiento?'))delTx(${t.id})">✕</button>`:''}</td>
     </tr>`;
-  }).join(''):`<tr><td colspan="7" style="text-align:center;padding:40px 0;color:var(--t3);font-size:12px">No hay movimientos en este per├¡odo</td></tr>`;
+  }).join(''):`<tr><td colspan="7" style="text-align:center;padding:40px 0;color:var(--t3);font-size:12px">No hay movimientos en este período</td></tr>`;
 }
 
 function renderLoans(){
@@ -2113,36 +2117,36 @@ function renderLoans(){
   overdue.forEach(l=>{
     const from=S.accounts.find(a=>a.id===l.fromId);
     const to=S.accounts.find(a=>a.id===l.toId);
-    alertsHTML+=`<div class="loan-alert" style="background:rgba(231,76,60,.08);border-color:rgba(231,76,60,.3)"><div class="loan-icon">ÔÜá</div><div><div class="loan-title" style="color:var(--red)">Pr├®stamo vencido ÔÇö ${from?.name} ÔåÆ ${to?.name}</div><div class="loan-sub">${fmt(l.amount)} ÔÇö venci├│ el ${fd(l.dueDate)}. <strong style="color:var(--red)">${Math.abs(Math.round((new Date(l.dueDate)-new Date())/864e5))} d├¡as de atraso.</strong><br><button class="btn bts" style="margin-top:6px;background:rgba(231,76,60,.15);border-color:rgba(231,76,60,.4);color:var(--red)" onclick="markLoanPaid(${l.id})">Marcar como devuelto Ô£ô</button></div></div></div>`;
+    alertsHTML+=`<div class="loan-alert" style="background:rgba(231,76,60,.08);border-color:rgba(231,76,60,.3)"><div class="loan-icon">⚠</div><div><div class="loan-title" style="color:var(--red)">Préstamo vencido — ${from?.name} → ${to?.name}</div><div class="loan-sub">${fmt(l.amount)} — venció el ${fd(l.dueDate)}. <strong style="color:var(--red)">${Math.abs(Math.round((new Date(l.dueDate)-new Date())/864e5))} días de atraso.</strong><br><button class="btn bts" style="margin-top:6px;background:rgba(231,76,60,.15);border-color:rgba(231,76,60,.4);color:var(--red)" onclick="markLoanPaid(${l.id})">Marcar como devuelto ✓</button></div></div></div>`;
   });
   soon.forEach(l=>{
     const from=S.accounts.find(a=>a.id===l.fromId);
     const to=S.accounts.find(a=>a.id===l.toId);
     const days=Math.round((new Date(l.dueDate)-new Date())/864e5);
-    alertsHTML+=`<div class="loan-alert"><div class="loan-icon">­ƒöö</div><div><div class="loan-title">Recordatorio ÔÇö ${from?.name} ÔåÆ ${to?.name}</div><div class="loan-sub">${fmt(l.amount)} ÔÇö vence en <strong>${days} d├¡a${days!==1?'s':''}</strong> (${fd(l.dueDate)}). <button class="btn bts" style="margin-top:6px" onclick="markLoanPaid(${l.id})">Devolver ahora Ô£ô</button></div></div></div>`;
+    alertsHTML+=`<div class="loan-alert"><div class="loan-icon">🔔</div><div><div class="loan-title">Recordatorio — ${from?.name} → ${to?.name}</div><div class="loan-sub">${fmt(l.amount)} — vence en <strong>${days} día${days!==1?'s':''}</strong> (${fd(l.dueDate)}). <button class="btn bts" style="margin-top:6px" onclick="markLoanPaid(${l.id})">Devolver ahora ✓</button></div></div></div>`;
   });
   document.getElementById('loan-alerts').innerHTML=alertsHTML;
   // Loans list
   document.getElementById('loans-list').innerHTML=`
     <div class="dp" style="margin-bottom:11px">
-      <div class="ct">pr├®stamos activos</div>
+      <div class="ct">préstamos activos</div>
       ${pending.length?pending.map(l=>{
         const from=S.accounts.find(a=>a.id===l.fromId);
         const to=S.accounts.find(a=>a.id===l.toId);
         const days=Math.round((new Date(l.dueDate)-new Date())/864e5);
         const isOv=days<0;
         return`<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid var(--bdr)">
-          <div><div style="font-size:12px;font-weight:500;color:var(--t1)">${from?.name} <span style="color:var(--cyan)">ÔåÆ</span> ${to?.name}</div><div style="font-size:10px;color:var(--t3);margin-top:2px">${l.desc||'Sin descripci├│n'} ┬À Vence ${fd(l.dueDate)} <span style="color:${isOv?'var(--red)':'var(--amber)'}">┬À ${isOv?Math.abs(days)+' d├¡as vencido':days+' d├¡as restantes'}</span></div></div>
+          <div><div style="font-size:12px;font-weight:500;color:var(--t1)">${from?.name} <span style="color:var(--cyan)">→</span> ${to?.name}</div><div style="font-size:10px;color:var(--t3);margin-top:2px">${l.desc||'Sin descripción'} · Vence ${fd(l.dueDate)} <span style="color:${isOv?'var(--red)':'var(--amber)'}">· ${isOv?Math.abs(days)+' días vencido':days+' días restantes'}</span></div></div>
           <div class="flex" style="gap:8px"><span class="mv ${isOv?'neg':'warn'}" style="font-size:14px">${fmt(l.amount)}</span><button class="btn bts bg" style="background:rgba(46,204,113,.1);border-color:rgba(46,204,113,.3);color:var(--green)" onclick="markLoanPaid(${l.id})">Devolver</button></div>
         </div>`;
-      }).join(''):'<div style="font-size:12px;color:var(--t3);text-align:center;padding:16px">No hay pr├®stamos activos</div>'}
+      }).join(''):'<div style="font-size:12px;color:var(--t3);text-align:center;padding:16px">No hay préstamos activos</div>'}
     </div>`;
   // History
   document.getElementById('loans-history').innerHTML=S.loans.map(l=>{
     const from=S.accounts.find(a=>a.id===l.fromId);
     const to=S.accounts.find(a=>a.id===l.toId);
-    return`<tr><td class="td">${fd(l.date)}</td><td class="tdd">${l.desc||'Pr├®stamo entre cuentas'}</td><td><span class="bdg bb">${from?.name?.split(' ')[0]||'?'}</span></td><td><span class="bdg bc">${to?.name?.split(' ')[0]||'?'}</span></td><td class="tt">Ôçä ${fmt(l.amount)}</td><td><span class="bdg ${l.status==='devuelto'?'bg':'ba'}">${l.status}</span></td><td><button style="border:none;background:rgba(231,76,60,.1);color:var(--red);cursor:pointer;font-size:12px;padding:2px 6px;border-radius:4px;font-weight:600" onclick="if(confirm('┬┐Eliminar?'))delLoan(${l.id})">Ô£ò</button></td></tr>`;
-  }).join('')||'<tr><td colspan="6" style="text-align:center;color:var(--t3);font-size:11px;padding:16px">Sin historial de pr├®stamos</td></tr>';
+    return`<tr><td class="td">${fd(l.date)}</td><td class="tdd">${l.desc||'Préstamo entre cuentas'}</td><td><span class="bdg bb">${from?.name?.split(' ')[0]||'?'}</span></td><td><span class="bdg bc">${to?.name?.split(' ')[0]||'?'}</span></td><td class="tt">⇄ ${fmt(l.amount)}</td><td><span class="bdg ${l.status==='devuelto'?'bg':'ba'}">${l.status}</span></td><td><button style="border:none;background:rgba(231,76,60,.1);color:var(--red);cursor:pointer;font-size:12px;padding:2px 6px;border-radius:4px;font-weight:600" onclick="if(confirm('¿Eliminar?'))delLoan(${l.id})">✕</button></td></tr>`;
+  }).join('')||'<tr><td colspan="6" style="text-align:center;color:var(--t3);font-size:11px;padding:16px">Sin historial de préstamos</td></tr>';
   // Badge
   const nb=document.getElementById('nav-prest');
   const ex=nb.querySelector('.nbadge');if(ex)ex.remove();
@@ -2157,10 +2161,10 @@ function renderMetas(){
     const days=Math.round((new Date(g.deadline+'T00:00:00')-new Date())/864e5);
     return`<div class="gi">
       <div class="fsb" style="margin-bottom:2px"><div class="gn">${g.name}</div><div class="flex" style="gap:5px"><span style="font-size:11px;font-weight:600;color:${pct>=100?'var(--green)':'var(--t3)'}">${pct}%</span></div>
-      <div class="gs">${acc?.name||'?'} ┬À ${fd(g.deadline)} ┬À ${days>0?days+' d├¡as':days===0?'hoy':'vencida'}</div>
+      <div class="gs">${acc?.name||'?'} · ${fd(g.deadline)} · ${days>0?days+' días':days===0?'hoy':'vencida'}</div>
       <div class="pw"><div class="pf" style="width:${pct}%;background:${g.color}"></div></div>
       <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:3px"><span>${fmt(g.current)} ahorrado</span><span>Falta ${fmt(g.target-g.current)}</span><span>Meta: ${fmt(g.target)}</span></div>
-      <div class="flex" style="margin-top:8px;gap:5px"><input type="number" placeholder="Sumar..." style="flex:1;background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:4px 8px;font-size:11px;color:var(--t1);font-family:'Outfit',sans-serif" id="ag-${g.id}"><button class="btn bts bta" onclick="addGoal(${g.id})">+ Agregar</button><button class="btn bts btg" onclick="delGoal(${g.id})">Ô£ò</button></div>
+      <div class="flex" style="margin-top:8px;gap:5px"><input type="number" placeholder="Sumar..." style="flex:1;background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--rs);padding:4px 8px;font-size:11px;color:var(--t1);font-family:'Outfit',sans-serif" id="ag-${g.id}"><button class="btn bts bta" onclick="addGoal(${g.id})">+ Agregar</button><button class="btn bts btg" onclick="delGoal(${g.id})">✕</button></div>
     </div>`;
   }).join('')||'<div style="text-align:center;padding:20px;font-size:12px;color:var(--t3)">No hay metas creadas</div>';
   if(S.goals.length){
@@ -2178,11 +2182,11 @@ function renderAlertas(){
         <div class="fsb" style="margin-bottom:5px">
           <div class="flex"><div class="cdot" style="background:${KC[b.category]||'#888'}"></div><span style="font-size:13px;font-weight:500">${b.category}</span></div>
           <div class="flex" style="gap:7px"><span class="bdg ${ov?'br':wn?'ba':'bg'}">${ov?'Excedido':wn?'En alerta':'Normal'}</span>
-          <button style="border:none;background:rgba(231,76,60,.1);color:var(--red);cursor:pointer;font-size:11px;padding:2px 6px;border-radius:4px;font-weight:600" onclick="if(confirm('┬┐Eliminar este presupuesto?'))delBudget(${b.id})">Ô£ò</button></div>
+          <button style="border:none;background:rgba(231,76,60,.1);color:var(--red);cursor:pointer;font-size:11px;padding:2px 6px;border-radius:4px;font-weight:600" onclick="if(confirm('¿Eliminar este presupuesto?'))delBudget(${b.id})">✕</button></div>
         </div>
         <div class="pw" style="height:9px"><div class="pf" style="width:${pct}%;background:${ov?'var(--red)':wn?'var(--amber)':'var(--green)'}"></div></div>
-        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:4px"><span>Gastado: ${fmt(sp)}</span><span>${pct}% del l├¡mite</span><span>L├¡mite: ${fmt(b.limit)}</span></div>
-        ${ov?`<div style="margin-top:7px;font-size:11px;color:var(--red)">ÔÜá Excediste en ${fmt(sp-b.limit)}</div>`:''}
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);margin-top:4px"><span>Gastado: ${fmt(sp)}</span><span>${pct}% del límite</span><span>Límite: ${fmt(b.limit)}</span></div>
+        ${ov?`<div style="margin-top:7px;font-size:11px;color:var(--red)">⚠ Excediste en ${fmt(sp-b.limit)}</div>`:''}
         ${wn&&!ov?`<div style="margin-top:7px;font-size:11px;color:var(--amber)">! Te quedan ${fmt(b.limit-sp)}</div>`:''}
       </div>`;
     }).join('')}
@@ -2205,10 +2209,10 @@ function renderIA(){
   const pendLoans=S.loans.filter(l=>l.status==='pendiente');
   const overB=S.budgets.filter(b=>catSpendM(b.category)>b.limit);
   document.getElementById('ai-ins').innerHTML=`
-    <div class="aii"><span style="font-size:14px;flex-shrink:0">­ƒÆí</span><div>Mayor gasto: <strong>${topC?.[0]||'N/A'}</strong> (${fmt(topC?.[1]||0)}) ÔÇö ${Math.round((topC?.[1]||0)/gg*100)}% del total.</div></div>
-    <div class="aii"><span style="font-size:14px;flex-shrink:0">­ƒôè</span><div>Tasa de ahorro: <strong style="color:${sp>=20?'var(--green)':'var(--red)'}">${sp}%</strong>.${overB.length?` Presupuestos excedidos: ${overB.map(b=>b.category).join(', ')}.`:''}</div></div>
-    ${pendLoans.length?`<div class="aii"><span style="font-size:14px;flex-shrink:0">­ƒöö</span><div>Ten├®s <strong>${pendLoans.length} pr├®stamo(s) pendiente(s)</strong> entre cuentas por un total de ${fmt(pendLoans.reduce((s,l)=>s+l.amount,0))}.</div></div>`:''}
-    <div class="aii"><span style="font-size:14px;flex-shrink:0">­ƒÄ»</span><div>Cuenta m├ís fuerte: <strong>${S.accounts.sort((a,b)=>getBal(b.id)-getBal(a.id))[0]?.name}</strong>. Metas activas: ${S.goals.length}.</div></div>
+    <div class="aii"><span style="font-size:14px;flex-shrink:0">💡</span><div>Mayor gasto: <strong>${topC?.[0]||'N/A'}</strong> (${fmt(topC?.[1]||0)}) — ${Math.round((topC?.[1]||0)/gg*100)}% del total.</div></div>
+    <div class="aii"><span style="font-size:14px;flex-shrink:0">📊</span><div>Tasa de ahorro: <strong style="color:${sp>=20?'var(--green)':'var(--red)'}">${sp}%</strong>.${overB.length?` Presupuestos excedidos: ${overB.map(b=>b.category).join(', ')}.`:''}</div></div>
+    ${pendLoans.length?`<div class="aii"><span style="font-size:14px;flex-shrink:0">🔔</span><div>Tenés <strong>${pendLoans.length} préstamo(s) pendiente(s)</strong> entre cuentas por un total de ${fmt(pendLoans.reduce((s,l)=>s+l.amount,0))}.</div></div>`:''}
+    <div class="aii"><span style="font-size:14px;flex-shrink:0">🎯</span><div>Cuenta más fuerte: <strong>${S.accounts.sort((a,b)=>getBal(b.id)-getBal(a.id))[0]?.name}</strong>. Metas activas: ${S.goals.length}.</div></div>
   `;
   renderAIConv();
 }
@@ -2296,16 +2300,16 @@ function generarRespuestaLocal(pregunta){
   if(q.includes('transporte')){
     const t=findCat(gastosCat,['transporte','combustible','uber','taxi']);
     const total=gastosCat.filter(([k])=>norm(k).includes('transporte')||norm(k).includes('combustible')).reduce((s,[,v])=>s+v,0);
-    return total>0?`Gastaste ${fmt(total)} en transporte (${Math.round(total/gg*100)}% de tus gastos). Incluye recargas de SUBE y transporte p├║blico.`:
-      'No encontr├® gastos de transporte registrados.';
+    return total>0?`Gastaste ${fmt(total)} en transporte (${Math.round(total/gg*100)}% de tus gastos). Incluye recargas de SUBE y transporte público.`:
+      'No encontré gastos de transporte registrados.';
   }
 
   // ALIMENTACION
   if(q.includes('alimentacion')||q.includes('comida')){
     const total=gastosCat.filter(([k])=>norm(k).includes('aliment')||norm(k).includes('comida')).reduce((s,[,v])=>s+v,0);
     const rank=gastosCat.findIndex(([k])=>norm(k).includes('aliment'))+1;
-    return total>0?`En alimentaci├│n gastaste ${fmt(total)} (${Math.round(total/gg*100)}% del total). Es tu ${rank}┬░ mayor categor├¡a de gasto.`:
-      'No hay gastos de alimentaci├│n registrados.';
+    return total>0?`En alimentación gastaste ${fmt(total)} (${Math.round(total/gg*100)}% del total). Es tu ${rank}° mayor categoría de gasto.`:
+      'No hay gastos de alimentación registrados.';
   }
 
   // VIVIENDA
@@ -2323,13 +2327,13 @@ function generarRespuestaLocal(pregunta){
   // EDUCACION
   if(q.includes('educ')||q.includes('escuel')||q.includes('estudi')||q.includes('colegio')){
     const total=gastosCat.filter(([k])=>norm(k).includes('educ')).reduce((s,[,v])=>s+v,0);
-    return total>0?`En educaci├│n gastaste ${fmt(total)}. Incluye cuotas y materiales escolares.`:'No hay gastos de educaci├│n registrados.';
+    return total>0?`En educación gastaste ${fmt(total)}. Incluye cuotas y materiales escolares.`:'No hay gastos de educación registrados.';
   }
 
   // SERVICIOS
   if(q.includes('servic')||q.includes('luz')||q.includes('gas ')||q.includes('agua')||q.includes('celular')||q.includes('internet')){
     const total=gastosCat.filter(([k])=>norm(k).includes('servic')||norm(k).includes('telef')).reduce((s,[,v])=>s+v,0);
-    return total>0?`Gastaste ${fmt(total)} en servicios (luz, gas, tel├®fono, etc).`:'No hay gastos de servicios registrados.';
+    return total>0?`Gastaste ${fmt(total)} en servicios (luz, gas, teléfono, etc).`:'No hay gastos de servicios registrados.';
   }
 
   // INGRESOS
@@ -2341,20 +2345,20 @@ function generarRespuestaLocal(pregunta){
   // AHORRO / NETO
   if(q.includes('ahorro')||q.includes('ahorra')||q.includes('neto')||q.includes('sobr')||q.includes('queda')){
     const pct=gi>0?Math.round(neto/gi*100):0;
-    return `Resultado neto: ${fmt(neto)} (${pct}% de ingresos). ${pct>=20?'┬íExcelente tasa de ahorro!':pct>=10?'Tasa aceptable, pod├®s mejorarla.':pct>0?'Tasa baja, revis├í los gastos.':'ÔÜá Tus gastos superan los ingresos.'}`;
+    return `Resultado neto: ${fmt(neto)} (${pct}% de ingresos). ${pct>=20?'¡Excelente tasa de ahorro!':pct>=10?'Tasa aceptable, podés mejorarla.':pct>0?'Tasa baja, revisá los gastos.':'⚠ Tus gastos superan los ingresos.'}`;
   }
 
   // PRESTAMOS / DEUDAS
   if(q.includes('prest')||q.includes('deuda')||q.includes('debo')||q.includes('deber')){
     const pend=S.loans.filter(l=>l.status==='pendiente');
     const venc=pend.filter(l=>new Date(l.dueDate)<new Date());
-    return pend.length?`Ten├®s ${pend.length} pr├®stamo(s) pendiente(s)${venc.length?' ÔÇö '+venc.length+' vencido(s) ÔÜá':' Ô£ô'}. Revis├í la secci├│n Pr├®stamos.`:
-      'No ten├®s pr├®stamos pendientes. Ô£ô';
+    return pend.length?`Tenés ${pend.length} préstamo(s) pendiente(s)${venc.length?' — '+venc.length+' vencido(s) ⚠':' ✓'}. Revisá la sección Préstamos.`:
+      'No tenés préstamos pendientes. ✓';
   }
 
   // SALDOS
   if(q.includes('saldo')||q.includes('cuenta')||q.includes('tengo')||q.includes('billetera')||q.includes('dinero')){
-    return `Saldos: ${S.accounts.map(a=>`${a.name} ${fmt(getBal(a.id))}`).join(' ┬À ')}. Total: ${fmt(S.accounts.reduce((s,a)=>s+getBal(a.id),0))} ARS.`;
+    return `Saldos: ${S.accounts.map(a=>`${a.name} ${fmt(getBal(a.id))}`).join(' · ')}. Total: ${fmt(S.accounts.reduce((s,a)=>s+getBal(a.id),0))} ARS.`;
   }
 
   // MAYOR GASTO / TOP
@@ -2363,23 +2367,23 @@ function generarRespuestaLocal(pregunta){
   }
 
   // DEFAULT - resumen
-  return `Finanzas actuales ÔÇö Ingresos: ${fmt(gi)} ┬À Gastos: ${fmt(gg)} ┬À Neto: ${fmt(neto)}. Pod├®s preguntarme sobre: transporte, alimentaci├│n, vivienda, salud, educaci├│n, servicios, ingresos, ahorros, pr├®stamos o saldos.`;
+  return `Finanzas actuales — Ingresos: ${fmt(gi)} · Gastos: ${fmt(gg)} · Neto: ${fmt(neto)}. Podés preguntarme sobre: transporte, alimentación, vivienda, salud, educación, servicios, ingresos, ahorros, préstamos o saldos.`;
 }
 
 async function generateAIInsights(){
   const ins=document.getElementById('ai-ins');
   if(!ins)return;
-  ins.innerHTML='<div style="font-size:12px;color:var(--t3);padding:8px 0">ÔÅ│ Analizando tus finanzas con IA...</div>';
+  ins.innerHTML='<div style="font-size:12px;color:var(--t3);padding:8px 0">⏳ Analizando tus finanzas con IA...</div>';
   const gi=totalI(),gg=totalG(),neto=gi-gg;
   const catT={};S.transactions.filter(t=>t.type==='gasto').forEach(t=>{catT[t.category]=(catT[t.category]||0)+t.amount;});
   const topC=Object.entries(catT).sort((a,b)=>b[1]-a[1]).slice(0,3);
   const sp=gi>0?Math.round(neto/gi*100):0;
-  const ctx=`Sos un asesor financiero personal. Datos del usuario:\n- Ingresos: $${Math.round(gi).toLocaleString('es-AR')}\n- Gastos: $${Math.round(gg).toLocaleString('es-AR')}\n- Neto: $${Math.round(neto).toLocaleString('es-AR')}\n- Tasa de ahorro: ${sp}%\n- Top gastos: ${topC.map(([k,v])=>k+' $'+Math.round(v).toLocaleString('es-AR')).join(', ')}\n- Cuentas: ${S.accounts.map(a=>a.name+' $'+Math.round(getBal(a.id)).toLocaleString('es-AR')).join(', ')}\nD├í 3 insights financieros concisos y accionables en espa├▒ol. S├® breve y directo.`;
+  const ctx=`Sos un asesor financiero personal. Datos del usuario:\n- Ingresos: $${Math.round(gi).toLocaleString('es-AR')}\n- Gastos: $${Math.round(gg).toLocaleString('es-AR')}\n- Neto: $${Math.round(neto).toLocaleString('es-AR')}\n- Tasa de ahorro: ${sp}%\n- Top gastos: ${topC.map(([k,v])=>k+' $'+Math.round(v).toLocaleString('es-AR')).join(', ')}\n- Cuentas: ${S.accounts.map(a=>a.name+' $'+Math.round(getBal(a.id)).toLocaleString('es-AR')).join(', ')}\nDá 3 insights financieros concisos y accionables en español. Sé breve y directo.`;
   try{
-    const resp=await askGemini('Gener├í 3 insights financieros personalizados',ctx);
-    ins.innerHTML=`<div class="aii"><span style="font-size:14px;flex-shrink:0">­ƒñû</span><div style="white-space:pre-wrap;font-size:12px;line-height:1.5">${resp}</div></div>`;
+    const resp=await askGemini('Generá 3 insights financieros personalizados',ctx);
+    ins.innerHTML=`<div class="aii"><span style="font-size:14px;flex-shrink:0">🤖</span><div style="white-space:pre-wrap;font-size:12px;line-height:1.5">${resp}</div></div>`;
   }catch(e){
-    ins.innerHTML=`<div class="aii"><span style="font-size:14px;flex-shrink:0">­ƒÆí</span><div>Mayor gasto: <strong>${topC[0]?.[0]||'N/A'}</strong> ($${Math.round(topC[0]?.[1]||0).toLocaleString('es-AR')}). Tasa de ahorro: <strong style="color:${sp>=20?'var(--green)':'var(--red)'}">${sp}%</strong>. ${sp<10?'ÔÜá Tus gastos son elevados respecto a los ingresos.':sp>=20?'Ô£ô Excelente tasa de ahorro.':'Pod├®s mejorar tu ahorro.'}</div></div>`;
+    ins.innerHTML=`<div class="aii"><span style="font-size:14px;flex-shrink:0">💡</span><div>Mayor gasto: <strong>${topC[0]?.[0]||'N/A'}</strong> ($${Math.round(topC[0]?.[1]||0).toLocaleString('es-AR')}). Tasa de ahorro: <strong style="color:${sp>=20?'var(--green)':'var(--red)'}">${sp}%</strong>. ${sp<10?'⚠ Tus gastos son elevados respecto a los ingresos.':sp>=20?'✓ Excelente tasa de ahorro.':'Podés mejorar tu ahorro.'}</div></div>`;
   }
 }
 
@@ -2392,7 +2396,7 @@ async function askAI(){
   S.aiHistory.push({role:'user',content:q});
   renderAIConv();
   const gi=totalI(),gg=totalG(),neto=gi-gg;
-  const ctx=`Sos un asesor financiero personal. Datos actuales del usuario:\n- Ingresos: $${Math.round(gi).toLocaleString('es-AR')}\n- Gastos: $${Math.round(gg).toLocaleString('es-AR')}\n- Neto: $${Math.round(neto).toLocaleString('es-AR')}\n- Cuentas: ${S.accounts.map(a=>a.name+': $'+Math.round(getBal(a.id)).toLocaleString('es-AR')).join(', ')}\nRespond├® en espa├▒ol, de forma concisa y ├║til.`;
+  const ctx=`Sos un asesor financiero personal. Datos actuales del usuario:\n- Ingresos: $${Math.round(gi).toLocaleString('es-AR')}\n- Gastos: $${Math.round(gg).toLocaleString('es-AR')}\n- Neto: $${Math.round(neto).toLocaleString('es-AR')}\n- Cuentas: ${S.accounts.map(a=>a.name+': $'+Math.round(getBal(a.id)).toLocaleString('es-AR')).join(', ')}\nRespondé en español, de forma concisa y útil.`;
   try{
     const resp=await askGemini(q,ctx);
     S.aiHistory.push({role:'assistant',content:resp});
@@ -2407,8 +2411,8 @@ async function askAI(){
 
 function renderAlertsBanner(){
   const a=[];
-  S.budgets.forEach(b=>{const sp=catSpendM(b.category),pct=b.limit>0?sp/b.limit*100:0;if(pct>=100)a.push(`<div style="background:rgba(231,76,60,.1);border:0.5px solid rgba(231,76,60,.3);border-radius:var(--rs);padding:7px 12px;margin-bottom:6px;font-size:11px;color:var(--red);display:flex;gap:8px"><span>ÔÜá</span><span>Presupuesto de <strong>${b.category}</strong> superado: ${fmt(sp)} / ${fmt(b.limit)}</span></div>`);else if(pct>=b.warnAt)a.push(`<div style="background:rgba(243,156,18,.08);border:0.5px solid rgba(243,156,18,.3);border-radius:var(--rs);padding:7px 12px;margin-bottom:6px;font-size:11px;color:var(--amber);display:flex;gap:8px"><span>!</span><span><strong>${b.category}</strong>: ${Math.round(pct)}% del presupuesto</span></div>`);});
-  S.loans.filter(l=>l.status==='pendiente'&&new Date(l.dueDate)<new Date()).forEach(l=>{const from=S.accounts.find(a=>a.id===l.fromId);a.push(`<div style="background:rgba(0,188,212,.08);border:0.5px solid rgba(0,188,212,.3);border-radius:var(--rs);padding:7px 12px;margin-bottom:6px;font-size:11px;color:var(--cyan);display:flex;gap:8px"><span>Ôçä</span><span>Pr├®stamo vencido: ${fmt(l.amount)} de <strong>${from?.name}</strong> ÔÇö <button class="btn bts" style="display:inline-flex;background:rgba(0,188,212,.15);border-color:rgba(0,188,212,.3);color:var(--cyan);padding:2px 8px" onclick="markLoanPaid(${l.id})">Devolver</button></span></div>`);});
+  S.budgets.forEach(b=>{const sp=catSpendM(b.category),pct=b.limit>0?sp/b.limit*100:0;if(pct>=100)a.push(`<div style="background:rgba(231,76,60,.1);border:0.5px solid rgba(231,76,60,.3);border-radius:var(--rs);padding:7px 12px;margin-bottom:6px;font-size:11px;color:var(--red);display:flex;gap:8px"><span>⚠</span><span>Presupuesto de <strong>${b.category}</strong> superado: ${fmt(sp)} / ${fmt(b.limit)}</span></div>`);else if(pct>=b.warnAt)a.push(`<div style="background:rgba(243,156,18,.08);border:0.5px solid rgba(243,156,18,.3);border-radius:var(--rs);padding:7px 12px;margin-bottom:6px;font-size:11px;color:var(--amber);display:flex;gap:8px"><span>!</span><span><strong>${b.category}</strong>: ${Math.round(pct)}% del presupuesto</span></div>`);});
+  S.loans.filter(l=>l.status==='pendiente'&&new Date(l.dueDate)<new Date()).forEach(l=>{const from=S.accounts.find(a=>a.id===l.fromId);a.push(`<div style="background:rgba(0,188,212,.08);border:0.5px solid rgba(0,188,212,.3);border-radius:var(--rs);padding:7px 12px;margin-bottom:6px;font-size:11px;color:var(--cyan);display:flex;gap:8px"><span>⇄</span><span>Préstamo vencido: ${fmt(l.amount)} de <strong>${from?.name}</strong> — <button class="btn bts" style="display:inline-flex;background:rgba(0,188,212,.15);border-color:rgba(0,188,212,.3);color:var(--cyan);padding:2px 8px" onclick="markLoanPaid(${l.id})">Devolver</button></span></div>`);});
   document.getElementById('alerts-banner').innerHTML=a.join('');
 }
 
@@ -2443,43 +2447,43 @@ function openModal(id){
   document.getElementById(id).classList.add('on');
 }
 function closeModal(id){document.getElementById(id).classList.remove('on');}
-// ===== SISTEMA DE CATEGOR├ìAS INTELIGENTES =====
+// ===== SISTEMA DE CATEGORÍAS INTELIGENTES =====
 const CATS_GASTO=[
-  {id:'alimentaci├│n',name:'Alimentaci├│n',icon:'­ƒøÆ',color:'#e74c3c'},
-  {id:'comida-rapida',name:'Comida r├ípida',icon:'­ƒìö',color:'#e67e22'},
-  {id:'transporte',name:'Transporte',icon:'­ƒÜî',color:'#3498db'},
-  {id:'combustible',name:'Combustible',icon:'Ôø¢',color:'#78909c'},
-  {id:'vivienda',name:'Vivienda/Alquiler',icon:'­ƒÅá',color:'#9b59b6'},
-  {id:'salud',name:'Salud',icon:'­ƒÆè',color:'#e91e63'},
-  {id:'educaci├│n',name:'Educaci├│n',icon:'­ƒôÜ',color:'#1abc9c'},
-  {id:'entretenimiento',name:'Entretenimiento',icon:'­ƒÄ¼',color:'#f39c12'},
-  {id:'ropa',name:'Ropa',icon:'­ƒæö',color:'#e67e22'},
-  {id:'servicios',name:'Servicios/Luz',icon:'ÔÜí',color:'#ffa726'},
-  {id:'telefono',name:'Tel├®fono',icon:'­ƒô▒',color:'#536dfe'},
-  {id:'mascotas',name:'Mascotas',icon:'­ƒÉ¥',color:'#4fc3f7'},
-  {id:'ni├▒os',name:'Ni├▒os',icon:'­ƒæÂ',color:'#81c784'},
-  {id:'pr├®stamo pagado',name:'Pr├®stamo pagado',icon:'­ƒÆ│',color:'#f44336'},
-  {id:'pr├®stamo otorgado',name:'Pr├®stamo otorgado',icon:'­ƒñØ',color:'#185fa5'},
-  {id:'inversi├│n-gasto',name:'Inversi├│n negocio',icon:'­ƒôª',color:'#ff4081'},
-  {id:'otros',name:'Otros gastos',icon:'­ƒôï',color:'#607d8b'},
+  {id:'alimentación',name:'Alimentación',icon:'🛒',color:'#e74c3c'},
+  {id:'comida-rapida',name:'Comida rápida',icon:'🍔',color:'#e67e22'},
+  {id:'transporte',name:'Transporte',icon:'🚌',color:'#3498db'},
+  {id:'combustible',name:'Combustible',icon:'⛽',color:'#78909c'},
+  {id:'vivienda',name:'Vivienda/Alquiler',icon:'🏠',color:'#9b59b6'},
+  {id:'salud',name:'Salud',icon:'💊',color:'#e91e63'},
+  {id:'educación',name:'Educación',icon:'📚',color:'#1abc9c'},
+  {id:'entretenimiento',name:'Entretenimiento',icon:'🎬',color:'#f39c12'},
+  {id:'ropa',name:'Ropa',icon:'👔',color:'#e67e22'},
+  {id:'servicios',name:'Servicios/Luz',icon:'⚡',color:'#ffa726'},
+  {id:'telefono',name:'Teléfono',icon:'📱',color:'#536dfe'},
+  {id:'mascotas',name:'Mascotas',icon:'🐾',color:'#4fc3f7'},
+  {id:'niños',name:'Niños',icon:'👶',color:'#81c784'},
+  {id:'préstamo pagado',name:'Préstamo pagado',icon:'💳',color:'#f44336'},
+  {id:'préstamo otorgado',name:'Préstamo otorgado',icon:'🤝',color:'#185fa5'},
+  {id:'inversión-gasto',name:'Inversión negocio',icon:'📦',color:'#ff4081'},
+  {id:'otros',name:'Otros gastos',icon:'📋',color:'#607d8b'},
 ];
 const CATS_INGRESO=[
-  {id:'salario',name:'Salario',icon:'­ƒÆ░',color:'#2ecc71'},
-  {id:'horas-extras',name:'Horas extras',icon:'ÔÅ░',color:'#27ae60'},
-  {id:'ventas',name:'Ventas',icon:'­ƒÅ¬',color:'#f39c12'},
-  {id:'negocio',name:'Negocio/Recaudaci├│n',icon:'­ƒÆ╝',color:'#ff6f00'},
-  {id:'inversi├│n',name:'Inversi├│n/Rendimiento',icon:'­ƒôê',color:'#0f6e56'},
-  {id:'pr├®stamo cobrado',name:'Pr├®stamo cobrado',icon:'­ƒñØ',color:'#185fa5'},
-  {id:'plus',name:'Plus/Bonus',icon:'Ô¡É',color:'#f1c40f'},
-  {id:'comisi├│n',name:'Comisi├│n',icon:'­ƒÄ»',color:'#8e44ad'},
-  {id:'alquiler-cobrado',name:'Alquiler cobrado',icon:'­ƒÅá',color:'#1abc9c'},
-  {id:'dividendos',name:'Dividendos',icon:'­ƒÅª',color:'#2980b9'},
-  {id:'regalo',name:'Regalo recibido',icon:'­ƒÄü',color:'#e91e63'},
-  {id:'otros-ingreso',name:'Otros ingresos',icon:'­ƒÆí',color:'#607d8b'},
+  {id:'salario',name:'Salario',icon:'💰',color:'#2ecc71'},
+  {id:'horas-extras',name:'Horas extras',icon:'⏰',color:'#27ae60'},
+  {id:'ventas',name:'Ventas',icon:'🏪',color:'#f39c12'},
+  {id:'negocio',name:'Negocio/Recaudación',icon:'💼',color:'#ff6f00'},
+  {id:'inversión',name:'Inversión/Rendimiento',icon:'📈',color:'#0f6e56'},
+  {id:'préstamo cobrado',name:'Préstamo cobrado',icon:'🤝',color:'#185fa5'},
+  {id:'plus',name:'Plus/Bonus',icon:'⭐',color:'#f1c40f'},
+  {id:'comisión',name:'Comisión',icon:'🎯',color:'#8e44ad'},
+  {id:'alquiler-cobrado',name:'Alquiler cobrado',icon:'🏠',color:'#1abc9c'},
+  {id:'dividendos',name:'Dividendos',icon:'🏦',color:'#2980b9'},
+  {id:'regalo',name:'Regalo recibido',icon:'🎁',color:'#e91e63'},
+  {id:'otros-ingreso',name:'Otros ingresos',icon:'💡',color:'#607d8b'},
 ];
 
 let selectedCatColor='#3498db';
-let selectedCatIcon='­ƒôª';
+let selectedCatIcon='📦';
 let currentTxTipo='gasto';
 
 function getAllCats(tipo){
@@ -2522,7 +2526,7 @@ function setTipoTx(tipo){
       btn.style.background='var(--bg3)';btn.style.borderColor='var(--bdr)';btn.style.color='var(--t3)';
     }
   });
-  // Mostrar/ocultar secci├│n categor├¡a y destino
+  // Mostrar/ocultar sección categoría y destino
   const cg=document.getElementById('tx-cg');
   const dg=document.getElementById('tx-dg');
   if(tipo==='transferencia'){if(cg)cg.style.display='none';if(dg)dg.style.display='block';}
@@ -2567,16 +2571,16 @@ function selectCatIcon(icon,el){
 
 function saveCustomCat(){
   const nm=document.getElementById('cat-nm').value.trim();
-  if(!nm){alert('Ingres├í un nombre para la categor├¡a');return;}
+  if(!nm){alert('Ingresá un nombre para la categoría');return;}
   if(!S.customCats)S.customCats=[];
   const id='custom-'+Date.now();
   S.customCats.push({
     id,name:nm,
-    icon:document.getElementById('cat-icon').value||'­ƒôª',
+    icon:document.getElementById('cat-icon').value||'📦',
     color:document.getElementById('cat-color').value||'#3498db',
     tipo:document.getElementById('cat-tipo').value
   });
-  // Tambi├®n registrar en KC para que aparezca en los gr├íficos
+  // También registrar en KC para que aparezca en los gráficos
   KC[id]=document.getElementById('cat-color').value||'#3498db';
   saveS();
   closeModal('catMod');
@@ -2592,18 +2596,18 @@ function saveTx(){
   const type=document.getElementById('tx-tp').value||'gasto';
   const amt=getAmountValue();
   const accId=parseInt(document.getElementById('tx-ac').value);
-  const desc=document.getElementById('tx-de').value||'Sin descripci├│n';
+  const desc=document.getElementById('tx-de').value||'Sin descripción';
   const date=document.getElementById('tx-fe').value;
-  if(!amt||!accId||!date){alert('Complet├í monto, cuenta y fecha');return;}
+  if(!amt||!accId||!date){alert('Completá monto, cuenta y fecha');return;}
 
   let cat='otros';
   if(type==='transferencia'){cat='transferencia';}
   else{
     const catVal=document.getElementById('tx-ca').value;
     if(catVal){cat=catVal;}
-    else{alert('Seleccion├í una categor├¡a');return;}
+    else{alert('Seleccioná una categoría');return;}
   }
-  // Mapear categor├¡as del nuevo sistema al KC para colores
+  // Mapear categorías del nuevo sistema al KC para colores
   const allC=[...getAllCats('gasto'),...getAllCats('ingreso')];
   const catObj=allC.find(c=>c.id===cat);
   if(catObj&&!KC[cat])KC[cat]=catObj.color;
@@ -2617,7 +2621,7 @@ function saveTx(){
 }
 
 function saveAcc(){
-  const nm=document.getElementById('a-nm').value;if(!nm){alert('Ingres├í un nombre');return;}
+  const nm=document.getElementById('a-nm').value;if(!nm){alert('Ingresá un nombre');return;}
   S.accounts.push({id:Date.now(),name:nm,type:document.getElementById('a-tp').value,color:document.getElementById('a-co').value,currency:document.getElementById('a-cu').value,initial:parseFloat(document.getElementById('a-in').value)||0});
   saveS();closeModal('accMod');refreshAll();
 }
@@ -2627,8 +2631,8 @@ function saveLoan(){
   const toId=parseInt(document.getElementById('ln-to').value);
   const amt=parseFloat(document.getElementById('ln-am').value);
   const due=document.getElementById('ln-due').value;
-  const desc=document.getElementById('ln-de').value||'Pr├®stamo entre cuentas';
-  if(!amt||!due){alert('Complet├í monto y fecha de devoluci├│n');return;}
+  const desc=document.getElementById('ln-de').value||'Préstamo entre cuentas';
+  if(!amt||!due){alert('Completá monto y fecha de devolución');return;}
   if(fromId===toId){alert('Las cuentas deben ser diferentes');return;}
   S.loans.push({id:Date.now(),fromId,toId,amount:amt,dueDate:due,desc,date:new Date().toISOString().split('T')[0],status:'pendiente'});
   saveS();closeModal('loanMod');refreshAll();
@@ -2646,20 +2650,20 @@ function markLoanPaid(id){
 }
 
 function saveGoal(){
-  const nm=document.getElementById('g-nm').value;if(!nm){alert('Ingres├í un nombre');return;}
+  const nm=document.getElementById('g-nm').value;if(!nm){alert('Ingresá un nombre');return;}
   S.goals.push({id:Date.now(),name:nm,target:parseFloat(document.getElementById('g-tg').value)||0,current:parseFloat(document.getElementById('g-cu').value)||0,accountId:parseInt(document.getElementById('g-ac').value)||S.accounts[0]?.id,deadline:document.getElementById('g-dt').value||'2026-12-31',color:document.getElementById('g-co').value});
   saveS();closeModal('goalMod');refreshAll();
 }
 
 function saveBudget(){
   const cat=document.getElementById('b-ca').value;
-  if(S.budgets.find(b=>b.category===cat)){alert('Ya existe un presupuesto para esta categor├¡a');return;}
+  if(S.budgets.find(b=>b.category===cat)){alert('Ya existe un presupuesto para esta categoría');return;}
   S.budgets.push({id:Date.now(),category:cat,limit:parseFloat(document.getElementById('b-li').value)||0,warnAt:parseInt(document.getElementById('b-wa').value)||80});
   saveS();closeModal('budgetMod');refreshAll();
 }
 
 function addGoal(id){const v=parseFloat(document.getElementById('ag-'+id)?.value);if(!v||v<=0)return;const g=S.goals.find(x=>x.id===id);if(!g)return;g.current=Math.min(g.target,g.current+v);saveS();renderMetas();}
-function delGoal(id){if(!confirm('┬┐Eliminar esta meta?'))return;S.goals=S.goals.filter(g=>g.id!==id);saveS();renderMetas();}
+function delGoal(id){if(!confirm('¿Eliminar esta meta?'))return;S.goals=S.goals.filter(g=>g.id!==id);saveS();renderMetas();}
 function delBudget(id){S.budgets=S.budgets.filter(b=>b.id!==id);saveS();renderAlertas();}
 function delTx(id){S.transactions=S.transactions.filter(t=>t.id!==id);saveS();refreshAll();}
 
@@ -2680,15 +2684,15 @@ function exportAccCSV(id){
   const b=new Blob([rows.map(r=>r.join(',')).join('\n')],{type:'text/csv;charset=utf-8;'});
   const l=document.createElement('a');l.href=URL.createObjectURL(b);l.download=`${(ac?.name||'cuenta').replace(/\s/g,'_')}.csv`;l.click();
 }
-function cpyKey(){const el=document.getElementById('api-k');navigator.clipboard.writeText(el.value);const btn=event.target;btn.textContent='Copiado Ô£ô';setTimeout(()=>btn.textContent='Copiar',2e3);}
+function cpyKey(){const el=document.getElementById('api-k');navigator.clipboard.writeText(el.value);const btn=event.target;btn.textContent='Copiado ✓';setTimeout(()=>btn.textContent='Copiar',2e3);}
 
 // ===== PORTAFOLIO =====
 const ASSET_COLORS={crypto:'#f39c12',stock:'#3498db',etf:'#2ecc71',bono:'#9b59b6',forex:'#1abc9c',otro:'#7f8c8d'};
-const ASSET_ICONS={crypto:'Ôé┐',stock:'Ôåù',etf:'Ôùê',bono:'%',forex:'Ôé¼',otro:'Ôùë'};
-const TYPE_LABELS={crypto:'Criptomoneda',stock:'Acci├│n',etf:'ETF / Fondo',bono:'Bono / Plazo fijo',forex:'Forex',otro:'Otro'};
+const ASSET_ICONS={crypto:'₿',stock:'↗',etf:'◈',bono:'%',forex:'€',otro:'◉'};
+const TYPE_LABELS={crypto:'Criptomoneda',stock:'Acción',etf:'ETF / Fondo',bono:'Bono / Plazo fijo',forex:'Forex',otro:'Otro'};
 
 function renderPortafolio(){
-  const invAcc=S.accounts.find(a=>a.type==='inversi├│n')||S.accounts[0];
+  const invAcc=S.accounts.find(a=>a.type==='inversión')||S.accounts[0];
   if(invAcc&&document.getElementById('port-acc-name')) document.getElementById('port-acc-name').textContent=invAcc.name;
 
   const totalCostUSD=S.assets.reduce((s,a)=>s+a.qty*a.buyPrice,0);
@@ -2703,12 +2707,12 @@ function renderPortafolio(){
     <div class="met"><div class="ml">Valor actual (USD)</div><div class="mv neu">$${totalNowUSD.toLocaleString('es-AR',{maximumFractionDigits:0})}</div></div>
     <div class="met"><div class="ml">Valor actual (ARS)</div><div class="mv pos">${fmt(totalNowUSD*S.tc)}</div></div>
     <div class="met"><div class="ml">Costo de compra</div><div class="mv" style="color:var(--t2)">$${totalCostUSD.toLocaleString('es-AR',{maximumFractionDigits:0})}</div></div>
-    <div class="met"><div class="ml">Ganancia / P├®rdida</div><div class="mv ${totalGainUSD>=0?'pos':'neg'}">${totalGainUSD>=0?'+':''}$${Math.round(totalGainUSD)}</div></div>
+    <div class="met"><div class="ml">Ganancia / Pérdida</div><div class="mv ${totalGainUSD>=0?'pos':'neg'}">${totalGainUSD>=0?'+':''}$${Math.round(totalGainUSD)}</div></div>
     <div class="met"><div class="ml">Rendimiento total</div><div class="mv ${totalPct>=0?'pos':'neg'}">${totalPct>=0?'+':''}${totalPct.toFixed(2)}%</div></div>
     <div class="met"><div class="ml">Activos en cartera</div><div class="mv neu">${S.assets.length}</div></div>
   `;
 
-  // Banner vs per├¡odo anterior
+  // Banner vs período anterior
   const banner=document.getElementById('port-vs-banner');
   if(banner) banner.innerHTML=`
     <div>
@@ -2727,7 +2731,7 @@ function renderPortafolio(){
       }).join('')}
     </div>`;
 
-  // Donut distribuci├│n por tipo
+  // Donut distribución por tipo
   const byType={};
   S.assets.forEach(a=>{byType[a.type]=(byType[a.type]||0)+a.qty*a.currentPrice;});
   const tLabels=Object.keys(byType),tVals=Object.values(byType);
@@ -2771,11 +2775,11 @@ function renderPortafolio(){
     const ch24=q?.changePct;
     const ch24html=ch24!=null
       ?`<span style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;color:${ch24>=0?'var(--green)':'var(--red)'}">${ch24>=0?'+':''}${ch24.toFixed(2)}%</span>`
-      :`<span style="color:var(--t4);font-size:10px">ÔÇö</span>`;
+      :`<span style="color:var(--t4);font-size:10px">—</span>`;
     return`<tr>
       <td><div style="display:flex;align-items:center;gap:8px">
         <div style="width:34px;height:34px;border-radius:50%;background:${ASSET_COLORS[a.type]}22;display:flex;align-items:center;justify-content:center;font-size:${(CRYPTO_LOGOS[a.ticker]||a.ticker).length<=2?'18':'11'}px;font-weight:700;color:${ASSET_COLORS[a.type]}">${CRYPTO_LOGOS[a.ticker]||a.ticker.slice(0,3)}</div>
-        <div><div style="font-weight:600;font-size:13px;color:var(--t1)">${a.name}</div><div style="font-size:10px;color:var(--t3)">${a.ticker} ┬À ${a.platform}</div></div>
+        <div><div style="font-weight:600;font-size:13px;color:var(--t1)">${a.name}</div><div style="font-size:10px;color:var(--t3)">${a.ticker} · ${a.platform}</div></div>
       </div></td>
       <td><span class="bdg" style="background:${ASSET_COLORS[a.type]}22;color:${ASSET_COLORS[a.type]}">${TYPE_LABELS[a.type]||a.type}</span></td>
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--t2)">${a.qty}</td>
@@ -2789,9 +2793,9 @@ function renderPortafolio(){
         <div style="flex:1;height:5px;background:var(--bg0);border-radius:3px;overflow:hidden"><div style="width:${Math.round(portPct)}%;height:100%;background:${ASSET_COLORS[a.type]};border-radius:3px"></div></div>
         <span style="font-size:10px;color:var(--t3);font-family:'JetBrains Mono',monospace">${portPct.toFixed(1)}%</span>
       </div></td>
-      <td><button class="btg" style="border:none;background:none;color:var(--t4);cursor:pointer;font-size:11px" onclick="delAsset(${a.id})">Ô£ò</button></td>
+      <td><button class="btg" style="border:none;background:none;color:var(--t4);cursor:pointer;font-size:11px" onclick="delAsset(${a.id})">✕</button></td>
     </tr>`;
-  }).join('')||'<tr><td colspan="10" style="text-align:center;color:var(--t3);padding:18px;font-size:11px">No hay activos. Agreg├í uno con "+ Activo"</td></tr>';
+  }).join('')||'<tr><td colspan="10" style="text-align:center;color:var(--t3);padding:18px;font-size:11px">No hay activos. Agregá uno con "+ Activo"</td></tr>';
 
   buildPortEvol('1m');
   buildPortComp('valor');
@@ -2806,8 +2810,8 @@ function buildPortEvol(period){
   };
   const cfg=configs[period]||configs['1m'];
   mkCh('ch-port-evol','line',{labels:cfg.labels,datasets:[
-    {label:'Per├¡odo actual',data:cfg.cur,borderColor:'#1abc9c',backgroundColor:'rgba(26,188,156,.08)',tension:.4,fill:true,pointBackgroundColor:'#1abc9c',pointRadius:3},
-    {label:'Per├¡odo anterior',data:cfg.prev,borderColor:'rgba(255,255,255,.2)',backgroundColor:'transparent',tension:.4,fill:false,pointBackgroundColor:'rgba(255,255,255,.2)',pointRadius:2,borderDash:[4,4]}
+    {label:'Período actual',data:cfg.cur,borderColor:'#1abc9c',backgroundColor:'rgba(26,188,156,.08)',tension:.4,fill:true,pointBackgroundColor:'#1abc9c',pointRadius:3},
+    {label:'Período anterior',data:cfg.prev,borderColor:'rgba(255,255,255,.2)',backgroundColor:'transparent',tension:.4,fill:false,pointBackgroundColor:'rgba(255,255,255,.2)',pointRadius:2,borderDash:[4,4]}
   ]},gridOpts);
 }
 
@@ -2833,7 +2837,7 @@ window.switchPortComp=function(mode,btn){
 };
 
 function saveAsset(){
-  const nm=document.getElementById('as-nm').value;if(!nm){alert('Ingres├í el nombre/ticker');return;}
+  const nm=document.getElementById('as-nm').value;if(!nm){alert('Ingresá el nombre/ticker');return;}
   S.assets.push({id:Date.now(),name:nm,ticker:nm.toUpperCase(),type:document.getElementById('as-tp').value,qty:parseFloat(document.getElementById('as-qty').value)||0,buyPrice:parseFloat(document.getElementById('as-buy').value)||0,currentPrice:parseFloat(document.getElementById('as-cur').value)||0,date:document.getElementById('as-dt').value||new Date().toISOString().split('T')[0],platform:document.getElementById('as-pl').value||'Otro'});
   saveS();closeModal('assetMod');renderPortafolio();
 }
@@ -2853,7 +2857,7 @@ function renderBots(){
   const totalCap=S.bots.reduce((s,b)=>s+b.capital,0);
   const activeCap=S.bots.filter(b=>b.active).reduce((s,b)=>s+b.capital,0);
   const totalGain=S.botTxs.filter(t=>t.type==='ganancia').reduce((s,t)=>s+t.result,0);
-  const totalLoss=S.botTxs.filter(t=>t.type==='p├®rdida').reduce((s,t)=>s+Math.abs(t.result),0);
+  const totalLoss=S.botTxs.filter(t=>t.type==='pérdida').reduce((s,t)=>s+Math.abs(t.result),0);
   const netGain=totalGain-totalLoss;
   const netPct=activeCap>0?(netGain/activeCap*100):0;
   // mes anterior simulado
@@ -2864,7 +2868,7 @@ function renderBots(){
     <div class="met"><div class="ml">Capital total (USD)</div><div class="mv neu">$${totalCap.toFixed(0)}</div></div>
     <div class="met"><div class="ml">Capital en ARS</div><div class="mv pos">${fmt(totalCap*S.tc)}</div></div>
     <div class="met"><div class="ml">Ganancia bruta</div><div class="mv pos">+$${totalGain.toFixed(2)}</div></div>
-    <div class="met"><div class="ml">P├®rdidas</div><div class="mv neg">-$${totalLoss.toFixed(2)}</div></div>
+    <div class="met"><div class="ml">Pérdidas</div><div class="mv neg">-$${totalLoss.toFixed(2)}</div></div>
     <div class="met"><div class="ml">Ganancia neta</div><div class="mv ${netGain>=0?'pos':'neg'}">${netGain>=0?'+':''}$${netGain.toFixed(2)}</div></div>
     <div class="met"><div class="ml">ROI total</div><div class="mv ${netPct>=0?'pos':'neg'}">${netPct>=0?'+':''}${netPct.toFixed(2)}%</div></div>
   `;
@@ -2873,7 +2877,7 @@ function renderBots(){
   const botBanner=document.getElementById('bot-vs-banner');
   if(botBanner) botBanner.innerHTML=`
     <div>
-      <div style="font-size:10px;color:var(--t3);margin-bottom:2px">ESTE MES VS MES ANTERIOR ┬À Pionex Grid / DCA</div>
+      <div style="font-size:10px;color:var(--t3);margin-bottom:2px">ESTE MES VS MES ANTERIOR · Pionex Grid / DCA</div>
       <div style="display:flex;align-items:baseline;gap:8px">
         <span style="font-size:18px;font-weight:500;font-family:'JetBrains Mono',monospace;color:${netGain>=0?'var(--green)':'var(--red)'}">${netGain>=0?'+':''}$${netGain.toFixed(2)}</span>
         <span style="font-size:13px;font-weight:600;color:${vsPct>=0?'var(--green)':'var(--red)'}">${vsPct>=0?'+':''}${vsPct.toFixed(1)}% vs mes ant.</span>
@@ -2883,7 +2887,7 @@ function renderBots(){
       ${S.bots.map(b=>{
         const btxs=S.botTxs.filter(t=>t.botId===b.id);
         const bg=btxs.filter(t=>t.type==='ganancia').reduce((s,t)=>s+t.result,0);
-        const bl=btxs.filter(t=>t.type==='p├®rdida').reduce((s,t)=>s+Math.abs(t.result),0);
+        const bl=btxs.filter(t=>t.type==='pérdida').reduce((s,t)=>s+Math.abs(t.result),0);
         const bn=bg-bl,bp=b.capital>0?(bn/b.capital*100):0;
         return`<div style="text-align:center"><div style="font-size:10px;color:var(--t3)">${b.name.split(' ')[0]}</div><div style="font-size:12px;font-weight:600;color:${bn>=0?'var(--green)':'var(--red)'}">${bn>=0?'+':''}$${bn.toFixed(1)}</div><div style="font-size:9px;color:var(--t3)">${bp>=0?'+':''}${bp.toFixed(1)}%</div></div>`;
       }).join('')}
@@ -2893,7 +2897,7 @@ function renderBots(){
   document.getElementById('bot-cards').innerHTML=S.bots.map(b=>{
     const btxs=S.botTxs.filter(t=>t.botId===b.id);
     const bg=btxs.filter(t=>t.type==='ganancia').reduce((s,t)=>s+t.result,0);
-    const bl=btxs.filter(t=>t.type==='p├®rdida').reduce((s,t)=>s+Math.abs(t.result),0);
+    const bl=btxs.filter(t=>t.type==='pérdida').reduce((s,t)=>s+Math.abs(t.result),0);
     const bn=bg-bl,bp=b.capital>0?(bn/b.capital*100):0;
     const lastTx=[...btxs].sort((a,z)=>z.date.localeCompare(a.date))[0];
     const ops=btxs.length;
@@ -2905,11 +2909,11 @@ function renderBots(){
             <div style="width:8px;height:8px;border-radius:50%;background:${b.active?'var(--green)':'var(--t4)'};${b.active?'box-shadow:0 0 6px var(--green)':''}"></div>
             <span style="font-size:13px;font-weight:500;color:var(--t1)">${b.name}</span>
           </div>
-          <div style="font-size:10px;color:var(--t3)">${b.platform} ┬À ${b.strategy} ┬À <span style="color:var(--t2)">${b.pair}</span></div>
+          <div style="font-size:10px;color:var(--t3)">${b.platform} · ${b.strategy} · <span style="color:var(--t2)">${b.pair}</span></div>
         </div>
         <div style="display:flex;gap:4px">
           <button class="btn bts btg" onclick="toggleBot(${b.id})" style="font-size:10px;padding:3px 7px">${b.active?'Pausar':'Activar'}</button>
-          <button class="btg" style="border:none;background:none;color:var(--t4);cursor:pointer;font-size:11px;padding:2px 5px" onclick="delBot(${b.id})">Ô£ò</button>
+          <button class="btg" style="border:none;background:none;color:var(--t4);cursor:pointer;font-size:11px;padding:2px 5px" onclick="delBot(${b.id})">✕</button>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px">
@@ -2918,9 +2922,9 @@ function renderBots(){
         <div class="met" style="padding:7px 8px;text-align:center"><div class="ml" style="font-size:8px">ROI</div><div style="font-size:12px;font-weight:500;color:${bp>=0?'var(--green)':'var(--red)'};font-family:'JetBrains Mono',monospace">${bp>=0?'+':''}${bp.toFixed(1)}%</div></div>
         <div class="met" style="padding:7px 8px;text-align:center"><div class="ml" style="font-size:8px">Operac.</div><div style="font-size:12px;font-weight:500;color:var(--t2);font-family:'JetBrains Mono',monospace">${ops}</div></div>
       </div>
-      ${lastTx?`<div style="font-size:10px;color:var(--t3)">├Ültima: ${fd(lastTx.date)} ┬À <span style="color:${lastTx.type==='ganancia'?'var(--green)':'var(--red)'}">${lastTx.type==='ganancia'?'+':''}$${lastTx.result.toFixed(2)} (${lastTx.pct>=0?'+':''}${lastTx.pct}%)</span></div>`:'<div style="font-size:10px;color:var(--t4)">Sin operaciones registradas</div>'}
+      ${lastTx?`<div style="font-size:10px;color:var(--t3)">Última: ${fd(lastTx.date)} · <span style="color:${lastTx.type==='ganancia'?'var(--green)':'var(--red)'}">${lastTx.type==='ganancia'?'+':''}$${lastTx.result.toFixed(2)} (${lastTx.pct>=0?'+':''}${lastTx.pct}%)</span></div>`:'<div style="font-size:10px;color:var(--t4)">Sin operaciones registradas</div>'}
     </div>`;
-  }).join('')||'<div style="font-size:12px;color:var(--t3);text-align:center;padding:20px;grid-column:1/-1">No hay bots. Cre├í uno con "+ Nuevo bot"</div>';
+  }).join('')||'<div style="font-size:12px;color:var(--t3);text-align:center;padding:20px;grid-column:1/-1">No hay bots. Creá uno con "+ Nuevo bot"</div>';
 
   // Chart: ganancia neta por bot
   mkCh('ch-bot-bar','bar',{
@@ -2933,7 +2937,7 @@ function renderBots(){
   mkCh('ch-bot-pie','doughnut',{labels:S.bots.map(b=>b.name.split(' ')[0]),datasets:[{data:S.bots.map(b=>b.capital),backgroundColor:S.bots.map(b=>b.color),borderWidth:0,hoverOffset:3}]},{cutout:'60%'});
   document.getElementById('bot-pie-leg').innerHTML=S.bots.map(b=>`<div class="li"><div class="lsq" style="background:${b.color}"></div><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:88px">${b.name.split(' ')[0]}</span><span class="lp">${Math.round(b.capital/totalCapAll*100)}%</span></div>`).join('');
 
-  // Evoluci├│n rendimiento acumulado
+  // Evolución rendimiento acumulado
   const months=['Ene','Feb','Mar','Abr'];
   mkCh('ch-bot-evol','line',{labels:months,datasets:S.bots.map((b,i)=>{
     const base=[0,b.capital*0.018,b.capital*0.042,b.capital*0.057];
@@ -2941,7 +2945,7 @@ function renderBots(){
   })},{...gridOpts,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#5a6a82',font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#5a6a82',callback:v=>'$'+v.toFixed(1),font:{size:10}},grid:{color:'rgba(255,255,255,.04)'}}}});
   document.getElementById('bot-evol-leg').innerHTML=S.bots.map(b=>`<div class="li" style="margin:0"><div class="lsq" style="background:${b.color}"></div><span style="font-size:10px">${b.name.split(' ')[0]}</span></div>`).join('');
 
-  // Comparaci├│n este mes vs mes anterior
+  // Comparación este mes vs mes anterior
   mkCh('ch-bot-comp','bar',{
     labels:S.bots.map(b=>b.name.split(' ')[0]),
     datasets:[
@@ -2968,7 +2972,7 @@ function renderBots(){
 }
 
 function saveBot(){
-  const nm=document.getElementById('bt-nm').value;if(!nm){alert('Ingres├í un nombre');return;}
+  const nm=document.getElementById('bt-nm').value;if(!nm){alert('Ingresá un nombre');return;}
   S.bots.push({id:Date.now(),name:nm,platform:document.getElementById('bt-pl').value,strategy:document.getElementById('bt-st').value,pair:document.getElementById('bt-pair').value||'N/A',capital:parseFloat(document.getElementById('bt-cap').value)||0,startDate:document.getElementById('bt-dt').value||new Date().toISOString().split('T')[0],color:document.getElementById('bt-col').value,active:true});
   saveS();closeModal('botMod');renderBots();
 }
@@ -2977,18 +2981,18 @@ function saveBotTx(){
   const res=parseFloat(document.getElementById('bttx-res').value);
   const pct=parseFloat(document.getElementById('bttx-pct').value)||0;
   const date=document.getElementById('bttx-dt').value;
-  if(!botId||!res||!date){alert('Complet├í todos los campos');return;}
+  if(!botId||!res||!date){alert('Completá todos los campos');return;}
   S.botTxs.push({id:Date.now(),botId,pair:document.getElementById('bttx-pair').value||'N/A',type:document.getElementById('bttx-tp').value,result:Math.abs(res),pct,date});
   saveS();closeModal('botTxMod');renderBots();
 }
 function toggleBot(id){const b=S.bots.find(x=>x.id===id);if(b){b.active=!b.active;saveS();renderBots();}}
-function delBot(id){if(!confirm('┬┐Eliminar este bot?'))return;S.bots=S.bots.filter(b=>b.id!==id);S.botTxs=S.botTxs.filter(t=>t.botId!==id);saveS();renderBots();}
+function delBot(id){if(!confirm('¿Eliminar este bot?'))return;S.bots=S.bots.filter(b=>b.id!==id);S.botTxs=S.botTxs.filter(t=>t.botId!==id);saveS();renderBots();}
 
 S.assets=S.assets||JSON.parse(JSON.stringify(DEF.assets));
 S.bots=S.bots||JSON.parse(JSON.stringify(DEF.bots));
 S.botTxs=S.botTxs||JSON.parse(JSON.stringify(DEF.botTxs));
 S.customCats=S.customCats||[];
-// Agregar colores de categor├¡as custom al KC
+// Agregar colores de categorías custom al KC
 (S.customCats||[]).forEach(c=>{if(c.color)KC[c.id]=c.color;});
 // ===== EXTRA STAT CHARTS =====
 function buildStatFlujoExtra(){
@@ -3012,7 +3016,7 @@ function buildStatCompExtra(){
   mkCh('ch-comp-cat','bar',{
     labels:top5.map(([c])=>c),
     datasets:[
-      {label:'Per├¡odo actual',data:top5.map(([,v])=>v),backgroundColor:'rgba(52,152,219,.7)',borderRadius:3},
+      {label:'Período actual',data:top5.map(([,v])=>v),backgroundColor:'rgba(52,152,219,.7)',borderRadius:3},
       {label:'Mes anterior',data:top5.map(([,v])=>v*0.78),backgroundColor:'rgba(255,255,255,.12)',borderRadius:3}
     ]
   },gridOpts);
@@ -3055,9 +3059,9 @@ function buildStatGastosExtra(){
   mkCh('ch-gast-monthly','bar',{
     labels:['Ene','Feb','Mar','Abr'],
     datasets:[
-      {label:'Alimentaci├│n',data:[0,3600,198000,13100],backgroundColor:'rgba(231,76,60,.7)',borderRadius:2},
+      {label:'Alimentación',data:[0,3600,198000,13100],backgroundColor:'rgba(231,76,60,.7)',borderRadius:2},
       {label:'Vivienda',data:[0,0,431250,0],backgroundColor:'rgba(155,89,182,.7)',borderRadius:2},
-      {label:'Educaci├│n',data:[0,0,234812,0],backgroundColor:'rgba(26,188,156,.7)',borderRadius:2},
+      {label:'Educación',data:[0,0,234812,0],backgroundColor:'rgba(26,188,156,.7)',borderRadius:2},
       {label:'Transporte',data:[0,2000,86062,3000],backgroundColor:'rgba(52,152,219,.7)',borderRadius:2},
     ]
   },gridOpts);
@@ -3181,7 +3185,7 @@ async function fetchBTCPrice(){
       const ch = parseFloat(change||0);
       cel.textContent = ch ? (ch>=0?'+':'')+ch.toFixed(2)+'%' : '';
       cel.style.color = ch>=0 ? 'var(--green)' : 'var(--red)';
-      document.getElementById('btc-label').textContent = 'Bitcoin ┬À USD ┬À '+src;
+      document.getElementById('btc-label').textContent = 'Bitcoin · USD · '+src;
       S.assets.forEach(a=>{if(a.ticker==='BTC') a.currentPrice=price;});
       return; // success
     }catch(e){ continue; }
@@ -3190,13 +3194,13 @@ async function fetchBTCPrice(){
   const btcAsset = S.assets.find(a=>a.ticker==='BTC');
   if(btcAsset?.currentPrice){
     document.getElementById('btc-price').textContent = '$'+Math.round(btcAsset.currentPrice).toLocaleString('es-AR');
-    document.getElementById('btc-label').textContent = 'Bitcoin ┬À ├║ltimo precio';
+    document.getElementById('btc-label').textContent = 'Bitcoin · último precio';
   } else {
-    document.getElementById('btc-label').textContent = 'Bitcoin ┬À sin conexi├│n';
+    document.getElementById('btc-label').textContent = 'Bitcoin · sin conexión';
   }
 }
 
-// ===== ALPHA VANTAGE ÔÇö DATOS REALES DE BOLSA =====
+// ===== ALPHA VANTAGE — DATOS REALES DE BOLSA =====
 const AV_KEY='JEGM8DBSRDBQQNNZ';
 const AV_BASE='https://www.alphavantage.co/query';
 
@@ -3259,7 +3263,7 @@ function showStockUpdateBanner(count){
   const el=document.getElementById('port-vs-banner');
   if(!el)return;
   const old=el.innerHTML;
-  el.innerHTML=`<span style="color:var(--green);font-size:12px">Ô£ô ${count} activo${count>1?'s':''} actualizado${count>1?'s':''} con datos reales de Alpha Vantage</span>`;
+  el.innerHTML=`<span style="color:var(--green);font-size:12px">✓ ${count} activo${count>1?'s':''} actualizado${count>1?'s':''} con datos reales de Alpha Vantage</span>`;
   setTimeout(()=>{el.innerHTML=old;},5000);
 }
 
@@ -3286,7 +3290,7 @@ function renderMarketBar(data){
       <span style="font-family:'JetBrains Mono',monospace;color:var(--t1)">$${d.price.toLocaleString('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span>
       <span style="color:${d.changePct>=0?'var(--green)':'var(--red)'};font-weight:600">${d.changePct>=0?'+':''}${d.changePct?.toFixed(2)}%</span>
     </span>
-  `).join('<span style="color:var(--t4);margin:0 8px">┬À</span>');
+  `).join('<span style="color:var(--t4);margin:0 8px">·</span>');
 }
 
 // ===== AUTOSAVE =====
@@ -3356,20 +3360,20 @@ setTimeout(initSupabase, 500);
 <!-- MOBILE BOTTOM NAV -->
 <div class="mobile-nav" id="mobile-nav">
   <button class="mob-btn on" id="mob-dash" onclick="nav('dash',document.querySelectorAll('.ni')[0]);setMobBtn('mob-dash')">
-    <span class="mic">Ôùê</span>Dashboard
+    <span class="mic">◈</span>Dashboard
   </button>
   <button class="mob-btn" id="mob-mov" onclick="nav('movimientos',document.querySelectorAll('.ni')[4]);setMobBtn('mob-mov')">
-    <span class="mic">Ôëí</span>Movimientos
+    <span class="mic">≡</span>Movimientos
   </button>
   <button class="mob-btn" id="mob-add" onclick="openModal('txMod')">
-    <span class="mic" style="font-size:24px;color:var(--acc)">´╝ï</span>
+    <span class="mic" style="font-size:24px;color:var(--acc)">＋</span>
     <span style="color:var(--acc)">Nuevo</span>
   </button>
   <button class="mob-btn" id="mob-cuentas" onclick="nav('cuentas',document.querySelectorAll('.ni')[3]);setMobBtn('mob-cuentas')">
-    <span class="mic">Ôùº</span>Cuentas
+    <span class="mic">◧</span>Cuentas
   </button>
   <button class="mob-btn" id="mob-stats" onclick="nav('estadisticas',document.querySelectorAll('.ni')[2]);setMobBtn('mob-stats')">
-    <span class="mic">Ôåù</span>Stats
+    <span class="mic">↗</span>Stats
   </button>
 </div>
 
@@ -3421,11 +3425,11 @@ const BB_BASE = 'https://rest.budgetbakers.com/wallet/v1/api';
 async function syncFromBB(){
   const days = parseInt(document.getElementById('bb-days').value) || 30;
   const accId = parseInt(document.getElementById('bb-acc-map').value);
-  if(!accId){ alert('Seleccion├í una cuenta destino en FinanzasAI'); return; }
+  if(!accId){ alert('Seleccioná una cuenta destino en FinanzasAI'); return; }
   
   const statusEl = document.getElementById('bb-sync-status');
   const previewEl = document.getElementById('bb-preview');
-  statusEl.textContent = 'ÔÅ│ Conectando...';
+  statusEl.textContent = '⏳ Conectando...';
   statusEl.style.color = 'var(--amber)';
   
   const fromDate = new Date();
@@ -3442,9 +3446,9 @@ async function syncFromBB(){
     const records = (data && (data.records || data)) || [];
     
     if(!records.length){
-      statusEl.textContent = 'Ô£ô Sin movimientos nuevos';
+      statusEl.textContent = '✓ Sin movimientos nuevos';
       statusEl.style.color = 'var(--green)';
-      previewEl.innerHTML = 'No hay registros en el per├¡odo seleccionado.';
+      previewEl.innerHTML = 'No hay registros en el período seleccionado.';
       return;
     }
     
@@ -3453,7 +3457,7 @@ async function syncFromBB(){
     const newRecords = records.filter(r => !existingDescs.has(r.id));
     
     if(!newRecords.length){
-      statusEl.textContent = 'Ô£ô Todo actualizado';
+      statusEl.textContent = '✓ Todo actualizado';
       statusEl.style.color = 'var(--green)';
       previewEl.innerHTML = `${records.length} registros encontrados, todos ya importados.`;
       return;
@@ -3467,19 +3471,19 @@ async function syncFromBB(){
         ${newRecords.length} movimientos nuevos para importar:
       </div>
       ${newRecords.slice(0,5).map(r=>{
-        const tipo = r.amount > 0 ? 'Ôåæ Ingreso' : 'Ôåô Gasto';
+        const tipo = r.amount > 0 ? '↑ Ingreso' : '↓ Gasto';
         const color = r.amount > 0 ? 'var(--green)' : 'var(--red)';
         return '<div style="padding:4px 0;border-bottom:0.5px solid var(--bdr)">'
           + '<span style="color:var(--t3);font-size:10px">' + (r.recordDate?.split('T')[0]||'?') + '</span>'
-          + '<span style="margin:0 8px;color:var(--t1)">' + (r.payee||r.note||'Sin descripci├│n') + '</span>'
+          + '<span style="margin:0 8px;color:var(--t1)">' + (r.payee||r.note||'Sin descripción') + '</span>'
           + '<span style="color:' + color + ';font-weight:600">' + tipo + ' ' + fmt(Math.abs(r.amount)) + '</span>'
           + '</div>';
       }).join('')}
-      ${newRecords.length > 5 ? '<div style="color:var(--t3);margin-top:4px">...y ' + (newRecords.length-5) + ' m├ís</div>' : ''}
+      ${newRecords.length > 5 ? '<div style="color:var(--t3);margin-top:4px">...y ' + (newRecords.length-5) + ' más</div>' : ''}
       <div style="margin-top:10px">
         <button onclick="confirmBBImport(window._bbPendingRecords, window._bbPendingAccId)"
           style="background:var(--green);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:Outfit,sans-serif">
-          Ô£ô Confirmar importaci├│n
+          ✓ Confirmar importación
         </button>
       </div>`;
     
@@ -3487,7 +3491,7 @@ async function syncFromBB(){
     statusEl.style.color = 'var(--amber)';
     
   } catch(e) {
-    statusEl.textContent = 'Ô£ù Error de conexi├│n';
+    statusEl.textContent = '✗ Error de conexión';
     statusEl.style.color = 'var(--red)';
     previewEl.innerHTML = `Error: ${e.message}. La API de BudgetBakers puede tener restricciones CORS desde el navegador.`;
     console.error('BB sync error:', e);
@@ -3515,8 +3519,8 @@ function confirmBBImport(records, accId){
   });
   saveS();
   refreshAll();
-  document.getElementById('bb-preview').innerHTML = `<span style="color:var(--green);font-weight:600">Ô£ô ${imported} movimientos importados correctamente!</span>`;
-  document.getElementById('bb-sync-status').textContent = `Ô£ô ${imported} importados`;
+  document.getElementById('bb-preview').innerHTML = `<span style="color:var(--green);font-weight:600">✓ ${imported} movimientos importados correctamente!</span>`;
+  document.getElementById('bb-sync-status').textContent = `✓ ${imported} importados`;
   document.getElementById('bb-sync-status').style.color = 'var(--green)';
   scheduleAutoSave();
 }
@@ -3524,12 +3528,12 @@ function confirmBBImport(records, accId){
 function initBBAccMap(){
   const sel = document.getElementById('bb-acc-map');
   if(!sel) return;
-  sel.innerHTML = '<option value="">ÔåÆ Cuenta destino en FinanzasAI</option>' +
+  sel.innerHTML = '<option value="">→ Cuenta destino en FinanzasAI</option>' +
     S.accounts.map(a => `<option value="${a.id}">${a.name}</option>`).join('');
 }
 
 
-// ===== PR├ëSTAMOS EXTERNOS =====
+// ===== PRÉSTAMOS EXTERNOS =====
 function initPE(){
   if(!S.prestamosExt) S.prestamosExt = [];
 }
@@ -3566,9 +3570,9 @@ function savePrestExt(){
   const nombre=document.getElementById('pe-nombre').value.trim();
   const monto=parseFloat(document.getElementById('pe-monto').value)||0;
   const tasa=parseFloat(document.getElementById('pe-tasa').value)||0;
-  if(!nombre||!monto||!tasa){alert('Complet├í nombre, monto y tasa');return;}
+  if(!nombre||!monto||!tasa){alert('Completá nombre, monto y tasa');return;}
   const vence=document.getElementById('pe-vence').value;
-  if(!vence){alert('Ingres├í la fecha de vencimiento');return;}
+  if(!vence){alert('Ingresá la fecha de vencimiento');return;}
   const accountId=parseInt(document.getElementById('pe-account').value)||4;
   const fecha=document.getElementById('pe-fecha').value||new Date().toISOString().split('T')[0];
   const retorno=monto*(1+tasa/100);
@@ -3587,15 +3591,15 @@ function savePrestExt(){
     cobrado:0,
   };
   S.prestamosExt.push(pe);
-  // Crear transacci├│n de SALIDA en la cuenta de origen
+  // Crear transacción de SALIDA en la cuenta de origen
   S.transactions.push({
     id:peId+1,
     peId,
     accountId,
     type:'gasto',
     amount:monto,
-    category:'pr├®stamo otorgado',
-    desc:'Pr├®stamo otorgado: '+nombre,
+    category:'préstamo otorgado',
+    desc:'Préstamo otorgado: '+nombre,
     date:fecha,
   });
   saveS();scheduleAutoSave();
@@ -3623,14 +3627,14 @@ function savePePago(){
   const id=parseInt(document.getElementById('pe-pago-id').value);
   const pe=S.prestamosExt.find(p=>p.id===id);if(!pe)return;
   const monto=parseFloat(document.getElementById('pe-pago-monto').value)||0;
-  if(!monto){alert('Ingres├í el monto');return;}
+  if(!monto){alert('Ingresá el monto');return;}
   const fecha=document.getElementById('pe-pago-fecha').value||new Date().toISOString().split('T')[0];
   const notas=document.getElementById('pe-pago-notas').value;
   pe.cobrado=(pe.cobrado||0)+monto;
   pe.pagos.push({monto,fecha,notas});
   if(pe.cobrado>=pe.retorno) pe.estado='pagado';
   else if(pe.cobrado>0) pe.estado='parcial';
-  // Crear transacci├│n de ENTRADA en la cuenta de origen del pr├®stamo
+  // Crear transacción de ENTRADA en la cuenta de origen del préstamo
   const accountId=pe.accountId||4;
   S.transactions.push({
     id:Date.now(),
@@ -3638,8 +3642,8 @@ function savePePago(){
     accountId,
     type:'ingreso',
     amount:monto,
-    category:'pr├®stamo cobrado',
-    desc:'Pago recibido: '+pe.nombre+(notas?' ÔÇö '+notas:''),
+    category:'préstamo cobrado',
+    desc:'Pago recibido: '+pe.nombre+(notas?' — '+notas:''),
     date:fecha,
   });
   saveS();scheduleAutoSave();
@@ -3649,9 +3653,9 @@ function savePePago(){
 }
 
 function delPrestExt(id){
-  if(!confirm('┬┐Eliminar este pr├®stamo? Tambi├®n se eliminar├ín las transacciones vinculadas.'))return;
+  if(!confirm('¿Eliminar este préstamo? También se eliminarán las transacciones vinculadas.'))return;
   S.prestamosExt=S.prestamosExt.filter(p=>p.id!==id);
-  // Eliminar todas las transacciones vinculadas a este pr├®stamo
+  // Eliminar todas las transacciones vinculadas a este préstamo
   S.transactions=S.transactions.filter(t=>t.peId!==id);
   saveS();scheduleAutoSave();
   renderPrestExt();
@@ -3663,7 +3667,7 @@ function renderPrestExt(){
   const pes=S.prestamosExt||[];
   const hoy=new Date();
   
-  // Calcular m├®tricas
+  // Calcular métricas
   const totalPrestado=pes.filter(p=>p.estado!=='pagado').reduce((s,p)=>s+p.monto,0);
   const totalACobrar=pes.filter(p=>p.estado!=='pagado').reduce((s,p)=>s+(p.retorno-p.cobrado),0);
   const totalGananciaEsp=pes.reduce((s,p)=>s+p.ganancia,0);
@@ -3676,7 +3680,7 @@ function renderPrestExt(){
     return s+propInt;
   },0);
   
-  // M├®tricas
+  // Métricas
   const metEl=document.getElementById('pe-mets');
   if(metEl) metEl.innerHTML=`
     <div class="met"><div class="ml">Total prestado</div><div class="mv">${fmt(totalPrestado)}</div></div>
@@ -3684,13 +3688,13 @@ function renderPrestExt(){
     <div class="met"><div class="ml">Ganancia esperada</div><div class="mv pos">${fmt(totalGananciaEsp)}</div></div>
     <div class="met"><div class="ml">Tasa promedio</div><div class="mv">${tasaProm}%</div></div>
     <div class="met"><div class="ml">Vencidos</div><div class="mv ${vencidos?'neg':''}">${vencidos}</div></div>
-    <div class="met"><div class="ml">Pr├│x. 7 d├¡as</div><div class="mv">${proximos}</div></div>`;
+    <div class="met"><div class="ml">Próx. 7 días</div><div class="mv">${proximos}</div></div>`;
 
   // Lista activos
   const activosEl=document.getElementById('pe-activos');
   if(activosEl){
     const activos=pes.filter(p=>p.estado!=='pagado');
-    if(!activos.length){activosEl.innerHTML='<div style="text-align:center;padding:20px;color:var(--t3);font-size:13px">No hay pr├®stamos activos</div>';return;}
+    if(!activos.length){activosEl.innerHTML='<div style="text-align:center;padding:20px;color:var(--t3);font-size:13px">No hay préstamos activos</div>';return;}
     activosEl.innerHTML=activos.map(p=>{
       const diasRestantes=Math.round((new Date(p.vence)-hoy)/864e5);
       const pct=Math.round((p.cobrado||0)/p.retorno*100);
@@ -3701,8 +3705,8 @@ function renderPrestExt(){
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <div style="flex:1">
             <div style="font-size:14px;font-weight:600;color:var(--t1)">${p.nombre}</div>
-            <div style="font-size:12px;color:var(--t3);margin-top:3px">Prestado: ${fmt(p.monto)} ┬À Tasa: ${p.tasa}% ┬À A cobrar: ${fmt(p.retorno)}</div>
-            <div style="font-size:12px;color:${vencido?'var(--red)':'var(--t3)'};margin-top:2px">${vencido?'Venci├│: '+fd(p.vence)+' ┬À '+Math.abs(diasRestantes)+' d├¡as vencido ÔÜá':'Vence: '+fd(p.vence)+' ┬À '+diasRestantes+' d├¡as restantes'}</div>
+            <div style="font-size:12px;color:var(--t3);margin-top:3px">Prestado: ${fmt(p.monto)} · Tasa: ${p.tasa}% · A cobrar: ${fmt(p.retorno)}</div>
+            <div style="font-size:12px;color:${vencido?'var(--red)':'var(--t3)'};margin-top:2px">${vencido?'Venció: '+fd(p.vence)+' · '+Math.abs(diasRestantes)+' días vencido ⚠':'Vence: '+fd(p.vence)+' · '+diasRestantes+' días restantes'}</div>
             <div style="margin-top:8px;background:var(--bg0);border-radius:4px;height:6px;width:100%;max-width:250px">
               <div style="background:${pct>=100?'var(--green)':vencido?'var(--red)':'var(--acc)'};height:6px;border-radius:4px;width:${Math.min(pct,100)}%;transition:width .5s"></div>
             </div>
@@ -3711,7 +3715,7 @@ function renderPrestExt(){
           <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;margin-left:12px">
             <span style="font-size:11px;padding:3px 8px;border-radius:20px;border:0.5px solid ${estColor};color:${estColor};font-weight:600">${estado}</span>
             <button onclick="openPePago(${p.id})" style="font-size:11px;padding:4px 10px;border-radius:6px;background:transparent;border:0.5px solid var(--bdr);color:var(--t1);cursor:pointer">+ Registrar pago</button>
-            <button onclick="delPrestExt(${p.id})" style="font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(231,76,60,.1);border:0.5px solid var(--red);color:var(--red);cursor:pointer">Ô£ò Eliminar</button>
+            <button onclick="delPrestExt(${p.id})" style="font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(231,76,60,.1);border:0.5px solid var(--red);color:var(--red);cursor:pointer">✕ Eliminar</button>
           </div>
         </div>
       </div>`;
@@ -3732,12 +3736,12 @@ function renderPrestExt(){
         <td style="padding:10px;text-align:center;font-weight:600">${p.tasa}%</td>
         <td style="padding:10px;text-align:center;font-size:12px;color:var(--t3)">${fd(p.vence)}</td>
         <td style="padding:10px;text-align:center"><span style="font-size:11px;color:${estColor};font-weight:600">${estLabel}</span></td>
-        <td style="padding:10px;text-align:center"><button onclick="openPePago(${p.id})" style="font-size:10px;padding:3px 7px;border-radius:4px;background:transparent;border:0.5px solid var(--bdr);color:var(--t1);cursor:pointer;margin-right:4px">+ Pago</button><button onclick="delPrestExt(${p.id})" style="font-size:10px;padding:3px 7px;border-radius:4px;background:rgba(231,76,60,.1);border:0.5px solid var(--red);color:var(--red);cursor:pointer">Ô£ò</button></td>
+        <td style="padding:10px;text-align:center"><button onclick="openPePago(${p.id})" style="font-size:10px;padding:3px 7px;border-radius:4px;background:transparent;border:0.5px solid var(--bdr);color:var(--t1);cursor:pointer;margin-right:4px">+ Pago</button><button onclick="delPrestExt(${p.id})" style="font-size:10px;padding:3px 7px;border-radius:4px;background:rgba(231,76,60,.1);border:0.5px solid var(--red);color:var(--red);cursor:pointer">✕</button></td>
       </tr>`;
     }).join(''):'<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--t3)">Sin registros</td></tr>';
   }
 
-  // Gr├ífico mensual (intereses cobrados por mes)
+  // Gráfico mensual (intereses cobrados por mes)
   const meses=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
   const gananciasMes=Array(12).fill(0);
   pes.forEach(p=>(p.pagos||[]).forEach(pg=>{
@@ -3751,7 +3755,7 @@ function renderPrestExt(){
     datasets:[{label:'Intereses cobrados',data:gananciasMes.map(v=>Math.round(v)),backgroundColor:meses.map((_,i)=>i===mesActual?'rgba(46,204,113,.8)':'rgba(46,204,113,.35)'),borderRadius:4}]
   },{...gridOpts,plugins:{legend:{display:false}}});
 
-  // Gr├ífico donut estado
+  // Gráfico donut estado
   const countPend=pes.filter(p=>p.estado==='pendiente').length;
   const countParc=pes.filter(p=>p.estado==='parcial').length;
   const countPag=pes.filter(p=>p.estado==='pagado').length;
@@ -3769,7 +3773,7 @@ function renderPrestExt(){
     {c:'var(--red)',l:`Vencido (${countVenc})`},
   ].map(({c,l})=>`<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px"><div style="width:8px;height:8px;border-radius:50%;background:${c};flex-shrink:0"></div><span style="font-size:11px;color:var(--t2)">${l}</span></div>`).join('');
 
-  // Gr├ífico trimestral
+  // Gráfico trimestral
   const trimLabels=['Q1','Q2','Q3','Q4'];
   const gananciaTrim=Array(4).fill(0);
   pes.forEach(p=>(p.pagos||[]).forEach(pg=>{
@@ -3799,9 +3803,9 @@ function installPWA(){
 <div id="login-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center">
   <div style="background:var(--bg1);border:0.5px solid var(--bdr);border-radius:16px;padding:32px;width:340px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.5)">
     <div style="text-align:center;margin-bottom:24px">
-      <div style="font-size:36px;margin-bottom:8px">­ƒÆ░</div>
+      <div style="font-size:36px;margin-bottom:8px">💰</div>
       <div style="font-size:20px;font-weight:700;color:var(--t1)">FinanzasAI Pro</div>
-      <div style="font-size:12px;color:var(--t3);margin-top:4px">Inici├í sesi├│n para sincronizar en todos tus dispositivos</div>
+      <div style="font-size:12px;color:var(--t3);margin-top:4px">Iniciá sesión para sincronizar en todos tus dispositivos</div>
     </div>
     <div id="login-error" style="display:none;background:rgba(231,76,60,.1);border:0.5px solid var(--red);border-radius:8px;padding:10px;font-size:12px;color:var(--red);margin-bottom:12px"></div>
     <div style="margin-bottom:12px">
@@ -3809,10 +3813,10 @@ function installPWA(){
       <input type="email" id="login-email" placeholder="tu@email.com" style="width:100%;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--t1);outline:none;box-sizing:border-box;font-family:'Outfit',sans-serif">
     </div>
     <div style="margin-bottom:20px">
-      <label style="font-size:11px;color:var(--t3);display:block;margin-bottom:5px">CONTRASE├æA</label>
-      <input type="password" id="login-pass" placeholder="m├¡nimo 6 caracteres" style="width:100%;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--t1);outline:none;box-sizing:border-box;font-family:'Outfit',sans-serif">
+      <label style="font-size:11px;color:var(--t3);display:block;margin-bottom:5px">CONTRASEÑA</label>
+      <input type="password" id="login-pass" placeholder="mínimo 6 caracteres" style="width:100%;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--t1);outline:none;box-sizing:border-box;font-family:'Outfit',sans-serif">
     </div>
-    <button onclick="doLogin()" id="login-btn" style="width:100%;background:var(--acc);color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;margin-bottom:10px">Iniciar sesi├│n</button>
+    <button onclick="doLogin()" id="login-btn" style="width:100%;background:var(--acc);color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;margin-bottom:10px">Iniciar sesión</button>
     <button onclick="doRegister()" id="register-btn" style="width:100%;background:transparent;color:var(--t2);border:0.5px solid var(--bdr);border-radius:8px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;margin-bottom:16px">Crear cuenta nueva</button>
     <div style="text-align:center">
       <button onclick="doAnonymous()" style="background:none;border:none;color:var(--t4);font-size:11px;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:underline">Continuar sin cuenta (solo local)</button>
