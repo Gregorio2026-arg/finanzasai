@@ -1526,7 +1526,40 @@ function getBal(id){
 function toARS(v,c){return c==='USD'?v*S.tc:c==='EUR'?v*S.tc*1.08:v;}
 function fmt(n,c='ARS'){return new Intl.NumberFormat('es-AR',{style:'currency',currency:c,maximumFractionDigits:0}).format(Math.round(n));}
 function fd(d){return new Date(d+'T00:00:00').toLocaleDateString('es-AR',{day:'2-digit',month:'short'});}
-function mkCh(id,type,data,opts){if(CHS[id])CHS[id].destroy();const c=document.getElementById(id);if(!c)return;CHS[id]=new Chart(c,{type,data,options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},...opts}});}
+function mkCh(id, type, data, opts) {
+  if(CHS[id]) CHS[id].destroy();
+  const c = document.getElementById(id);
+  if(!c) return;
+  
+  // Inyectar Estilos Premium
+  if(data && data.datasets) {
+    data.datasets.forEach(ds => {
+      if(type === 'doughnut' || type === 'pie') {
+        ds.borderWidth = 0;
+        ds.hoverOffset = 8;
+        ds.borderRadius = 8; // Bordes redondeados en las porciones
+        ds.spacing = 6; // Espacio elegante entre porciones
+      }
+      if(type === 'bar') {
+        ds.borderWidth = 0;
+        ds.borderRadius = 8; // Barras redondeadas
+        ds.borderSkipped = false;
+        ds.barPercentage = 0.55; // Barras un poco más estilizadas
+      }
+    });
+  }
+
+  CHS[id] = new Chart(c, {
+    type,
+    data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      ...opts
+    }
+  });
+}
 function catSpendM(cat){
   const ym=`${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,'0')}`;
   return S.transactions.filter(t=>t.type==='gasto'&&t.category===cat&&t.date.startsWith(ym)).reduce((s,t)=>s+t.amount,0);
